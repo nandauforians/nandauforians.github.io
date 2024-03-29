@@ -1,0 +1,167 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ashwin - Wickets - Search</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+</head>
+
+<body>
+
+    <h1>Video Search</h1>
+
+    <label for="filterInput">Filter:</label>
+
+    <input type="text" id="filterInput">
+
+    <button onclick="filterData()">Get
+        Wicket #</button>
+
+
+    <select id="opponentDropdown" onchange="filterByOpponent()">
+    </select>
+
+    <select id="venueDropdown">
+        <!-- Dropdown options will be populated here -->
+    </select>
+
+    <select id="hostCountryDropdown">
+        <!-- Dropdown options will be populated here -->
+    </select>
+
+
+
+    <div id="filteredData"></div>
+
+
+
+
+    <script>
+
+        function
+            filterData() {
+
+            var
+                filterValue =
+                    document.getElementById('filterInput').value.toLowerCase();
+
+            Papa.parse('./data.csv',
+                {
+                    header:
+                        true,
+                    download:
+                        true,
+                    complete:
+                        function (results) {
+                            var
+                                filteredData =
+                                    results.data.filter(function (row) {
+
+                                        // Modify the conditions as per your filter criteria   
+                                        return row['Wicket#'] == (filterValue)
+
+                                        // row['Batter'].toLowerCase().includes(filterValue) ||
+
+                                        // row['dismissal mode'].toLowerCase().includes(filterValue) ||
+
+                                        // return row['opponent'].toLowerCase().includes(filterValue)
+
+                                        // row['venue'].toLowerCase().includes(filterValue);
+
+                                        // row['country'].toLowerCase().includes(filterValue)
+
+                                    });
+
+                            displayFilteredData(filteredData);
+
+                        }
+
+                });
+
+        }
+
+
+
+
+        function filterByOpponent() {
+
+            var filterValue = document.getElementById('opponentDropdown').value;
+
+            Papa.parse('./data.csv',
+                {
+                    header: true,
+                    download: true,
+                    complete:
+                        function (results) {
+                            var
+                                filteredData =
+                                    results.data.filter(function (row) {
+                                        return row['opponent'] == (filterValue)
+                                    });
+
+                            displayFilteredData(filteredData);
+                        }
+                });
+        }
+
+        function
+            displayFilteredData(data) {
+
+            var
+                output =
+                    '<table><tr><th>Wicket#</th><th>Batsman</th><th>Dismissal Mode</th><th>Fielder</th><th>Innings</th><th>Match</th><th>Opponent</th><th>Country</th><th>Venue</th><th> Video</th></tr>';
+
+            data.forEach(function (row) {
+                output += '<tr>';
+
+                output += '<td>' + row['Wicket#'] + '</td>';
+
+                output += '<td>' + row['Batter'] + '</td>';
+
+                output += '<td>' + row['dismissal mode'] + '</td>';
+ 
+                output += '<td>' + row['Fielder'] + '</td>';
+
+                output += '<td>' + row['innings'] + '</td>';
+
+                output += '<td>' + row['match'] + '</td>';
+
+                output += '<td>' + row['opponent'] + '</td>';
+
+                output += '<td>' + row['country'] + '</td>';
+
+                output += '<td>' + row['venue'] + '</td>';
+
+                output += '<td>' +
+                    ' <video width="320" height="240" controls>' +
+                    '<source src="./wkt-videos/' +
+                    row['video']
+                    + '.mp4' +
+                    '" type="video/mp4"></video></td>';
+
+                output +=
+                    '</tr>';
+
+            });
+
+            output +=
+                '</table>';
+
+            document.getElementById('filteredData').innerHTML
+                = output;
+
+        }
+
+    </script>
+
+    <script src="script2.js"></script> <!-- Include your JavaScript file here -->
+
+</body>
+
+</html>

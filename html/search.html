@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSV Search</title>
+
+</head>
+
+<body>
+
+    <h1>CSV Search</h1>
+
+    <label for="searchInput">Enter Search Query:</label>
+
+    <input type="text" id="searchInput">
+
+    <button onclick="searchCSV()">Search</button>
+
+    <div id="searchResults"></div>
+
+ 
+
+    <script>
+
+        function searchCSV() {
+
+            var searchQuery = document.getElementById('searchInput').value.toLowerCase();
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function() {
+
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+
+                    if (xhr.status === 200) {
+
+                        var csvData = xhr.responseText;
+
+                        var rows = csvData.split('\n');
+
+                        var matches = [];
+
+                        rows.forEach(function(row) {
+
+                            var columns = row.split(',');
+
+                            var matchFound = false;
+
+                            columns.forEach(function(column) {
+
+                                if (column.toLowerCase().includes(searchQuery)) {                                  
+                                    matchFound = true;
+                                }
+
+                            });
+
+                            if (matchFound) {
+
+                                matches.push(row);
+
+                            }
+
+                        });
+
+                        displaySearchResults(matches);
+
+                    } else {
+
+                        console.error('Error fetching CSV file:', xhr.status);
+
+                    }
+
+                }
+
+            };
+
+            xhr.open('GET', '../data/data.csv', true); // Replace 'data.csv' with your CSV file path
+
+            xhr.send();
+
+        }
+
+ 
+
+        function displaySearchResults(results) {
+
+            var output = '<h2>Search Results:</h2>';
+
+            if (results.length === 0) {
+
+                output += '<p>No matches found.</p>';
+
+            } else {
+
+                //output += '<table border="1">';
+
+                output += '<table border="1"><tr><th>Wicket#</th><th>Batsman</th><th>Dismissal Mode</th><th>Fielder</th><th>Runs</th><th>Innings</th><th>Match</th><th>Opponent</th><th>Country</th><th>Venue</th><th>Match Date</th><th> Video</th></tr>';
+
+                results.forEach(function(row) {
+
+                    var columns = row.split(',');
+
+                    output += '<tr>';
+
+                    columns.forEach(function(column) {
+                        
+                        if (column.includes('ashwin-wkt-')) {
+                            console.log('ashwin-wkt-');
+                            output += '<td>' +
+                    ' <video width="320" height="240" controls>' +
+                    '<source src="../wkt-videos/' +
+                    column + '.mp4' + '" type="video/mp4"></video></td>';
+                        } else {
+                        output += '<td>' + column + '</td>';
+                    }
+                    });
+
+                    output += '</tr>';
+
+                });
+
+                output += '</table>';
+
+            }
+
+            document.getElementById('searchResults').innerHTML = output;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

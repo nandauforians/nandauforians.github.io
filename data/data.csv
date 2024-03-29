@@ -1,0 +1,517 @@
+﻿match,Wicket#,Batter,dismissal mode,Fielder,Runs,innings,opponent,venue,country,Start DateAscending,video
+1,1,DM Bravo,bowled,,12,1,v West Indies,Delhi,India,06-Nov-11,ashwin-wkt-1
+2,2,MN Samuels,caught,MS Dhoni,15,1,v West Indies,Delhi,India,06-Nov-11,ashwin-wkt-2
+Test # 2015,3,R Rampaul,lbw,,12,1,v West Indies,Delhi,India,06-Nov-11,ashwin-wkt-3
+Test # 2015,4,KOA Powell,caught,G Gambhir,0,3,v West Indies,Delhi,India,06-Nov-11,ashwin-wkt-4
+Test # 2015,5,DM Bravo,lbw,,12,3,v West Indies,Delhi,India,06-Nov-11,ashwin-wkt-5
+Test # 2015,6,MN Samuels,bowled,,0,3,v West Indies,Delhi,India,06-Nov-11,ashwin-wkt-6
+Test # 2015,7,S Chanderpaul,lbw,,47,3,v West Indies,Delhi,India,06-Nov-11,ashwin-wkt-7
+Test # 2015,8,DJG Sammy,bowled,,42,3,v West Indies,Delhi,India,06-Nov-11,ashwin-wkt-8
+Test # 2015,9,R Rampaul,caught,PP Ojha,18,3,v West Indies,Delhi,India,06-Nov-11,ashwin-wkt-9
+Test # 2017,10,KC Brathwaite,caught,G Gambhir,17,2,v West Indies,Eden Gardens,India,14-Nov-11,ashwin-wkt-10
+Test # 2017,11,S Chanderpaul,lbw,,4,2,v West Indies,Eden Gardens,India,14-Nov-11,ashwin-wkt-11
+Test # 2017,12,MN Samuels,lbw,,84,3,v West Indies,Eden Gardens,India,14-Nov-11,ashwin-wkt-12
+Test # 2017,13,KAJ Roach,bowled,,1,3,v West Indies,Eden Gardens,India,14-Nov-11,ashwin-wkt-13
+Test # 2019,14,AB Barath,caught,MS Dhoni,62,1,v West Indies,Wankhede,India,22-Nov-11,ashwin-wkt-14
+Test # 2019,15,KC Brathwaite,caught,V Kohli,68,1,v West Indies,Wankhede,India,22-Nov-11,ashwin-wkt-15
+Test # 2019,16,R Rampaul,caught,V Kohli,10,1,v West Indies,Wankhede,India,22-Nov-11,ashwin-wkt-16
+Test # 2019,17,MN Samuels,caught,R Dravid,61,1,v West Indies,Wankhede,India,22-Nov-11,ashwin-wkt-17
+Test # 2019,18,D Bishoo,bowled,,12,1,v West Indies,Wankhede,India,22-Nov-11,ashwin-wkt-18
+Test # 2019,19,CS Baugh,bowled,,1,3,v West Indies,Wankhede,India,22-Nov-11,ashwin-wkt-19
+Test # 2019,20,KOA Powell,lbw,,11,3,v West Indies,Wankhede,India,22-Nov-11,ashwin-wkt-20
+Test # 2019,21,DJG Sammy,caught,MS Dhoni,10,3,v West Indies,Wankhede,India,22-Nov-11,ashwin-wkt-21
+Test # 2019,22,D Bishoo,lbw,,0,3,v West Indies,Wankhede,India,22-Nov-11,ashwin-wkt-22
+Test # 2025,23,EJM Cowan,caught,MS Dhoni,68,1,v Australia,Melbourne,Australia,26-Dec-11,ashwin-wkt-23
+Test # 2025,24,BW Hilfenhaus,caught,V Kohli,19,1,v Australia,Melbourne,Australia,26-Dec-11,ashwin-wkt-24
+Test # 2025,25,NM Lyon,bowled,,6,1,v Australia,Melbourne,Australia,26-Dec-11,ashwin-wkt-25
+Test # 2025,26,NM Lyon,lbw,,0,3,v Australia,Melbourne,Australia,26-Dec-11,ashwin-wkt-26
+Test # 2031,27,SE Marsh,bowled,,3,1,v Australia,Adelaide,Australia,24-Jan-12,ashwin-wkt-27
+Test # 2031,28,EJM Cowan,caught,VVS Laxman,30,1,v Australia,Adelaide,Australia,24-Jan-12,ashwin-wkt-28
+Test # 2031,29,PM Siddle,caught,WP Saha,2,1,v Australia,Adelaide,Australia,24-Jan-12,ashwin-wkt-29
+Test # 2031,30,DA Warner,caught,R Ashwin,28,3,v Australia,Adelaide,Australia,24-Jan-12,ashwin-wkt-30
+Test # 2031,31,EJM Cowan,lbw,,10,3,v Australia,Adelaide,Australia,24-Jan-12,ashwin-wkt-31
+Test # 2054,32,MJ Guptill,caught,V Kohli,2,2,v New Zealand,Hyderabad,India,23-Aug-12,ashwin-wkt-32
+Test # 2054,33,LRPL Taylor,caught,V Kohli,2,2,v New Zealand,Hyderabad,India,23-Aug-12,ashwin-wkt-33
+Test # 2054,34,DR Flynn,lbw,,16,2,v New Zealand,Hyderabad,India,23-Aug-12,ashwin-wkt-34
+Test # 2054,35,JS Patel,caught,R Ashwin,10,2,v New Zealand,Hyderabad,India,23-Aug-12,ashwin-wkt-35
+Test # 2054,36,TA Boult,caught,G Gambhir,4,2,v New Zealand,Hyderabad,India,23-Aug-12,ashwin-wkt-36
+Test # 2054,37,CS Martin,bowled,,0,2,v New Zealand,Hyderabad,India,23-Aug-12,ashwin-wkt-37
+Test # 2054,38,LRPL Taylor,bowled,,7,3,v New Zealand,Hyderabad,India,23-Aug-12,ashwin-wkt-38
+Test # 2054,39,DR Flynn,lbw,,11,3,v New Zealand,Hyderabad,India,23-Aug-12,ashwin-wkt-39
+Test # 2054,40,JEC Franklin,caught,V Sehwag,5,3,v New Zealand,Hyderabad,India,23-Aug-12,ashwin-wkt-40
+Test # 2054,41,CFK van Wyk,lbw,,13,3,v New Zealand,Hyderabad,India,23-Aug-12,ashwin-wkt-41
+Test # 2054,42,TA Boult,caught,V Sehwag,0,3,v New Zealand,Hyderabad,India,23-Aug-12,ashwin-wkt-42
+Test # 2054,43,CS Martin,lbw,,0,3,v New Zealand,Hyderabad,India,23-Aug-12,ashwin-wkt-43
+Test # 2055,44,DR Flynn,lbw,,33,1,v New Zealand,Bengaluru,India,31-Aug-12,ashwin-wkt-44
+Test # 2055,45,KS Williamson,caught,V Sehwag,13,3,v New Zealand,Bengaluru,India,31-Aug-12,ashwin-wkt-45
+Test # 2055,46,DR Flynn,caught,V Sehwag,31,3,v New Zealand,Bengaluru,India,31-Aug-12,ashwin-wkt-46
+Test # 2055,47,CFK van Wyk,lbw,,31,3,v New Zealand,Bengaluru,India,31-Aug-12,ashwin-wkt-47
+Test # 2055,48,JEC Franklin,stumped,MS Dhoni,41,3,v New Zealand,Bengaluru,India,31-Aug-12,ashwin-wkt-48
+Test # 2055,49,TG Southee,bowled,,2,3,v New Zealand,Bengaluru,India,31-Aug-12,ashwin-wkt-49
+Test # 2058,50,NRD Compton,bowled,,9,2,v England,Ahmedabad,India,15-Nov-12,ashwin-wkt-50
+Test # 2058,51,IJL Trott,caught,CA Pujara,0,2,v England,Ahmedabad,India,15-Nov-12,ashwin-wkt-51
+Test # 2058,52,AN Cook,caught,V Sehwag,41,2,v England,Ahmedabad,India,15-Nov-12,ashwin-wkt-52
+Test # 2058,53,GP Swann,bowled,,17,3,v England,Ahmedabad,India,15-Nov-12,ashwin-wkt-53
+Test # 2062,54,AN Cook,caught,MS Dhoni,122,2,v England,Wankhede,India,23-Nov-12,ashwin-wkt-54
+Test # 2062,55,MS Panesar,caught,Z Khan,4,2,v England,Wankhede,India,23-Nov-12,ashwin-wkt-55
+Test # 2065,56,KP Pietersen,lbw,,54,2,v England,Eden Gardens,India,05-Dec-12,ashwin-wkt-56
+Test # 2065,57,JM Anderson,caught,V Sehwag,9,2,v England,Eden Gardens,India,05-Dec-12,ashwin-wkt-57
+Test # 2065,58,MS Panesar,lbw,,0,2,v England,Eden Gardens,India,05-Dec-12,ashwin-wkt-58
+Test # 2065,59,AN Cook,stumped,MS Dhoni,1,4,v England,Eden Gardens,India,05-Dec-12,ashwin-wkt-59
+Test # 2065,60,KP Pietersen,caught,MS Dhoni,0,4,v England,Eden Gardens,India,05-Dec-12,ashwin-wkt-60
+Test # 2066,61,MJ Prior,bowled,,57,1,v England,Nagpur,India,13-Dec-12,ashwin-wkt-61
+Test # 2066,62,AN Cook,caught,MS Dhoni,13,3,v England,Nagpur,India,13-Dec-12,ashwin-wkt-62
+Test # 2066,63,IJL Trott,caught,V Kohli,143,3,v England,Nagpur,India,13-Dec-12,ashwin-wkt-63
+Test # 2074,64,EJM Cowan,stumped,MS Dhoni,29,1,v Australia,Chennai,India,22-Feb-13,ashwin-wkt-64
+Test # 2074,65,PJ Hughes,bowled,,6,1,v Australia,Chennai,India,22-Feb-13,ashwin-wkt-65
+Test # 2074,66,SR Watson,lbw,,28,1,v Australia,Chennai,India,22-Feb-13,ashwin-wkt-66
+Test # 2074,67,DA Warner,lbw,,59,1,v Australia,Chennai,India,22-Feb-13,ashwin-wkt-67
+Test # 2074,68,MS Wade,lbw,,12,1,v Australia,Chennai,India,22-Feb-13,ashwin-wkt-68
+Test # 2074,69,MC Henriques,lbw,,68,1,v Australia,Chennai,India,22-Feb-13,ashwin-wkt-69
+Test # 2074,70,NM Lyon,caught,V Kohli,3,1,v Australia,Chennai,India,22-Feb-13,ashwin-wkt-70
+Test # 2074,71,SR Watson,caught,V Sehwag,17,3,v Australia,Chennai,India,22-Feb-13,ashwin-wkt-71
+Test # 2074,72,EJM Cowan,lbw,,32,3,v Australia,Chennai,India,22-Feb-13,ashwin-wkt-72
+Test # 2074,73,MJ Clarke,lbw,,31,3,v Australia,Chennai,India,22-Feb-13,ashwin-wkt-73
+Test # 2074,74,JL Pattinson,caught,V Sehwag,11,3,v Australia,Chennai,India,22-Feb-13,ashwin-wkt-74
+Test # 2074,75,MA Starc,caught,SR Tendulkar,8,3,v Australia,Chennai,India,22-Feb-13,ashwin-wkt-75
+Test # 2076,76,PJ Hughes,caught,MS Dhoni,19,1,v Australia,Hyderabad,India,02-Mar-13,ashwin-wkt-76
+Test # 2076,77,DA Warner,bowled,,26,3,v Australia,Hyderabad,India,02-Mar-13,ashwin-wkt-77
+Test # 2076,78,PJ Hughes,bowled,,0,3,v Australia,Hyderabad,India,02-Mar-13,ashwin-wkt-78
+Test # 2076,79,GJ Maxwell,lbw,,8,3,v Australia,Hyderabad,India,02-Mar-13,ashwin-wkt-79
+Test # 2076,80,MS Wade,caught,V Sehwag,10,3,v Australia,Hyderabad,India,02-Mar-13,ashwin-wkt-80
+Test # 2076,81,JL Pattinson,lbw,,0,3,v Australia,Hyderabad,India,02-Mar-13,ashwin-wkt-81
+Test # 2081,82,EJM Cowan,caught,V Kohli,86,1,v Australia,Mohali,India,14-Mar-13,ashwin-wkt-82
+Test # 2081,83,XJ Doherty,lbw,,5,1,v Australia,Mohali,India,14-Mar-13,ashwin-wkt-83
+Test # 2081,84,PJ Hughes,lbw,,69,3,v Australia,Mohali,India,14-Mar-13,ashwin-wkt-84
+Test # 2081,85,BJ Haddin,lbw,,30,3,v Australia,Mohali,India,14-Mar-13,ashwin-wkt-85
+Test # 2085,86,EJM Cowan,bowled,,38,1,v Australia,Delhi,India,22-Mar-13,ashwin-wkt-86
+Test # 2085,87,MS Wade,caught,M Vijay,2,1,v Australia,Delhi,India,22-Mar-13,ashwin-wkt-87
+Test # 2085,88,MG Johnson,bowled,,3,1,v Australia,Delhi,India,22-Mar-13,ashwin-wkt-88
+Test # 2085,89,SPD Smith,caught,AM Rahane,46,1,v Australia,Delhi,India,22-Mar-13,ashwin-wkt-89
+Test # 2085,90,PM Siddle,bowled,,51,1,v Australia,Delhi,India,22-Mar-13,ashwin-wkt-90
+Test # 2085,91,PJ Hughes,lbw,,6,3,v Australia,Delhi,India,22-Mar-13,ashwin-wkt-91
+Test # 2085,92,PM Siddle,stumped,MS Dhoni,50,3,v Australia,Delhi,India,22-Mar-13,ashwin-wkt-92
+Test # 2101,93,V Permaul,caught,R Ashwin,14,1,v West Indies,Eden Gardens,India,06-Nov-13,ashwin-wkt-93
+Test # 2101,94,S Chanderpaul,bowled,,36,1,v West Indies,Eden Gardens,India,06-Nov-13,ashwin-wkt-94
+Test # 2101,95,KOA Powell,lbw,,36,3,v West Indies,Eden Gardens,India,06-Nov-13,ashwin-wkt-95
+Test # 2101,96,DM Bravo,caught,RG Sharma,37,3,v West Indies,Eden Gardens,India,06-Nov-13,ashwin-wkt-96
+Test # 2101,97,TL Best,caught,PP Ojha,3,3,v West Indies,Eden Gardens,India,06-Nov-13,ashwin-wkt-97
+Test # 2102,98,DM Bravo,caught,MS Dhoni,29,1,v West Indies,Wankhede,India,14-Nov-13,ashwin-wkt-98
+Test # 2102,99,N Deonarine,caught,M Vijay,21,1,v West Indies,Wankhede,India,14-Nov-13,ashwin-wkt-99
+Test # 2102,100,DJG Sammy,caught,RG Sharma,0,1,v West Indies,Wankhede,India,14-Nov-13,ashwin-wkt-100
+Test # 2102,101,KOA Powell,caught,Mohammed Shami,9,3,v West Indies,Wankhede,India,14-Nov-13,ashwin-wkt-101
+Test # 2102,102,DM Bravo,caught,M Vijay,11,3,v West Indies,Wankhede,India,14-Nov-13,ashwin-wkt-102
+Test # 2102,103,S Chanderpaul,lbw,,41,3,v West Indies,Wankhede,India,14-Nov-13,ashwin-wkt-103
+Test # 2102,104,S Shillingford,lbw,,8,3,v West Indies,Wankhede,India,14-Nov-13,ashwin-wkt-104
+Test # 2137,105,GS Ballance,caught,CA Pujara,64,2,v England,The Oval,England,15-Aug-14,ashwin-wkt-105
+Test # 2137,106,MM Ali,bowled,,14,2,v England,The Oval,England,15-Aug-14,ashwin-wkt-106
+Test # 2137,107,JM Anderson,lbw,,1,2,v England,The Oval,England,15-Aug-14,ashwin-wkt-107
+Test # 2149,108,SR Watson,caught,S Dhawan,25,2,v Australia,Brisbane,Australia,17-Dec-14,ashwin-wkt-108
+Test # 2149,109,MA Starc,bowled,,52,2,v Australia,Brisbane,Australia,17-Dec-14,ashwin-wkt-109
+Test # 2152,110,SR Watson,lbw,,52,1,v Australia,Melbourne,Australia,26-Dec-14,ashwin-wkt-110
+Test # 2152,111,MG Johnson,stumped,MS Dhoni,28,1,v Australia,Melbourne,Australia,26-Dec-14,ashwin-wkt-111
+Test # 2152,112,RJ Harris,lbw,,74,1,v Australia,Melbourne,Australia,26-Dec-14,ashwin-wkt-112
+Test # 2152,113,DA Warner,lbw,,40,3,v Australia,Melbourne,Australia,26-Dec-14,ashwin-wkt-113
+Test # 2152,114,CJL Rogers,bowled,,69,3,v Australia,Melbourne,Australia,26-Dec-14,ashwin-wkt-114
+Test # 2156,115,DA Warner,caught,M Vijay,101,1,v Australia,Sydney,Australia,06-Jan-15,ashwin-wkt-115
+Test # 2156,116,DA Warner,caught,M Vijay,4,3,v Australia,Sydney,Australia,06-Jan-15,ashwin-wkt-116
+Test # 2156,117,SR Watson,bowled,,16,3,v Australia,Sydney,Australia,06-Jan-15,ashwin-wkt-117
+Test # 2156,118,SE Marsh,caught,M Vijay,1,3,v Australia,Sydney,Australia,06-Jan-15,ashwin-wkt-118
+Test # 2156,119,JA Burns,caught,UT Yadav,66,3,v Australia,Sydney,Australia,06-Jan-15,ashwin-wkt-119
+Test # 2165,120,Tamim Iqbal,stumped,WP Saha,19,2,v Bangladesh,Fatullah,Bangladesh,10-Jun-15,ashwin-wkt-120
+Test # 2165,121,Mushfiqur Rahim,caught,RG Sharma,2,2,v Bangladesh,Fatullah,Bangladesh,10-Jun-15,ashwin-wkt-121
+Test # 2165,122,Shakib Al Hasan,caught,WP Saha,9,2,v Bangladesh,Fatullah,Bangladesh,10-Jun-15,ashwin-wkt-122
+Test # 2165,123,Shuvagata Hom,caught,RG Sharma,9,2,v Bangladesh,Fatullah,Bangladesh,10-Jun-15,ashwin-wkt-123
+Test # 2165,124,Litton Das,caught,RG Sharma,44,2,v Bangladesh,Fatullah,Bangladesh,10-Jun-15,ashwin-wkt-124
+Test # 2176,125,KC Sangakkara,caught,KL Rahul,5,1,v Sri Lanka,Galle,Sri Lanka,12-Aug-15,ashwin-wkt-125
+Test # 2176,126,HDRL Thirimanne,caught,AM Rahane,13,1,v Sri Lanka,Galle,Sri Lanka,12-Aug-15,ashwin-wkt-126
+Test # 2176,127,J Mubarak,caught,KL Rahul,0,1,v Sri Lanka,Galle,Sri Lanka,12-Aug-15,ashwin-wkt-127
+Test # 2176,128,AD Mathews,caught,RG Sharma,64,1,v Sri Lanka,Galle,Sri Lanka,12-Aug-15,ashwin-wkt-128
+Test # 2176,129,KTGD Prasad,lbw,,0,1,v Sri Lanka,Galle,Sri Lanka,12-Aug-15,ashwin-wkt-129
+Test # 2176,130,HMRKB Herath,bowled,,23,1,v Sri Lanka,Galle,Sri Lanka,12-Aug-15,ashwin-wkt-130
+Test # 2176,131,FDM Karunaratne,bowled,,0,3,v Sri Lanka,Galle,Sri Lanka,12-Aug-15,ashwin-wkt-131
+Test # 2176,132,KC Sangakkara,caught,AM Rahane,40,3,v Sri Lanka,Galle,Sri Lanka,12-Aug-15,ashwin-wkt-132
+Test # 2176,133,HDRL Thirimanne,caught,AM Rahane,44,3,v Sri Lanka,Galle,Sri Lanka,12-Aug-15,ashwin-wkt-133
+Test # 2176,134,N Pradeep,bowled,,3,3,v Sri Lanka,Galle,Sri Lanka,12-Aug-15,ashwin-wkt-134
+Test # 2177,135,KC Sangakkara,caught,AM Rahane,32,2,v Sri Lanka,Colombo (PSS),Sri Lanka,20-Aug-15,ashwin-wkt-135
+Test # 2177,136,HMRKB Herath,lbw,,1,2,v Sri Lanka,Colombo (PSS),Sri Lanka,20-Aug-15,ashwin-wkt-136
+Test # 2177,137,JK Silva,caught,STR Binny,1,4,v Sri Lanka,Colombo (PSS),Sri Lanka,20-Aug-15,ashwin-wkt-137
+Test # 2177,138,KC Sangakkara,caught,M Vijay,18,4,v Sri Lanka,Colombo (PSS),Sri Lanka,20-Aug-15,ashwin-wkt-138
+Test # 2177,139,HDRL Thirimanne,caught,CA Pujara (sub),11,4,v Sri Lanka,Colombo (PSS),Sri Lanka,20-Aug-15,ashwin-wkt-139
+Test # 2177,140,KTGD Prasad,caught,A Mishra,0,4,v Sri Lanka,Colombo (PSS),Sri Lanka,20-Aug-15,ashwin-wkt-140
+Test # 2177,141,FDM Karunaratne,bowled,,46,4,v Sri Lanka,Colombo (PSS),Sri Lanka,20-Aug-15,ashwin-wkt-141
+Test # 2179,142,HDRL Thirimanne,caught,KL Rahul,12,4,v Sri Lanka,Colombo (SSC),Sri Lanka,28-Aug-15,ashwin-wkt-142
+Test # 2179,143,MDKJ Perera,caught,RG Sharma,70,4,v Sri Lanka,Colombo (SSC),Sri Lanka,28-Aug-15,ashwin-wkt-143
+Test # 2179,144,HMRKB Herath,lbw,,11,4,v Sri Lanka,Colombo (SSC),Sri Lanka,28-Aug-15,ashwin-wkt-144
+Test # 2179,145,KTGD Prasad,caught,STR Binny,6,4,v Sri Lanka,Colombo (SSC),Sri Lanka,28-Aug-15,ashwin-wkt-145
+Test # 2186,146,S van Zyl,lbw,,5,2,v South Africa,Mohali,India,05-Nov-15,ashwin-wkt-146
+Test # 2186,147,D Elgar,caught,RA Jadeja,37,2,v South Africa,Mohali,India,05-Nov-15,ashwin-wkt-147
+Test # 2186,148,HM Amla,stumped,WP Saha,43,2,v South Africa,Mohali,India,05-Nov-15,ashwin-wkt-148
+Test # 2186,149,DJ Vilas,caught,RA Jadeja,1,2,v South Africa,Mohali,India,05-Nov-15,ashwin-wkt-149
+Test # 2186,150,Imran Tahir,caught,CA Pujara,4,2,v South Africa,Mohali,India,05-Nov-15,ashwin-wkt-150
+Test # 2186,151,F du Plessis,caught,AM Rahane,1,4,v South Africa,Mohali,India,05-Nov-15,ashwin-wkt-151
+Test # 2186,152,S van Zyl,caught,AM Rahane,36,4,v South Africa,Mohali,India,05-Nov-15,ashwin-wkt-152
+Test # 2186,153,DW Steyn,caught,M Vijay,2,4,v South Africa,Mohali,India,05-Nov-15,ashwin-wkt-153
+Test # 2188,154,S van Zyl,lbw,,10,1,v South Africa,Bengaluru,India,14-Nov-15,ashwin-wkt-154
+Test # 2188,155,F du Plessis,caught,CA Pujara,0,1,v South Africa,Bengaluru,India,14-Nov-15,ashwin-wkt-155
+Test # 2188,156,JP Duminy,caught,AM Rahane,15,1,v South Africa,Bengaluru,India,14-Nov-15,ashwin-wkt-156
+Test # 2188,157,M Morkel,caught,STR Binny,22,1,v South Africa,Bengaluru,India,14-Nov-15,ashwin-wkt-157
+Test # 2189,158,S van Zyl,caught,AM Rahane,0,2,v South Africa,Nagpur,India,25-Nov-15,ashwin-wkt-158
+Test # 2189,159,D Elgar,bowled,,7,2,v South Africa,Nagpur,India,25-Nov-15,ashwin-wkt-159
+Test # 2189,160,HM Amla,caught,AM Rahane,1,2,v South Africa,Nagpur,India,25-Nov-15,ashwin-wkt-160
+Test # 2189,161,SR Harmer,bowled,,13,2,v South Africa,Nagpur,India,25-Nov-15,ashwin-wkt-161
+Test # 2189,162,M Morkel,caught,R Ashwin,1,2,v South Africa,Nagpur,India,25-Nov-15,ashwin-wkt-162
+Test # 2189,163,S van Zyl,caught,RG Sharma,5,4,v South Africa,Nagpur,India,25-Nov-15,ashwin-wkt-163
+Test # 2189,164,D Elgar,lbw,,18,4,v South Africa,Nagpur,India,25-Nov-15,ashwin-wkt-164
+Test # 2189,165,AB de Villiers,lbw,,9,4,v South Africa,Nagpur,India,25-Nov-15,ashwin-wkt-165
+Test # 2189,166,JP Duminy,lbw,,19,4,v South Africa,Nagpur,India,25-Nov-15,ashwin-wkt-166
+Test # 2189,167,DJ Vilas,caught,WP Saha,12,4,v South Africa,Nagpur,India,25-Nov-15,ashwin-wkt-167
+Test # 2189,168,K Rabada,caught,V Kohli,6,4,v South Africa,Nagpur,India,25-Nov-15,ashwin-wkt-168
+Test # 2189,169,M Morkel,bowled,,4,4,v South Africa,Nagpur,India,25-Nov-15,ashwin-wkt-169
+Test # 2191,170,KJ Abbott,lbw,,4,2,v South Africa,Delhi,India,03-Dec-15,ashwin-wkt-170
+Test # 2191,171,Imran Tahir,caught,KL Rahul (sub),1,2,v South Africa,Delhi,India,03-Dec-15,ashwin-wkt-171
+Test # 2191,172,D Elgar,caught,AM Rahane,4,4,v South Africa,Delhi,India,03-Dec-15,ashwin-wkt-172
+Test # 2191,173,T Bavuma,bowled,,34,4,v South Africa,Delhi,India,03-Dec-15,ashwin-wkt-173
+Test # 2191,174,JP Duminy,lbw,,0,4,v South Africa,Delhi,India,03-Dec-15,ashwin-wkt-174
+Test # 2191,175,AB de Villiers,caught,RA Jadeja,43,4,v South Africa,Delhi,India,03-Dec-15,ashwin-wkt-175
+Test # 2191,176,M Morkel,bowled,,2,4,v South Africa,Delhi,India,03-Dec-15,ashwin-wkt-176
+Test # 2207,177,R Chandrika,caught,WP Saha,31,3,v West Indies,North Sound,West Indies,21-Jul-16,ashwin-wkt-177
+Test # 2207,178,J Blackwood,caught,V Kohli,0,3,v West Indies,North Sound,West Indies,21-Jul-16,ashwin-wkt-178
+Test # 2207,179,MN Samuels,bowled,,50,3,v West Indies,North Sound,West Indies,21-Jul-16,ashwin-wkt-179
+Test # 2207,180,RL Chase,caught,KL Rahul (sub),8,3,v West Indies,North Sound,West Indies,21-Jul-16,ashwin-wkt-180
+Test # 2207,181,JO Holder,bowled,,16,3,v West Indies,North Sound,West Indies,21-Jul-16,ashwin-wkt-181
+Test # 2207,182,D Bishoo,caught,CA Pujara,45,3,v West Indies,North Sound,West Indies,21-Jul-16,ashwin-wkt-182
+Test # 2207,183,ST Gabriel,bowled,,4,3,v West Indies,North Sound,West Indies,21-Jul-16,ashwin-wkt-183
+Test # 2211,184,J Blackwood,lbw,,62,1,v West Indies,Kingston,West Indies,30-Jul-16,ashwin-wkt-184
+Test # 2211,185,MN Samuels,caught,KL Rahul,37,1,v West Indies,Kingston,West Indies,30-Jul-16,ashwin-wkt-185
+Test # 2211,186,SO Dowrich,caught,WP Saha,5,1,v West Indies,Kingston,West Indies,30-Jul-16,ashwin-wkt-186
+Test # 2211,187,D Bishoo,caught,S Dhawan,12,1,v West Indies,Kingston,West Indies,30-Jul-16,ashwin-wkt-187
+Test # 2211,188,JO Holder,caught,KL Rahul,13,1,v West Indies,Kingston,West Indies,30-Jul-16,ashwin-wkt-188
+Test # 2211,189,J Blackwood,caught,CA Pujara,63,3,v West Indies,Kingston,West Indies,30-Jul-16,ashwin-wkt-189
+Test # 2215,190,KC Brathwaite,caught,WP Saha,64,2,v West Indies,Gros Islet,West Indies,09-Aug-16,ashwin-wkt-190
+Test # 2215,191,ML Cummins,caught,WP Saha,0,2,v West Indies,Gros Islet,West Indies,09-Aug-16,ashwin-wkt-191
+Test # 2215,192,AS Joseph,caught,Mohammed Shami,0,4,v West Indies,Gros Islet,West Indies,09-Aug-16,ashwin-wkt-192
+Test # 2218,193,DM Bravo,bowled,,10,1,v West Indies,Port of Spain,West Indies,18-Aug-16,ashwin-wkt-193
+Test # 2221,194,TWM Latham,lbw,,58,2,v New Zealand,Kanpur,India,22-Sep-16,ashwin-wkt-194
+Test # 2221,195,KS Williamson,bowled,,75,2,v New Zealand,Kanpur,India,22-Sep-16,ashwin-wkt-195
+Test # 2221,196,MJ Santner,caught,WP Saha,32,2,v New Zealand,Kanpur,India,22-Sep-16,ashwin-wkt-196
+Test # 2221,197,BJ Watling,caught,R Ashwin,21,2,v New Zealand,Kanpur,India,22-Sep-16,ashwin-wkt-197
+Test # 2221,198,MJ Guptill,caught,M Vijay,0,4,v New Zealand,Kanpur,India,22-Sep-16,ashwin-wkt-198
+Test # 2221,199,TWM Latham,lbw,,2,4,v New Zealand,Kanpur,India,22-Sep-16,ashwin-wkt-199
+Test # 2221,200,KS Williamson,lbw,,25,4,v New Zealand,Kanpur,India,22-Sep-16,ashwin-wkt-200
+Test # 2221,201,MJ Santner,caught,RG Sharma,71,4,v New Zealand,Kanpur,India,22-Sep-16,ashwin-wkt-201
+Test # 2221,202,IS Sodhi,bowled,,17,4,v New Zealand,Kanpur,India,22-Sep-16,ashwin-wkt-202
+Test # 2221,203,N Wagner,lbw,,0,4,v New Zealand,Kanpur,India,22-Sep-16,ashwin-wkt-203
+Test # 2222,204,JS Patel,caught,Mohammed Shami,47,2,v New Zealand,Eden Gardens,India,30-Sep-16,ashwin-wkt-204
+Test # 2222,205,MJ Guptill,lbw,,24,4,v New Zealand,Eden Gardens,India,30-Sep-16,ashwin-wkt-205
+Test # 2222,206,LRPL Taylor,lbw,,4,4,v New Zealand,Eden Gardens,India,30-Sep-16,ashwin-wkt-206
+Test # 2222,207,TWM Latham,caught,WP Saha,74,4,v New Zealand,Eden Gardens,India,30-Sep-16,ashwin-wkt-207
+Test # 2223,208,TWM Latham,caught,R Ashwin,53,2,v New Zealand,Indore,India,08-Oct-16,ashwin-wkt-208
+Test # 2223,209,KS Williamson,bowled,,8,2,v New Zealand,Indore,India,08-Oct-16,ashwin-wkt-209
+Test # 2223,210,LRPL Taylor,caught,AM Rahane,0,2,v New Zealand,Indore,India,08-Oct-16,ashwin-wkt-210
+Test # 2223,211,L Ronchi,caught,AM Rahane,0,2,v New Zealand,Indore,India,08-Oct-16,ashwin-wkt-211
+Test # 2223,212,JDS Neesham,lbw,,71,2,v New Zealand,Indore,India,08-Oct-16,ashwin-wkt-212
+Test # 2223,213,TA Boult,caught,CA Pujara,0,2,v New Zealand,Indore,India,08-Oct-16,ashwin-wkt-213
+Test # 2223,214,KS Williamson,lbw,,27,4,v New Zealand,Indore,India,08-Oct-16,ashwin-wkt-214
+Test # 2223,215,LRPL Taylor,bowled,,32,4,v New Zealand,Indore,India,08-Oct-16,ashwin-wkt-215
+Test # 2223,216,L Ronchi,bowled,,15,4,v New Zealand,Indore,India,08-Oct-16,ashwin-wkt-216
+Test # 2223,217,MJ Santner,bowled,,14,4,v New Zealand,Indore,India,08-Oct-16,ashwin-wkt-217
+Test # 2223,218,JS Patel,bowled,,0,4,v New Zealand,Indore,India,08-Oct-16,ashwin-wkt-218
+Test # 2223,219,MJ Henry,caught,Mohammed Shami,0,4,v New Zealand,Indore,India,08-Oct-16,ashwin-wkt-219
+Test # 2223,220,TA Boult,caught,R Ashwin,4,4,v New Zealand,Indore,India,08-Oct-16,ashwin-wkt-220
+Test # 2232,221,H Hameed,lbw,,31,1,v England,Rajkot,India,09-Nov-16,ashwin-wkt-221
+Test # 2232,222,BM Duckett,caught,AM Rahane,13,1,v England,Rajkot,India,09-Nov-16,ashwin-wkt-222
+Test # 2232,223,AN Cook,caught,RA Jadeja,130,3,v England,Rajkot,India,09-Nov-16,ashwin-wkt-223
+Test # 2235,224,BM Duckett,bowled,,5,2,v England,Visakhapatnam,India,17-Nov-16,ashwin-wkt-224
+Test # 2235,225,JE Root,caught,UT Yadav,53,2,v England,Visakhapatnam,India,17-Nov-16,ashwin-wkt-225
+Test # 2235,226,BA Stokes,lbw,,70,2,v England,Visakhapatnam,India,17-Nov-16,ashwin-wkt-226
+Test # 2235,227,SCJ Broad,lbw,,13,2,v England,Visakhapatnam,India,17-Nov-16,ashwin-wkt-227
+Test # 2235,228,JM Anderson,lbw,,0,2,v England,Visakhapatnam,India,17-Nov-16,ashwin-wkt-228
+Test # 2235,229,H Hameed,lbw,,25,4,v England,Visakhapatnam,India,17-Nov-16,ashwin-wkt-229
+Test # 2235,230,BM Duckett,caught,WP Saha,0,4,v England,Visakhapatnam,India,17-Nov-16,ashwin-wkt-230
+Test # 2235,231,ZS Ansari,bowled,,0,4,v England,Visakhapatnam,India,17-Nov-16,ashwin-wkt-231
+Test # 2238,232,AN Cook,caught,PA Patel,27,1,v England,Mohali,India,26-Nov-16,ashwin-wkt-232
+Test # 2238,233,AN Cook,bowled,,12,3,v England,Mohali,India,26-Nov-16,ashwin-wkt-233
+Test # 2238,234,MM Ali,caught,J Yadav,5,3,v England,Mohali,India,26-Nov-16,ashwin-wkt-234
+Test # 2238,235,BA Stokes,lbw,,5,3,v England,Mohali,India,26-Nov-16,ashwin-wkt-235
+Test # 2239,236,JE Root,caught,V Kohli,21,1,v England,Wankhede,India,08-Dec-16,ashwin-wkt-236
+Test # 2239,237,MM Ali,caught,KK Nair,50,1,v England,Wankhede,India,08-Dec-16,ashwin-wkt-237
+Test # 2239,238,KK Jennings,caught,CA Pujara,112,1,v England,Wankhede,India,08-Dec-16,ashwin-wkt-238
+Test # 2239,239,JM Bairstow,caught,UT Yadav,14,1,v England,Wankhede,India,08-Dec-16,ashwin-wkt-239
+Test # 2239,240,BA Stokes,caught,V Kohli,31,1,v England,Wankhede,India,08-Dec-16,ashwin-wkt-240
+Test # 2239,241,JT Ball,caught,PA Patel,31,1,v England,Wankhede,India,08-Dec-16,ashwin-wkt-241
+Test # 2239,242,BA Stokes,caught,M Vijay,18,3,v England,Wankhede,India,08-Dec-16,ashwin-wkt-242
+Test # 2239,243,JT Ball,caught,PA Patel,2,3,v England,Wankhede,India,08-Dec-16,ashwin-wkt-243
+Test # 2239,244,JM Bairstow,lbw,,51,3,v England,Wankhede,India,08-Dec-16,ashwin-wkt-244
+Test # 2239,245,CR Woakes,bowled,,0,3,v England,Wankhede,India,08-Dec-16,ashwin-wkt-245
+Test # 2239,246,AU Rashid,caught,KL Rahul,2,3,v England,Wankhede,India,08-Dec-16,ashwin-wkt-246
+Test # 2239,247,JM Anderson,caught,UT Yadav,2,3,v England,Wankhede,India,08-Dec-16,ashwin-wkt-247
+Test # 2241,248,BA Stokes,caught,PA Patel,6,1,v England,Chennai,India,16-Dec-16,ashwin-wkt-248
+Test # 2249,249,Shakib Al Hasan,caught,UT Yadav,82,2,v Bangladesh,Hyderabad,India,09-Feb-17,ashwin-wkt-249
+Test # 2249,250,Mushfiqur Rahim,caught,WP Saha,127,2,v Bangladesh,Hyderabad,India,09-Feb-17,ashwin-wkt-250
+Test # 2249,251,Tamim Iqbal,caught,V Kohli,3,4,v Bangladesh,Hyderabad,India,09-Feb-17,ashwin-wkt-251
+Test # 2249,252,Mominul Haque,caught,AM Rahane,27,4,v Bangladesh,Hyderabad,India,09-Feb-17,ashwin-wkt-252
+Test # 2249,253,Mushfiqur Rahim,caught,RA Jadeja,23,4,v Bangladesh,Hyderabad,India,09-Feb-17,ashwin-wkt-253
+Test # 2249,254,Taskin Ahmed,lbw,,1,4,v Bangladesh,Hyderabad,India,09-Feb-17,ashwin-wkt-254
+Test # 2250,255,SPD Smith,caught,V Kohli,27,1,v Australia,Pune,India,23-Feb-17,ashwin-wkt-255
+Test # 2250,256,MT Renshaw,caught,M Vijay,68,1,v Australia,Pune,India,23-Feb-17,ashwin-wkt-256
+Test # 2250,257,MA Starc,caught,RA Jadeja,61,1,v Australia,Pune,India,23-Feb-17,ashwin-wkt-257
+Test # 2250,258,DA Warner,lbw,,10,3,v Australia,Pune,India,23-Feb-17,ashwin-wkt-258
+Test # 2250,259,SE Marsh,lbw,,0,3,v Australia,Pune,India,23-Feb-17,ashwin-wkt-259
+Test # 2250,260,PSP Handscomb,caught,M Vijay,19,3,v Australia,Pune,India,23-Feb-17,ashwin-wkt-260
+Test # 2250,261,MA Starc,caught,KL Rahul,30,3,v Australia,Pune,India,23-Feb-17,ashwin-wkt-261
+Test # 2251,262,DA Warner,bowled,,33,2,v Australia,Bengaluru,India,04-Mar-17,ashwin-wkt-262
+Test # 2251,263,MA Starc,caught,RA Jadeja,26,2,v Australia,Bengaluru,India,04-Mar-17,ashwin-wkt-263
+Test # 2251,264,DA Warner,lbw,,17,4,v Australia,Bengaluru,India,04-Mar-17,ashwin-wkt-264
+Test # 2251,265,MR Marsh,caught,KK Nair,13,4,v Australia,Bengaluru,India,04-Mar-17,ashwin-wkt-265
+Test # 2251,266,MS Wade,caught,WP Saha,0,4,v Australia,Bengaluru,India,04-Mar-17,ashwin-wkt-266
+Test # 2251,267,MA Starc,bowled,,1,4,v Australia,Bengaluru,India,04-Mar-17,ashwin-wkt-267
+Test # 2251,268,PSP Handscomb,caught,WP Saha,24,4,v Australia,Bengaluru,India,04-Mar-17,ashwin-wkt-268
+Test # 2251,269,NM Lyon,caught,R Ashwin,2,4,v Australia,Bengaluru,India,04-Mar-17,ashwin-wkt-269
+Test # 2256,270,SE Marsh,caught,CA Pujara,2,1,v Australia,Ranchi,India,16-Mar-17,ashwin-wkt-270
+Test # 2256,271,GJ Maxwell,caught,M Vijay,2,3,v Australia,Ranchi,India,16-Mar-17,ashwin-wkt-271
+Test # 2258,272,SPD Smith,caught,AM Rahane,111,1,v Australia,Dharamsala,India,25-Mar-17,ashwin-wkt-272
+Test # 2258,273,PSP Handscomb,caught,AM Rahane,18,3,v Australia,Dharamsala,India,25-Mar-17,ashwin-wkt-273
+Test # 2258,274,GJ Maxwell,lbw,,45,3,v Australia,Dharamsala,India,25-Mar-17,ashwin-wkt-274
+Test # 2258,275,JR Hazlewood,lbw,,0,3,v Australia,Dharamsala,India,25-Mar-17,ashwin-wkt-275
+Test # 2265,276,N Dickwella,caught,A Mukund,8,2,v Sri Lanka,Galle,Sri Lanka,26-Jul-17,ashwin-wkt-276
+Test # 2265,277,N Dickwella,caught,WP Saha,67,4,v Sri Lanka,Galle,Sri Lanka,26-Jul-17,ashwin-wkt-277
+Test # 2265,278,FDM Karunaratne,bowled,,97,4,v Sri Lanka,Galle,Sri Lanka,26-Jul-17,ashwin-wkt-278
+Test # 2265,279,N Pradeep,caught,V Kohli,0,4,v Sri Lanka,Galle,Sri Lanka,26-Jul-17,ashwin-wkt-279
+Test # 2267,280,WU Tharanga,caught,KL Rahul,0,2,v Sri Lanka,Colombo (SSC),Sri Lanka,03-Aug-17,ashwin-wkt-280
+Test # 2267,281,FDM Karunaratne,caught,AM Rahane,25,2,v Sri Lanka,Colombo (SSC),Sri Lanka,03-Aug-17,ashwin-wkt-281
+Test # 2267,282,AD Mathews,caught,CA Pujara,26,2,v Sri Lanka,Colombo (SSC),Sri Lanka,03-Aug-17,ashwin-wkt-282
+Test # 2267,283,MDK Perera,bowled,,25,2,v Sri Lanka,Colombo (SSC),Sri Lanka,03-Aug-17,ashwin-wkt-283
+Test # 2267,284,N Pradeep,bowled,,0,2,v Sri Lanka,Colombo (SSC),Sri Lanka,03-Aug-17,ashwin-wkt-284
+Test # 2267,285,PM Pushpakumara,bowled,,16,3,v Sri Lanka,Colombo (SSC),Sri Lanka,03-Aug-17,ashwin-wkt-285
+Test # 2267,286,N Pradeep,caught,S Dhawan,1,3,v Sri Lanka,Colombo (SSC),Sri Lanka,03-Aug-17,ashwin-wkt-286
+Test # 2269,287,LD Chandimal,caught,KL Rahul,48,2,v Sri Lanka,Pallekele,Sri Lanka,12-Aug-17,ashwin-wkt-287
+Test # 2269,288,PADLR Sandakan,caught,S Dhawan,10,2,v Sri Lanka,Pallekele,Sri Lanka,12-Aug-17,ashwin-wkt-288
+Test # 2269,289,FDM Karunaratne,caught,AM Rahane,16,3,v Sri Lanka,Pallekele,Sri Lanka,12-Aug-17,ashwin-wkt-289
+Test # 2269,290,AD Mathews,lbw,,35,3,v Sri Lanka,Pallekele,Sri Lanka,12-Aug-17,ashwin-wkt-290
+Test # 2269,291,MDK Perera,caught,HH Pandya,8,3,v Sri Lanka,Pallekele,Sri Lanka,12-Aug-17,ashwin-wkt-291
+Test # 2269,292,CBRLS Kumara,bowled,,10,3,v Sri Lanka,Pallekele,Sri Lanka,12-Aug-17,ashwin-wkt-292
+Test # 2283,293,HDRL Thirimanne,bowled,,9,1,v Sri Lanka,Nagpur,India,24-Nov-17,ashwin-wkt-293
+Test # 2283,294,MD Shanaka,bowled,,2,1,v Sri Lanka,Nagpur,India,24-Nov-17,ashwin-wkt-294
+Test # 2283,295,LD Chandimal,lbw,,57,1,v Sri Lanka,Nagpur,India,24-Nov-17,ashwin-wkt-295
+Test # 2283,296,HMRKB Herath,caught,AM Rahane,4,1,v Sri Lanka,Nagpur,India,24-Nov-17,ashwin-wkt-296
+Test # 2283,297,MD Shanaka,caught,KL Rahul,17,3,v Sri Lanka,Nagpur,India,24-Nov-17,ashwin-wkt-297
+Test # 2283,298,MDK Perera,lbw,,0,3,v Sri Lanka,Nagpur,India,24-Nov-17,ashwin-wkt-298
+Test # 2283,299,HMRKB Herath,caught,AM Rahane,0,3,v Sri Lanka,Nagpur,India,24-Nov-17,ashwin-wkt-299
+Test # 2283,300,PLS Gamage,bowled,,0,3,v Sri Lanka,Nagpur,India,24-Nov-17,ashwin-wkt-300
+Test # 2286,301,AD Mathews,caught,WP Saha,111,2,v Sri Lanka,Delhi,India,02-Dec-17,ashwin-wkt-301
+Test # 2286,302,ARS Silva,caught,S Dhawan,0,2,v Sri Lanka,Delhi,India,02-Dec-17,ashwin-wkt-302
+Test # 2286,303,N Dickwella,bowled,,0,2,v Sri Lanka,Delhi,India,02-Dec-17,ashwin-wkt-303
+Test # 2286,304,LD Chandimal,bowled,,36,4,v Sri Lanka,Delhi,India,02-Dec-17,ashwin-wkt-304
+Test # 2292,305,K Rabada,caught,WP Saha,26,1,v South Africa,Cape Town,South Africa,05-Jan-18,ashwin-wkt-305
+Test # 2292,306,M Morkel,lbw,,2,1,v South Africa,Cape Town,South Africa,05-Jan-18,ashwin-wkt-306
+Test # 2293,307,D Elgar,caught,M Vijay,31,1,v South Africa,Centurion,South Africa,13-Jan-18,ashwin-wkt-307
+Test # 2293,308,AK Markram,caught,PA Patel,94,1,v South Africa,Centurion,South Africa,13-Jan-18,ashwin-wkt-308
+Test # 2293,309,Q de Kock,caught,V Kohli,0,1,v South Africa,Centurion,South Africa,13-Jan-18,ashwin-wkt-309
+Test # 2293,310,M Morkel,caught,M Vijay,6,1,v South Africa,Centurion,South Africa,13-Jan-18,ashwin-wkt-310
+Test # 2293,311,L Ngidi,caught,M Vijay,1,3,v South Africa,Centurion,South Africa,13-Jan-18,ashwin-wkt-311
+Test # 2307,312,Asghar Afghan,bowled,,11,2,v Afghanistan,Bengaluru,India,14-Jun-18,ashwin-wkt-312
+Test # 2307,313,Hashmatullah Shahidi,lbw,,11,2,v Afghanistan,Bengaluru,India,14-Jun-18,ashwin-wkt-313
+Test # 2307,314,Yamin Ahmadzai,caught,RA Jadeja,0,2,v Afghanistan,Bengaluru,India,14-Jun-18,ashwin-wkt-314
+Test # 2307,315,Mohammad Nabi,caught,I Sharma,24,2,v Afghanistan,Bengaluru,India,14-Jun-18,ashwin-wkt-315
+Test # 2307,316,Wafadar Momand,bowled,,0,3,v Afghanistan,Bengaluru,India,14-Jun-18,ashwin-wkt-316
+Test # 2314,317,AN Cook,bowled,,13,1,v England,Birmingham,England,01-Aug-18,ashwin-wkt-317
+Test # 2314,318,JC Buttler,lbw,,0,1,v England,Birmingham,England,01-Aug-18,ashwin-wkt-318
+Test # 2314,319,BA Stokes,caught,R Ashwin,21,1,v England,Birmingham,England,01-Aug-18,ashwin-wkt-319
+Test # 2314,320,SCJ Broad,lbw,,1,1,v England,Birmingham,England,01-Aug-18,ashwin-wkt-320
+Test # 2314,321,AN Cook,bowled,,0,3,v England,Birmingham,England,01-Aug-18,ashwin-wkt-321
+Test # 2314,322,KK Jennings,caught,KL Rahul,8,3,v England,Birmingham,England,01-Aug-18,ashwin-wkt-322
+Test # 2314,323,JE Root,caught,KL Rahul,14,3,v England,Birmingham,England,01-Aug-18,ashwin-wkt-323
+Test # 2316,324,JM Anderson,caught,AM Rahane,11,4,v England,Nottingham,England,18-Aug-18,ashwin-wkt-324
+Test # 2317,325,MM Ali,caught,JJ Bumrah,40,1,v England,Southampton,England,30-Aug-18,ashwin-wkt-325
+Test # 2317,326,SM Curran,bowled,,78,1,v England,Southampton,England,30-Aug-18,ashwin-wkt-326
+Test # 2317,327,BA Stokes,caught,AM Rahane,30,3,v England,Southampton,England,30-Aug-18,ashwin-wkt-327
+Test # 2319,328,SD Hope,bowled,,10,2,v West Indies,Rajkot,India,04-Oct-18,ashwin-wkt-328
+Test # 2319,329,RL Chase,bowled,,53,2,v West Indies,Rajkot,India,04-Oct-18,ashwin-wkt-329
+Test # 2319,330,SH Lewis,bowled,,0,2,v West Indies,Rajkot,India,04-Oct-18,ashwin-wkt-330
+Test # 2319,331,ST Gabriel,stumped,RR Pant,1,2,v West Indies,Rajkot,India,04-Oct-18,ashwin-wkt-331
+Test # 2319,332,KC Brathwaite,caught,PP Shaw,10,3,v West Indies,Rajkot,India,04-Oct-18,ashwin-wkt-332
+Test # 2319,333,D Bishoo,caught,RR Pant,9,3,v West Indies,Rajkot,India,04-Oct-18,ashwin-wkt-333
+Test # 2321,334,KOA Powell,caught,RA Jadeja,22,1,v West Indies,Hyderabad,India,12-Oct-18,ashwin-wkt-334
+Test # 2321,335,KOA Powell,caught,AM Rahane,0,3,v West Indies,Hyderabad,India,12-Oct-18,ashwin-wkt-335
+Test # 2321,336,JA Warrican,bowled,,7,3,v West Indies,Hyderabad,India,12-Oct-18,ashwin-wkt-336
+Test # 2333,337,MS Harris,caught,M Vijay,26,2,v Australia,Adelaide,Australia,06-Dec-18,ashwin-wkt-337
+Test # 2333,338,SE Marsh,bowled,,2,2,v Australia,Adelaide,Australia,06-Dec-18,ashwin-wkt-338
+Test # 2333,339,UT Khawaja,caught,RR Pant,28,2,v Australia,Adelaide,Australia,06-Dec-18,ashwin-wkt-339
+Test # 2333,340,AJ Finch,caught,RR Pant,11,4,v Australia,Adelaide,Australia,06-Dec-18,ashwin-wkt-340
+Test # 2333,341,UT Khawaja,caught,RG Sharma,8,4,v Australia,Adelaide,Australia,06-Dec-18,ashwin-wkt-341
+Test # 2333,342,JR Hazlewood,caught,KL Rahul,13,4,v Australia,Adelaide,Australia,06-Dec-18,ashwin-wkt-342
+Test # 2363,343,AK Markram,bowled,,5,2,v South Africa,Visakhapatnam,India,02-Oct-19,ashwin-wkt-343
+Test # 2363,344,TB de Bruyn,caught,WP Saha,4,2,v South Africa,Visakhapatnam,India,02-Oct-19,ashwin-wkt-344
+Test # 2363,345,F du Plessis,caught,CA Pujara,55,2,v South Africa,Visakhapatnam,India,02-Oct-19,ashwin-wkt-345
+Test # 2363,346,Q de Kock,bowled,,111,2,v South Africa,Visakhapatnam,India,02-Oct-19,ashwin-wkt-346
+Test # 2363,347,VD Philander,bowled,,0,2,v South Africa,Visakhapatnam,India,02-Oct-19,ashwin-wkt-347
+Test # 2363,348,KA Maharaj,caught,MA Agarwal,9,2,v South Africa,Visakhapatnam,India,02-Oct-19,ashwin-wkt-348
+Test # 2363,349,K Rabada,lbw,,15,2,v South Africa,Visakhapatnam,India,02-Oct-19,ashwin-wkt-349
+Test # 2363,350,TB de Bruyn,bowled,,10,4,v South Africa,Visakhapatnam,India,02-Oct-19,ashwin-wkt-350
+Test # 2364,351,Q de Kock,bowled,,31,2,v South Africa,Pune,India,10-Oct-19,ashwin-wkt-351
+Test # 2364,352,F du Plessis,caught,AM Rahane,64,2,v South Africa,Pune,India,10-Oct-19,ashwin-wkt-352
+Test # 2364,353,KA Maharaj,caught,RG Sharma,72,2,v South Africa,Pune,India,10-Oct-19,ashwin-wkt-353
+Test # 2364,354,K Rabada,lbw,,2,2,v South Africa,Pune,India,10-Oct-19,ashwin-wkt-354
+Test # 2364,355,F du Plessis,caught,WP Saha,5,3,v South Africa,Pune,India,10-Oct-19,ashwin-wkt-355
+Test # 2364,356,D Elgar,caught,UT Yadav,48,3,v South Africa,Pune,India,10-Oct-19,ashwin-wkt-356
+Test # 2365,357,K Rabada,caught,RA Jadeja,12,3,v South Africa,Ranchi,India,19-Oct-19,ashwin-wkt-357
+Test # 2366,358,Mominul Haque,bowled,,37,1,v Bangladesh,Indore,India,14-Nov-19,ashwin-wkt-358
+Test # 2366,359,Mahmudullah,bowled,,10,1,v Bangladesh,Indore,India,14-Nov-19,ashwin-wkt-359
+Test # 2366,360,Litton Das,caught,R Ashwin,35,3,v Bangladesh,Indore,India,14-Nov-19,ashwin-wkt-360
+Test # 2366,361,Mushfiqur Rahim,caught,CA Pujara,64,3,v Bangladesh,Indore,India,14-Nov-19,ashwin-wkt-361
+Test # 2366,362,Ebadot Hossain,caught,UT Yadav,1,3,v Bangladesh,Indore,India,14-Nov-19,ashwin-wkt-362
+Test # 2385,363,HM Nicholls,caught,V Kohli,17,2,v New Zealand,Wellington,New Zealand,21-Feb-20,ashwin-wkt-363
+Test # 2385,364,KA Jamieson,caught,GH Vihari,44,2,v New Zealand,Wellington,New Zealand,21-Feb-20,ashwin-wkt-364
+Test # 2385,365,C de Grandhomme,caught,RR Pant,43,2,v New Zealand,Wellington,New Zealand,21-Feb-20,ashwin-wkt-365
+Test # 2396,366,SPD Smith,caught,AM Rahane,1,2,v Australia,Adelaide,Australia,17-Dec-20,ashwin-wkt-366
+Test # 2396,367,TM Head,caught,R Ashwin,7,2,v Australia,Adelaide,Australia,17-Dec-20,ashwin-wkt-367
+Test # 2396,368,C Green,caught,V Kohli,11,2,v Australia,Adelaide,Australia,17-Dec-20,ashwin-wkt-368
+Test # 2396,369,NM Lyon,caught,V Kohli,10,2,v Australia,Adelaide,Australia,17-Dec-20,ashwin-wkt-369
+Test # 2396,370,M Labuschagne,caught,MA Agarwal,6,4,v Australia,Adelaide,Australia,17-Dec-20,ashwin-wkt-370
+Test # 2398,371,MS Wade,caught,RA Jadeja,30,1,v Australia,Melbourne,Australia,26-Dec-20,ashwin-wkt-371
+Test # 2398,372,SPD Smith,caught,CA Pujara,0,1,v Australia,Melbourne,Australia,26-Dec-20,ashwin-wkt-372
+Test # 2398,373,TD Paine,caught,GH Vihari,13,1,v Australia,Melbourne,Australia,26-Dec-20,ashwin-wkt-373
+Test # 2398,374,M Labuschagne,caught,AM Rahane,28,3,v Australia,Melbourne,Australia,26-Dec-20,ashwin-wkt-374
+Test # 2398,375,JR Hazlewood,bowled,,10,3,v Australia,Melbourne,Australia,26-Dec-20,ashwin-wkt-375
+Test # 2402,376,DA Warner,lbw,,13,3,v Australia,Sydney,Australia,07-Jan-21,ashwin-wkt-376
+Test # 2402,377,SPD Smith,lbw,,81,3,v Australia,Sydney,Australia,07-Jan-21,ashwin-wkt-377
+Test # 2409,378,RJ Burns,caught,RR Pant,33,1,v England,Chennai,India,05-Feb-21,ashwin-wkt-378
+Test # 2409,379,OJ Pope,lbw,,34,1,v England,Chennai,India,05-Feb-21,ashwin-wkt-379
+Test # 2409,380,JM Anderson,bowled,,1,1,v England,Chennai,India,05-Feb-21,ashwin-wkt-380
+Test # 2409,381,RJ Burns,caught,AM Rahane,0,3,v England,Chennai,India,05-Feb-21,ashwin-wkt-381
+Test # 2409,382,DP Sibley,caught,CA Pujara,16,3,v England,Chennai,India,05-Feb-21,ashwin-wkt-382
+Test # 2409,383,BA Stokes,caught,RR Pant,7,3,v England,Chennai,India,05-Feb-21,ashwin-wkt-383
+Test # 2409,384,DM Bess,lbw,,25,3,v England,Chennai,India,05-Feb-21,ashwin-wkt-384
+Test # 2409,385,JC Archer,bowled,,5,3,v England,Chennai,India,05-Feb-21,ashwin-wkt-385
+Test # 2409,386,JM Anderson,caught,R Ashwin,0,3,v England,Chennai,India,05-Feb-21,ashwin-wkt-386
+Test # 2411,387,DP Sibley,caught,V Kohli,16,2,v England,Chennai,India,13-Feb-21,ashwin-wkt-387
+Test # 2411,388,DW Lawrence,caught,Shubman Gill,9,2,v England,Chennai,India,13-Feb-21,ashwin-wkt-388
+Test # 2411,389,BA Stokes,bowled,,18,2,v England,Chennai,India,13-Feb-21,ashwin-wkt-389
+Test # 2411,390,OP Stone,caught,RG Sharma,1,2,v England,Chennai,India,13-Feb-21,ashwin-wkt-390
+Test # 2411,391,SCJ Broad,bowled,,0,2,v England,Chennai,India,13-Feb-21,ashwin-wkt-391
+Test # 2411,392,RJ Burns,caught,V Kohli,25,4,v England,Chennai,India,13-Feb-21,ashwin-wkt-392
+Test # 2411,393,DW Lawrence,stumped,RR Pant,26,4,v England,Chennai,India,13-Feb-21,ashwin-wkt-393
+Test # 2411,394,BA Stokes,caught,V Kohli,8,4,v England,Chennai,India,13-Feb-21,ashwin-wkt-394
+Test # 2412,395,JE Root,lbw,,17,1,v England,Ahmedabad,India,24-Feb-21,ashwin-wkt-395
+Test # 2412,396,OJ Pope,bowled,,1,1,v England,Ahmedabad,India,24-Feb-21,ashwin-wkt-396
+Test # 2412,397,MJ Leach,caught,CA Pujara,3,1,v England,Ahmedabad,India,24-Feb-21,ashwin-wkt-397
+Test # 2412,398,BA Stokes,lbw,,25,3,v England,Ahmedabad,India,24-Feb-21,ashwin-wkt-398
+Test # 2412,399,OJ Pope,bowled,,12,3,v England,Ahmedabad,India,24-Feb-21,ashwin-wkt-399
+Test # 2412,400,JC Archer,lbw,,0,3,v England,Ahmedabad,India,24-Feb-21,ashwin-wkt-400
+Test # 2412,401,MJ Leach,caught,AM Rahane,9,3,v England,Ahmedabad,India,24-Feb-21,ashwin-wkt-401
+Test # 2414,402,OJ Pope,caught,Shubman Gill,29,1,v England,Ahmedabad,India,04-Mar-21,ashwin-wkt-402
+Test # 2414,403,BT Foakes,caught,AM Rahane,1,1,v England,Ahmedabad,India,04-Mar-21,ashwin-wkt-403
+Test # 2414,404,MJ Leach,lbw,,7,1,v England,Ahmedabad,India,04-Mar-21,ashwin-wkt-404
+Test # 2414,405,Z Crawley,caught,AM Rahane,5,3,v England,Ahmedabad,India,04-Mar-21,ashwin-wkt-405
+Test # 2414,406,JM Bairstow,caught,RG Sharma,0,3,v England,Ahmedabad,India,04-Mar-21,ashwin-wkt-406
+Test # 2414,407,JE Root,lbw,,30,3,v England,Ahmedabad,India,04-Mar-21,ashwin-wkt-407
+Test # 2414,408,MJ Leach,caught,AM Rahane,2,3,v England,Ahmedabad,India,04-Mar-21,ashwin-wkt-408
+Test # 2414,409,DW Lawrence,bowled,,50,3,v England,Ahmedabad,India,04-Mar-21,ashwin-wkt-409
+Test # 2425,410,TWM Latham,caught,V Kohli,30,2,v New Zealand,Southampton,England,18-Jun-21,ashwin-wkt-410
+Test # 2425,411,N Wagner,caught,AM Rahane,0,2,v New Zealand,Southampton,England,18-Jun-21,ashwin-wkt-411
+Test # 2425,412,TWM Latham,stumped,RR Pant,9,4,v New Zealand,Southampton,England,18-Jun-21,ashwin-wkt-412
+Test # 2425,413,DP Conway,lbw,,19,4,v New Zealand,Southampton,England,18-Jun-21,ashwin-wkt-413
+Test # 2435,414,WA Young,caught,KS Bharat (sub),89,2,v New Zealand,Kanpur,India,25-Nov-21,ashwin-wkt-414
+Test # 2435,415,KA Jamieson,caught,AR Patel,23,2,v New Zealand,Kanpur,India,25-Nov-21,ashwin-wkt-415
+Test # 2435,416,WER Somerville,bowled,,6,2,v New Zealand,Kanpur,India,25-Nov-21,ashwin-wkt-416
+Test # 2435,417,WA Young,lbw,,2,4,v New Zealand,Kanpur,India,25-Nov-21,ashwin-wkt-417
+Test # 2435,418,TWM Latham,bowled,,52,4,v New Zealand,Kanpur,India,25-Nov-21,ashwin-wkt-418
+Test # 2435,419,TA Blundell,bowled,,2,4,v New Zealand,Kanpur,India,25-Nov-21,ashwin-wkt-419
+Test # 2438,420,HM Nicholls,bowled,,7,2,v New Zealand,Wankhede,India,03-Dec-21,ashwin-wkt-420
+Test # 2438,421,TA Blundell,caught,CA Pujara,8,2,v New Zealand,Wankhede,India,03-Dec-21,ashwin-wkt-421
+Test # 2438,422,TG Southee,caught,SA Yadav (sub),0,2,v New Zealand,Wankhede,India,03-Dec-21,ashwin-wkt-422
+Test # 2438,423,WER Somerville,caught,Mohammed Siraj,0,2,v New Zealand,Wankhede,India,03-Dec-21,ashwin-wkt-423
+Test # 2438,424,TWM Latham,lbw,,6,4,v New Zealand,Wankhede,India,03-Dec-21,ashwin-wkt-424
+Test # 2438,425,WA Young,caught,SA Yadav (sub),20,4,v New Zealand,Wankhede,India,03-Dec-21,ashwin-wkt-425
+Test # 2438,426,LRPL Taylor,caught,CA Pujara,6,4,v New Zealand,Wankhede,India,03-Dec-21,ashwin-wkt-426
+Test # 2438,427,HM Nicholls,stumped,WP Saha,44,4,v New Zealand,Wankhede,India,03-Dec-21,ashwin-wkt-427
+Test # 2443,428,K Rabada,caught,Mohammed Shami,0,4,v South Africa,Centurion,South Africa,26-Dec-21,ashwin-wkt-428
+Test # 2443,429,L Ngidi,caught,CA Pujara,0,4,v South Africa,Centurion,South Africa,26-Dec-21,ashwin-wkt-429
+Test # 2445,430,KD Petersen,lbw,,28,4,v South Africa,Johannesburg,South Africa,03-Jan-22,ashwin-wkt-430
+Test # 2452,431,HDRL Thirimanne,lbw,,17,2,v Sri Lanka,Mohali,India,04-Mar-22,ashwin-wkt-431
+Test # 2452,432,DM de Silva,lbw,,1,2,v Sri Lanka,Mohali,India,04-Mar-22,ashwin-wkt-432
+Test # 2452,433,HDRL Thirimanne,caught,RG Sharma,0,3,v Sri Lanka,Mohali,India,04-Mar-22,ashwin-wkt-433
+Test # 2452,434,P Nissanka,caught,RR Pant,6,3,v Sri Lanka,Mohali,India,04-Mar-22,ashwin-wkt-434
+Test # 2452,435,KIC Asalanka,caught,V Kohli,20,3,v Sri Lanka,Mohali,India,04-Mar-22,ashwin-wkt-435
+Test # 2452,436,CBRLS Kumara,caught,Mohammed Shami,4,3,v Sri Lanka,Mohali,India,04-Mar-22,ashwin-wkt-436
+Test # 2456,437,RAS Lakmal,bowled,,5,2,v Sri Lanka,Bengaluru,India,12-Mar-22,ashwin-wkt-437
+Test # 2456,438,MVT Fernando,stumped,RR Pant,8,2,v Sri Lanka,Bengaluru,India,12-Mar-22,ashwin-wkt-438
+Test # 2456,439,BKG Mendis,stumped,RR Pant,54,4,v Sri Lanka,Bengaluru,India,12-Mar-22,ashwin-wkt-439
+Test # 2456,440,DM de Silva,caught,GH Vihari,4,4,v Sri Lanka,Bengaluru,India,12-Mar-22,ashwin-wkt-440
+Test # 2456,441,L Embuldeniya,lbw,,2,4,v Sri Lanka,Bengaluru,India,12-Mar-22,ashwin-wkt-441
+Test # 2456,442,MVT Fernando,caught,Mohammed Shami,2,4,v Sri Lanka,Bengaluru,India,12-Mar-22,ashwin-wkt-442
+Test # 2481,443,Zakir Hasan,caught,V Kohli,100,4,v Bangladesh,Chattogram,Bangladesh,14-Dec-22,ashwin-wkt-443
+Test # 2484,444,Najmul Hossain Shanto,lbw,,24,1,v Bangladesh,Mirpur,Bangladesh,22-Dec-22,ashwin-wkt-444
+Test # 2484,445,Litton Das,caught,KL Rahul,25,1,v Bangladesh,Mirpur,Bangladesh,22-Dec-22,ashwin-wkt-445
+Test # 2484,446,Mominul Haque,caught,RR Pant,84,1,v Bangladesh,Mirpur,Bangladesh,22-Dec-22,ashwin-wkt-446
+Test # 2484,447,Khaled Ahmed,caught,JD Unadkat,0,1,v Bangladesh,Mirpur,Bangladesh,22-Dec-22,ashwin-wkt-447
+Test # 2484,448,Najmul Hossain Shanto,lbw,,5,3,v Bangladesh,Mirpur,Bangladesh,22-Dec-22,ashwin-wkt-448
+Test # 2484,449,Taijul Islam,lbw,,1,3,v Bangladesh,Mirpur,Bangladesh,22-Dec-22,ashwin-wkt-449
+Test # 2490,450,AT Carey,bowled,,36,1,v Australia,Nagpur,India,09-Feb-23,ashwin-wkt-450
+Test # 2490,451,PJ Cummins,caught,V Kohli,6,1,v Australia,Nagpur,India,09-Feb-23,ashwin-wkt-451
+Test # 2490,452,SM Boland,bowled,,1,1,v Australia,Nagpur,India,09-Feb-23,ashwin-wkt-452
+Test # 2490,453,UT Khawaja,caught,V Kohli,5,3,v Australia,Nagpur,India,09-Feb-23,ashwin-wkt-453
+Test # 2490,454,DA Warner,lbw,,10,3,v Australia,Nagpur,India,09-Feb-23,ashwin-wkt-454
+Test # 2490,455,MT Renshaw,lbw,,2,3,v Australia,Nagpur,India,09-Feb-23,ashwin-wkt-455
+Test # 2490,456,PSP Handscomb,lbw,,6,3,v Australia,Nagpur,India,09-Feb-23,ashwin-wkt-456
+Test # 2490,457,AT Carey,lbw,,10,3,v Australia,Nagpur,India,09-Feb-23,ashwin-wkt-457
+Test # 2493,458,M Labuschagne,lbw,,18,1,v Australia,Delhi,India,17-Feb-23,ashwin-wkt-458
+Test # 2493,459,SPD Smith,caught,KS Bharat,0,1,v Australia,Delhi,India,17-Feb-23,ashwin-wkt-459
+Test # 2493,460,AT Carey,caught,V Kohli,0,1,v Australia,Delhi,India,17-Feb-23,ashwin-wkt-460
+Test # 2493,461,TM Head,caught,KS Bharat,43,3,v Australia,Delhi,India,17-Feb-23,ashwin-wkt-461
+Test # 2493,462,SPD Smith,lbw,,9,3,v Australia,Delhi,India,17-Feb-23,ashwin-wkt-462
+Test # 2493,463,MT Renshaw,lbw,,2,3,v Australia,Delhi,India,17-Feb-23,ashwin-wkt-463
+Test # 2496,464,PSP Handscomb,caught,SS Iyer,19,2,v Australia,Indore,India,01-Mar-23,ashwin-wkt-464
+Test # 2496,465,AT Carey,lbw,,3,2,v Australia,Indore,India,01-Mar-23,ashwin-wkt-465
+Test # 2496,466,NM Lyon,bowled,,5,2,v Australia,Indore,India,01-Mar-23,ashwin-wkt-466
+Test # 2496,467,UT Khawaja,caught,KS Bharat,0,4,v Australia,Indore,India,01-Mar-23,ashwin-wkt-467
+Test # 2499,468,TM Head,caught,RA Jadeja,32,1,v Australia,Ahmedabad,India,09-Mar-23,ashwin-wkt-468
+Test # 2499,469,C Green,caught,KS Bharat,114,1,v Australia,Ahmedabad,India,09-Mar-23,ashwin-wkt-469
+Test # 2499,470,AT Carey,caught,AR Patel,0,1,v Australia,Ahmedabad,India,09-Mar-23,ashwin-wkt-470
+Test # 2499,471,MA Starc,caught,SS Iyer,6,1,v Australia,Ahmedabad,India,09-Mar-23,ashwin-wkt-471
+Test # 2499,472,T Murphy,lbw,,41,1,v Australia,Ahmedabad,India,09-Mar-23,ashwin-wkt-472
+Test # 2499,473,NM Lyon,caught,V Kohli,34,1,v Australia,Ahmedabad,India,09-Mar-23,ashwin-wkt-473
+Test # 2499,474,MP Kuhnemann,lbw,,6,3,v Australia,Ahmedabad,India,09-Mar-23,ashwin-wkt-474
+Test # 2510,475,T Chanderpaul,bowled,,12,1,v West Indies,Roseau,West Indies,12-Jul-23,ashwin-wkt-475
+Test # 2510,476,KC Brathwaite,caught,RG Sharma,20,1,v West Indies,Roseau,West Indies,12-Jul-23,ashwin-wkt-476
+Test # 2510,477,AS Joseph,caught,JD Unadkat,4,1,v West Indies,Roseau,West Indies,12-Jul-23,ashwin-wkt-477
+Test # 2510,478,A Athanaze,caught,SN Thakur,47,1,v West Indies,Roseau,West Indies,12-Jul-23,ashwin-wkt-478
+Test # 2510,479,JA Warrican,caught,Shubman Gill,1,1,v West Indies,Roseau,West Indies,12-Jul-23,ashwin-wkt-479
+Test # 2510,480,KC Brathwaite,caught,AM Rahane,7,3,v West Indies,Roseau,West Indies,12-Jul-23,ashwin-wkt-480
+Test # 2510,481,J Blackwood,lbw,,5,3,v West Indies,Roseau,West Indies,12-Jul-23,ashwin-wkt-481
+Test # 2510,482,A Athanaze,caught,YBK Jaiswal,28,3,v West Indies,Roseau,West Indies,12-Jul-23,ashwin-wkt-482
+Test # 2510,483,AS Joseph,caught,Shubman Gill,13,3,v West Indies,Roseau,West Indies,12-Jul-23,ashwin-wkt-483
+Test # 2510,484,RRS Cornwall,caught,Shubman Gill,4,3,v West Indies,Roseau,West Indies,12-Jul-23,ashwin-wkt-484
+Test # 2510,485,KAJ Roach,bowled,,0,3,v West Indies,Roseau,West Indies,12-Jul-23,ashwin-wkt-485
+Test # 2510,486,JA Warrican,lbw,,18,3,v West Indies,Roseau,West Indies,12-Jul-23,ashwin-wkt-486
+Test # 2513,487,KC Brathwaite,bowled,,75,2,v West Indies,Port of Spain,West Indies,20-Jul-23,ashwin-wkt-487
+Test # 2513,488,KC Brathwaite,caught,JD Unadkat,28,4,v West Indies,Port of Spain,West Indies,20-Jul-23,ashwin-wkt-488
+Test # 2513,489,KSA McKenzie,lbw,,0,4,v West Indies,Port of Spain,West Indies,20-Jul-23,ashwin-wkt-489
+Test # 2520,490,G Coetzee,caught,Mohammed Siraj,19,2,v South Africa,Centurion,South Africa,26-Dec-23,ashwin-wkt-490
+Test # 2525,491,BM Duckett,lbw,,35,1,v England,Hyderabad,India,25-Jan-24,ashwin-wkt-491
+Test # 2525,492,Z Crawley,caught,Mohammed Siraj,20,1,v England,Hyderabad,India,25-Jan-24,ashwin-wkt-492
+Test # 2525,493,MA Wood,bowled,,11,1,v England,Hyderabad,India,25-Jan-24,ashwin-wkt-493
+Test # 2525,494,Z Crawley,caught,RG Sharma,31,3,v England,Hyderabad,India,25-Jan-24,ashwin-wkt-494
+Test # 2525,495,BA Stokes,bowled,,6,3,v England,Hyderabad,India,25-Jan-24,ashwin-wkt-495
+Test # 2525,496,TW Hartley,bowled,,34,3,v England,Hyderabad,India,25-Jan-24,ashwin-wkt-496
+Test # 2526,497,BM Duckett,caught,KS Bharat,28,4,v England,Visakhapatnam,India,02-Feb-24,ashwin-wkt-497
+Test # 2526,498,OJ Pope,caught,RG Sharma,23,4,v England,Visakhapatnam,India,02-Feb-24,ashwin-wkt-498
+Test # 2526,499,JE Root,caught,AR Patel,16,4,v England,Visakhapatnam,India,02-Feb-24,ashwin-wkt-499
+Test # 2530,500,Z Crawley,caught,RM Patidar,15,2,v England,Rajkot,India,15-Feb-24,ashwin-wkt-500
+Test # 2530,501,TW Hartley,bowled,,16,4,v England,Rajkot,India,15-Feb-24,ashwin-wkt-501
+Test # 2531,502,JM Bairstow,lbw,,38,1,v England,Ranchi,India,23-Feb-24,ashwin-wkt-502
+Test # 2531,503,BM Duckett,caught,SN Khan,15,3,v England,Ranchi,India,23-Feb-24,ashwin-wkt-503
+Test # 2531,504,OJ Pope,lbw,,0,3,v England,Ranchi,India,23-Feb-24,ashwin-wkt-504
+Test # 2531,505,JE Root,lbw,,11,3,v England,Ranchi,India,23-Feb-24,ashwin-wkt-505
+Test # 2531,506,BT Foakes,caught,R Ashwin,17,3,v England,Ranchi,India,23-Feb-24,ashwin-wkt-506
+Test # 2531,507,JM Anderson,caught,DC Jurel,0,3,v England,Ranchi,India,23-Feb-24,ashwin-wkt-507
+Test # 2534,508,TW Hartley,caught,D Padikkal,6,1,v England,Dharamsala,India,07-Mar-24,ashwin-wkt-508
+Test # 2534,509,MA Wood,caught,RG Sharma,0,1,v England,Dharamsala,India,07-Mar-24,ashwin-wkt-509
+Test # 2534,510,BT Foakes,bowled,,24,1,v England,Dharamsala,India,07-Mar-24,ashwin-wkt-510
+Test # 2534,511,JM Anderson,caught,D Padikkal,0,1,v England,Dharamsala,India,07-Mar-24,ashwin-wkt-511
+Test # 2534,512,BM Duckett,bowled,,2,3,v England,Dharamsala,India,07-Mar-24,ashwin-wkt-512
+Test # 2534,513,Z Crawley,caught,SN Khan,0,3,v England,Dharamsala,India,07-Mar-24,ashwin-wkt-513
+Test # 2534,514,OJ Pope,caught,YBK Jaiswal,19,3,v England,Dharamsala,India,07-Mar-24,ashwin-wkt-514
+Test # 2534,515,BA Stokes,bowled,,2,3,v England,Dharamsala,India,07-Mar-24,ashwin-wkt-515
+Test # 2534,516,BT Foakes,bowled,,8,3,v England,Dharamsala,India,07-Mar-24,ashwin-wkt-516

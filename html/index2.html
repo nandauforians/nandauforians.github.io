@@ -1,0 +1,76 @@
+<html>
+
+<body>
+
+    <select id="opponentDropdown" onchange="filterByOpponent()">
+    </select>
+
+    <select id="venueDropdown">
+        <!-- Dropdown options will be populated here -->
+    </select>
+
+    <select id="countryDropdown">
+        <!-- Dropdown options will be populated here -->
+    </select>
+
+
+
+    <div id="filteredData"></div>
+
+
+<script>
+
+function
+displayFilteredData(data) {
+
+var
+    output =
+        '<table><tr><th>Wicket#</th><th>Batsman</th><th>Dismissal Mode</th><th>Fielder</th><th>Innings</th><th>Match</th><th>Opponent</th><th>Country</th><th>Venue</th><th> Video</th></tr>';
+
+data.forEach(function (row) {
+    output += '<tr>';
+
+    output += '<td>' + row['Wicket#'] + '</td>';
+
+    output += '<td>' + row['Batter'] + '</td>';
+
+    output += '<td>' + row['dismissal mode'] + '</td>';
+
+    output += '<td>' + row['Fielder'] + '</td>';
+
+    output += '<td>' + row['innings'] + '</td>';
+
+    output += '<td>' + row['match'] + '</td>';
+
+    output += '<td>' + row['opponent'] + '</td>';
+
+    output += '<td>' + row['country'] + '</td>';
+
+    output += '<td>' + row['venue'] + '</td>';
+
+    output += '<td>' +
+        ' <video width="320" height="240" controls>' +
+        '<source src="./wkt-videos/' +
+        row['video']
+        + '.mp4' +
+        '" type="video/mp4"></video></td>';
+
+    output +=
+        '</tr>';
+
+});
+
+output +=
+    '</table>';
+
+document.getElementById('filteredData').innerHTML
+    = output;
+
+}
+
+</script>
+
+
+</body>
+
+</html>
