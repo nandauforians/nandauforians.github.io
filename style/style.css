@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-image: url('../images/ashwin-header-3.jpg'); /* Replace with your header background image */
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    height: 175px;
+}
+
+#videoContainer {
+    width: 100%;
+    max-width: 700px;
+    min-height: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+#detailsContainer {
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+    font-weight: bolder;
+}
+
+#descriptionContainer {
+    text-align: left;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+#searchContainer {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#searchContainer input, #searchContainer select {
+    margin: 10px;
+    padding: 5px;
+}
+
+#resultsContainer {
+    width: 100%;
+    height: 750px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+footer {
+    background-color: #2644a5;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

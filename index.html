@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cricket Video Player and Search</title>
+<link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+
+<header>
+ 
+</header>
+
+<div id="searchContainer">
+    <input type="text" id="wicketSearch" placeholder="Search by Wicket#" oninput="handleWicketSearch(this)" onkeypress="handleKeyPress(event)">
+    <input type="text" id="batsmanNameInput" list="batsmanNames" placeholder="Enter the batsman name">
+    <datalist id="batsmanNames">
+        <!-- Batsman names will be populated dynamically -->
+    </datalist>
+    <select id="opponentFilter" onchange="handleOpponentChange(this.value)">
+      <option value="All">All Opponents</option>
+    </select>
+    <select id="countryFilter" onchange="handleCountryChange(this.value)">
+      <option value="All">All Countries</option>
+    </select>
+    <select id="venueFilter" onchange="handleVenueChange(this.value)">
+      <option value="All">All Venues</option>
+    </select>
+    <select id="dismissalModeFilter" onchange="handleDismissalModeChange(this.value)">
+      <option value="All">All Dismissal Modes</option>
+    </select>
+    <button id="resetButton" onclick="resetDropdowns()">Reset</button>
+  </div>
+
+  <table align="center">
+    
+    <tr align="center">
+        <td><div id="detailsContainer"></div></td>  
+    </tr>
+    <tr align="center">
+        <td><div id="descriptionContainer"></div></td>  
+    </tr>
+    <tr>
+        <td><div id="videoContainer"></div></td>
+    </tr>
+  </table>
+
+<div id="resultsContainer"></div>
+<!--footer height="10px">
+  <p>© 2024 <Uforians class="com">Uforians</Uforians>. All rights reserved.</p>
+</footer-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+<script src="./script/script.js"></script>
+</body>
+</html>
