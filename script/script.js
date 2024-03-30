@@ -1,8 +1,10 @@
-
 // global variable to store search data
 searchData = [];
 var batsmanNameInput = document.getElementById('batsmanNameInput');
 var batsmanNamesList = document.getElementById('batsmanNames');
+
+var fielderNameInput = document.getElementById('fielderNameInput');
+var fielderNamesList = document.getElementById('fielderNames');
 
 // Function to populate dropdowns with distinct values
 function populateDropdowns(data) {
@@ -34,6 +36,17 @@ function populateDropdowns(data) {
     });
 }
 
+
+
+
+// Event listener for input change in batsman name input
+batsmanNameInput.addEventListener('input', function () {
+    var inputText = this.value;
+    console.log('Input text ---- ' + inputText);
+    handleBatsmenSearch(inputText);
+});
+
+// dropdown to populate the batsmen names as the user enters few letters of the name
 function populateBatsmanDropdown(data) {
     console.log('Populating data ....');
     var batsmanNameList = document.getElementById('batsmanNames');
@@ -45,12 +58,42 @@ function populateBatsmanDropdown(data) {
     });
 }
 
-// Event listener for input change in batsman name input
-batsmanNameInput.addEventListener('input', function () {
+
+// Event listener for input change in fielder name input
+
+fielderNameInput.addEventListener('input', function() {
     var inputText = this.value;
     console.log('Input text ---- ' + inputText);
-    handleBatsmenSearch(inputText);
+    handleFielderNameSearch(inputText);
 });
+
+// dropdown to populate the batsmen names as the user enters few letters of the name
+function populateFielderDropdown(data) {
+    console.log('Populating Fielder data ....');
+    var fielderNameList = document.getElementById('fielderNames');
+    var fielderNames = [...new Set(data.map(item => item.Fielder))];
+    console.log(fielderNames.length);
+
+    fielderNames.forEach(item => {
+        fielderNameList.innerHTML += `<option value="${item}">${item}</option>`
+    });
+}
+
+// Function to return the list of wickets by fielder names
+function handleFielderNameSearch(fielderName) {
+    
+    console.log('Fielder Name ---  ' + fielderName);
+    if (fielderName !== '') {
+        // Perform search by Wicket#
+        var filteredData = searchData.filter(item => item.Fielder === fielderName);
+        playVideos(filteredData);
+        //renderResults(filteredData);
+        document.getElementById('fielderNameInput').innerHTML='';
+    } else {
+        // Clear results if input is empty
+       // document.getElementById('resultsContainer').innerHTML = '';
+    }
+}
 
 // Function to filter data based on dropdown selections
 function filterData(data) {
@@ -69,35 +112,6 @@ function filterData(data) {
     return filteredData;
 }
 
-// Function to render search results
-function renderResults(data) {
-    var resultsContainer = document.getElementById('resultsContainer');
-    var innerHTML = '';
-    resultsContainer.innerHTML = ''; // Clear previous results
-
-    innerHTML = innerHTML + '<table> <th>Test #</th><th> Wicket#</th> <th> Batsman </th> <th> Dismissal Mode</th> <th> Fielder</th>' +
-        '<th> Opponent</th> <th> Country</th> <th> Venue</th> <th> Match Date</th> </tr>';
-
-    data.forEach(item => {
-        innerHTML += `<tr>
-                                          <td>${item.TestMatchNumber}</td>
-                                          <td> ${item.Wicket}</td>
-                                          <td> ${item.Batter}</td>
-                                          <td> ${item.dismissalMode}</td>
-                                          <td> ${item.Fielder}</td>
-                                          <td> ${item.opponent}</td>
-                                          <td> ${item.country}</td>
-                                          <td> ${item.venue}</td>
-                                          <td> ${item.matchDate}</td>
-                                        </tr>`;
-
-    });
-
-    innerHTML = innerHTML + '</table>';
-
-    resultsContainer.innerHTML = innerHTML;
-}
-
 // Function to handle Wicket# search
 function handleWicketSearch(input) {
     var wicketNumber = input.value.trim();
@@ -107,13 +121,36 @@ function handleWicketSearch(input) {
         var filteredData = searchData.filter(item => item.Wicket === wicketNumber);
         console.log(filteredData);
         playVideos(filteredData);
-        renderResults(filteredData);
+        //renderResults(filteredData);
         document.getElementById('wicketSearch').innerHTML='';
     } else {
         // Clear results if input is empty
         document.getElementById('resultsContainer').innerHTML = '';
     }
 }
+
+// Function to handle Wicket# search
+function handleTestMatchSearch(input) {
+    var TestMatchNumber = input.value;
+    console.log('test match number ---  ' + TestMatchNumber);
+    if (TestMatchNumber !== '') {
+        // Perform search by Wicket#
+        var filteredData = searchData.filter(item => item.TestMatchNumber === TestMatchNumber);
+        //console.log(filteredData);
+        playVideos(filteredData);
+        //renderResults(filteredData);
+
+        if (filteredData.length == 0) {
+            alert('No wickets in the given test match');
+        }
+
+        document.getElementById('testSearch').innerHTML='';
+    } else {
+        // Clear results if input is empty
+        document.getElementById('resultsContainer').innerHTML = '';
+    }
+}
+
 
 // Function to handle Batsman search
 function handleBatsmenSearch(batsmanName) {
@@ -123,11 +160,11 @@ function handleBatsmenSearch(batsmanName) {
         // Perform search by Wicket#
         var filteredData = searchData.filter(item => item.Batter === batsmanName);
         playVideos(filteredData);
-        renderResults(filteredData);
+        //renderResults(filteredData);
         document.getElementById('batsmanNameInput').innerHTML='';
     } else {
         // Clear results if input is empty
-        document.getElementById('resultsContainer').innerHTML = '';
+       // document.getElementById('resultsContainer').innerHTML = '';
     }
 }
 
@@ -147,6 +184,8 @@ function playVideos(filteredData) {
     var detailsContainer = document.getElementById('detailsContainer');
     var currentVideoIndex = 0;
     var videos = [];
+    var videoLength = filteredData.length;
+    var videoCount = 1;
 
     // Populate the videos array with the URLs of videos from filtered data
     filteredData.forEach(item => {
@@ -158,9 +197,12 @@ function playVideos(filteredData) {
                 `${item.Batter}` +
                 `  ${item.dismissalMode} ` +
                 `  ${item.Fielder} ` + ashwintext +
-                `  at ${item.venue}` + ' on ' + `${item.matchDate}`, description : `${item.description}`
+                `  at ${item.venue}` + ' on ' + `${item.matchDate} ` + '(' 
+                + videoCount + "/ " + videoLength + ') ' , 
+                description : `${item.description}`
         }); 
 
+        videoCount++;
          /*videos.push({
             url: '../videos/' +item.video + '.mp4', details:  '' +item.description  
         }); */ 
@@ -196,6 +238,7 @@ function playVideos(filteredData) {
 
 // Function to load data from CSV file
 function loadData() {
+    console.log("Loading data ......");
     Papa.parse('../data/data.csv', {
         download: true,
         header: true,
@@ -204,6 +247,7 @@ function loadData() {
             // Pass data to other functions
             populateDropdowns(results.data);
             populateBatsmanDropdown(results.data);
+            populateFielderDropdown(results.data);
             //renderResults(results.data);
         },
         error: function (error) {
@@ -251,7 +295,7 @@ function populateOpponentDropdown(data, selectedOpponent) {
     });
     document.getElementById('wicketSearch').textContent = '';
     playVideos(data);
-    renderResults(data);
+    //renderResults(data);
 }
 
 // Function to populate country dropdown options
@@ -265,7 +309,7 @@ function populateCountryDropdown(data, selectedCountry) {
     });
     document.getElementById('wicketSearch').textContent = '';
     playVideos(data);
-    renderResults(data);
+    //renderResults(data);
 }
 
 // Function to populate venue dropdown options
@@ -279,7 +323,7 @@ function populateVenueDropdown(data, selectedVenue) {
     });
     document.getElementById('wicketSearch').innerHTML = '-';
     playVideos(data);
-    renderResults(data);
+    //renderResults(data);
 }
 
 // Function to populate dismissal mode dropdown options
@@ -293,7 +337,7 @@ function populateDismissalModeDropdown(data, selectedDismissalMode) {
     });
     document.getElementById('wicketSearch').textContent = '';
     playVideos(data);
-    renderResults(data);
+    //renderResults(data);
 }
 
 // Function to handle change in opponent dropdown
@@ -335,12 +379,45 @@ function resetDropdowns() {
     document.getElementById('dismissalModeFilter').value = selectedDismissalMode;
     document.getElementById('batsmanNameInput').value = '';
     document.getElementById('wicketSearch').value = '';
+    document.getElementById('testSearch').value = '';
+    document.getElementById('fielderNameInput').value = '';
 
     videoContainer.innerHTML = ''; // Clear previous video
     detailsContainer.innerHTML = '';
-    resultsContainer.innerHTML = '';
+    //resultsContainer.innerHTML = '';
     descriptionContainer.innerHTML = ''; 
 
     // Call updateDropdownOptions to update other dropdowns based on reset values
     //updateDropdownOptions(selectedOpponent, selectedCountry, selectedVenue, selectedDismissalMode);
 }
+
+// Function to render search results
+function renderResults(data) {
+    var resultsContainer = document.getElementById('resultsContainer');
+    var innerHTML = '';
+    resultsContainer.innerHTML = ''; // Clear previous results
+
+    innerHTML = innerHTML + '<table> <th>Test #</th><th> Wicket#</th> <th> Batsman </th> <th> Dismissal Mode</th> <th> Fielder</th>' +
+        '<th> Opponent</th> <th> Country</th> <th> Venue</th> <th> Match Date</th> </tr>';
+
+    data.forEach(item => {
+        innerHTML += `<tr>
+                                          <td>${item.TestMatchNumber}</td>
+                                          <td> ${item.Wicket}</td>
+                                          <td> ${item.Batter}</td>
+                                          <td> ${item.dismissalMode}</td>
+                                          <td> ${item.Fielder}</td>
+                                          <td> ${item.opponent}</td>
+                                          <td> ${item.country}</td>
+                                          <td> ${item.venue}</td>
+                                          <td> ${item.matchDate}</td>
+                                        </tr>`;
+
+    });
+
+    innerHTML = innerHTML + '</table>';
+
+    resultsContainer.innerHTML = innerHTML;
+}
+
+
