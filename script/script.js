@@ -380,7 +380,7 @@ function resetDropdowns() {
     document.getElementById('batsmanNameInput').value = '';
     document.getElementById('wicketSearch').value = '';
     document.getElementById('testSearch').value = '';
-    document.getElementById('fielderNameInput').value = '';
+    document.getElementById('fielderNameInput').value = ''; 
 
     videoContainer.innerHTML = ''; // Clear previous video
     detailsContainer.innerHTML = '';
