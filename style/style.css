@@ -73,3 +73,72 @@ footer {
   .large-input {
     width: 150px;
   }
+
+
+ /* SECTION BELOW CONTAINS THE STYLES FOR THE IMAGE SLIDE SHOWS */
+
+   /* CSS for slideshow container */
+   .slideshow-container {
+    max-width: 1200px;
+    position: relative;
+    margin: auto;
+}
+
+/* CSS for images */
+.mySlides {
+    display: none;
+}
+
+/* CSS for caption text */
+.text {
+    color: #0c0b0bd0;
+    font-size: 25px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* CSS for navigation buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease-in;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "prev" button */
+.prev {
+    left: 0;
+}
+
+/* Position the "next" button */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Javascript for slideshow functionality */
+.fade {
+    animation-name: fade;
+    animation-duration: 5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
