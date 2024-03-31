@@ -11,7 +11,7 @@ header {
     color: white;
     text-align: center;
     padding: 20px 0;
-    height: 185px;
+    height: 150px;
 }
 
 #videoContainer {
@@ -79,7 +79,8 @@ footer {
 
    /* CSS for slideshow container */
    .slideshow-container {
-    max-width: 1200px;
+    max-width: 1000px;
+    max-height: fit-content;
     position: relative;
     margin: auto;
 }
@@ -91,8 +92,8 @@ footer {
 
 /* CSS for caption text */
 .text {
-    color: #0c0b0bd0;
-    font-size: 25px;
+    color: #f2f2f2;
+    font-size: 15px;
     padding: 8px 12px;
     position: absolute;
     bottom: 8px;
@@ -111,7 +112,7 @@ footer {
     color: white;
     font-weight: bold;
     font-size: 20px;
-    transition: 0.6s ease-in;
+    transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
 }
@@ -135,7 +136,7 @@ footer {
 /* Javascript for slideshow functionality */
 .fade {
     animation-name: fade;
-    animation-duration: 5s;
+    animation-duration: 1.5s;
 }
 
 @keyframes fade {
