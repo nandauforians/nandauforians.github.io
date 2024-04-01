@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Uforian Video Search - R.Ashwin</title>
   <link rel="stylesheet" href="./style/style.css">
+  <link rel="stylesheet" href="./style/styles.css">
 </head>
 
 <body>
@@ -46,15 +47,15 @@
     <table align="center">
         <tr>
           <td>
-          <input type="text" id="wicketSearch" placeholder="Search by Wicket#" oninput="handleWicketSearch(this)"
+          <input type="text" class="text-field" id="wicketSearch" placeholder="Search by Wicket#" oninput="handleWicketSearch(this)"
           onkeypress="handleKeyPress(event)">
         <input type="number" id="testSearch" placeholder="Search by Test#" class="large-input" min="1" max="100" oninput="handleTestMatchSearch(this)"
           onkeypress="handleKeyPress(event)">  
-        <input type="text" id="batsmanNameInput" list="batsmanNames" placeholder="Enter the batsman name">
+        <input type="text" class="text-field" id="batsmanNameInput" list="batsmanNames" placeholder="Enter the batsman name">
         <datalist id="batsmanNames">
           <!-- Batsman names will be populated dynamically -->
         </datalist>
-        <input type="text" id="fielderNameInput" list="fielderNames" placeholder="Enter the Fielder name">
+        <input type="text" class="text-field" id="fielderNameInput" list="fielderNames" placeholder="Enter the Fielder name">
         <datalist id="fielderNames">
           <!-- Fielder names will be populated dynamically -->
         </datalist>
@@ -62,20 +63,30 @@
         </tr>
         <tr>
           <td>
-          <select id="opponentFilter" onchange="handleOpponentChange(this.value)">
+          <select class="dropdown" id="opponentFilter" onchange="handleOpponentChange(this.value)">
             <option value="All">All Opponents</option>
           </select>
-          <select id="countryFilter" onchange="handleCountryChange(this.value)">
+          <select class="dropdown" id="countryFilter" onchange="handleCountryChange(this.value)">
             <option value="All">All Countries</option>
           </select>
-          <select id="venueFilter" onchange="handleVenueChange(this.value)">
+          <select class="dropdown" id="venueFilter" onchange="handleVenueChange(this.value)">
             <option value="All">All Venues</option>
           </select>
-          <select id="dismissalModeFilter" onchange="handleDismissalModeChange(this.value)">
+          <select class="dropdown" id="dismissalModeFilter" onchange="handleDismissalModeChange(this.value)">
             <option value="All">All Dismissal Modes</option>
           </select>
-          <button id="resetButton" onclick="resetDropdowns()">Reset</button>
         </td>
+        </tr>
+        <tr>
+          <td>
+            <div id="fieldingPosition" style="display: none;">
+              <select class="dropdown" id="fieldingPositionFilter" onchange="handleFieldingPositionChange(this.value)">
+                <option value="All">All Fielding Positions</option>
+              </select>
+            </div>
+            <button class="styled-button" onclick="resetDropdowns()"> Reset</button>
+            <button class="styled-button" onclick="filterMilestoneWickets()"> Milestone Wickets</button>
+          </td>
         </tr>
     </table> 
   </div>

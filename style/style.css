@@ -71,8 +71,33 @@ footer {
 }
 
   .large-input {
-    width: 150px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
   }
+
+  .styled-button {
+    background-color: #3a8ec2; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: solid;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .styled-button:hover {
+    background-color: hsl(0, 17%, 95%);
+    color: #2644a5;
+  }
+  
 
 
  /* SECTION BELOW CONTAINS THE STYLES FOR THE IMAGE SLIDE SHOWS */

@@ -12,15 +12,24 @@ function populateDropdowns(data) {
     var countryFilter = document.getElementById('countryFilter');
     var venueFilter = document.getElementById('venueFilter');
     var dismissalModeFilter = document.getElementById('dismissalModeFilter');
+    var fieldingPositionFilter = document.getElementById('fieldingPositionFilter');
 
     var opponents = [...new Set(data.map(item => item.opponent))];
     var countries = [...new Set(data.map(item => item.country))];
     var venues = [...new Set(data.map(item => item.venue))];
     var dismissalModes = [...new Set(data.map(item => item.dismissalMode))];
+    var fieldingPositions = [...new Set(data.map(item => item.fieldingPosition))];
+
     //var batsmanNames = [...new Set(data.map(item => item.Batter))];
 
+    opponents = opponents.filter(item => item != undefined);
+    countries = countries.filter(item => item != undefined);
+    venues = venues.filter(item => item != undefined);
+    dismissalModes = dismissalModes.filter(item => item != undefined);
+    fieldingPositions = fieldingPositions.filter(item => item != undefined);
+
     opponents.forEach(opponent => {
-         opponentFilter.innerHTML += `<option value="${opponent}">${opponent}</option>`;
+        opponentFilter.innerHTML += `<option value="${opponent}">${opponent}</option>`;
     });
 
     countries.forEach(country => {
@@ -34,6 +43,11 @@ function populateDropdowns(data) {
     dismissalModes.forEach(mode => {
         dismissalModeFilter.innerHTML += `<option value="${mode}">${mode}</option>`;
     });
+
+    fieldingPositions.forEach(mode => {
+        fieldingPositionFilter.innerHTML += `<option value="${fieldingPosition}">${fieldingPosition}</option>`;
+    });
+
 }
 
 
@@ -61,7 +75,7 @@ function populateBatsmanDropdown(data) {
 
 // Event listener for input change in fielder name input
 
-fielderNameInput.addEventListener('input', function() {
+fielderNameInput.addEventListener('input', function () {
     var inputText = this.value;
     console.log('Input text ---- ' + inputText);
     handleFielderNameSearch(inputText);
@@ -81,17 +95,17 @@ function populateFielderDropdown(data) {
 
 // Function to return the list of wickets by fielder names
 function handleFielderNameSearch(fielderName) {
-    
+
     console.log('Fielder Name ---  ' + fielderName);
     if (fielderName !== '') {
         // Perform search by Wicket#
         var filteredData = searchData.filter(item => item.Fielder === fielderName);
         playVideos(filteredData);
         //renderResults(filteredData);
-        document.getElementById('fielderNameInput').innerHTML='';
+        document.getElementById('fielderNameInput').innerHTML = '';
     } else {
         // Clear results if input is empty
-       // document.getElementById('resultsContainer').innerHTML = '';
+        // document.getElementById('resultsContainer').innerHTML = '';
     }
 }
 
@@ -101,12 +115,16 @@ function filterData(data) {
     var countryFilterValue = document.getElementById('countryFilter').value;
     var venueFilterValue = document.getElementById('venueFilter').value;
     var dismissalModeFilterValue = document.getElementById('dismissalModeFilter').value;
+    var fieldingPositionFilterValue = document.getElementById('fieldingPositionFilter').value;
+
+    console.log("Fielding Position Filter value ---- " + fieldingPositionFilterValue);
 
     var filteredData = data.filter(item => {
         return (opponentFilterValue === 'All' || item.opponent === opponentFilterValue) &&
             (countryFilterValue === 'All' || item.country === countryFilterValue) &&
             (venueFilterValue === 'All' || item.venue === venueFilterValue) &&
-            (dismissalModeFilterValue === 'All' || item.dismissalMode === dismissalModeFilterValue);
+            (dismissalModeFilterValue === 'All' || item.dismissalMode === dismissalModeFilterValue) && 
+            (fieldingPositionFilterValue === 'All') || item.fieldingPosition === fieldingPositionFilterValue;
     });
 
     return filteredData;
@@ -122,7 +140,7 @@ function handleWicketSearch(input) {
         console.log(filteredData);
         playVideos(filteredData);
         //renderResults(filteredData);
-        document.getElementById('wicketSearch').innerHTML='';
+        document.getElementById('wicketSearch').innerHTML = '';
     } else {
         // Clear results if input is empty
         document.getElementById('resultsContainer').innerHTML = '';
@@ -144,7 +162,7 @@ function handleTestMatchSearch(input) {
             alert('No wickets in the given test match');
         }
 
-        document.getElementById('testSearch').innerHTML='';
+        document.getElementById('testSearch').innerHTML = '';
     } else {
         // Clear results if input is empty
         document.getElementById('resultsContainer').innerHTML = '';
@@ -154,17 +172,17 @@ function handleTestMatchSearch(input) {
 
 // Function to handle Batsman search
 function handleBatsmenSearch(batsmanName) {
-    
+
     console.log('Batsman Name ---  ' + batsmanName);
     if (batsmanName !== '') {
         // Perform search by Wicket#
         var filteredData = searchData.filter(item => item.Batter === batsmanName);
         playVideos(filteredData);
         //renderResults(filteredData);
-        document.getElementById('batsmanNameInput').innerHTML='';
+        document.getElementById('batsmanNameInput').innerHTML = '';
     } else {
         // Clear results if input is empty
-       // document.getElementById('resultsContainer').innerHTML = '';
+        // document.getElementById('resultsContainer').innerHTML = '';
     }
 }
 
@@ -177,6 +195,17 @@ function handleKeyPress(event) {
         document.getElementById('batsmanNameInput').innerHTML = '';
     }
 }
+
+// Function to filter only the milestone wickets
+function filterMilestoneWickets() {
+    console.log("Displaying only the milestone wickets");
+    var filteredData = searchData.filter(item => item.Milestone == 'Yes');
+
+    playVideos(filteredData);
+
+}
+
+
 
 // Function to play videos in succession
 function playVideos(filteredData) {
@@ -193,19 +222,19 @@ function playVideos(filteredData) {
         var ashwintext = item.dismissalMode === 'bowled' ? 'Ashwin' : ' b Ashwin';
 
         videos.push({
-            url: '../videos/' +item.video + '.mp4', details: `${item.Wicket}. ` +
+            url: '../videos/' + item.video + '.mp4', details: `${item.Wicket}. ` +
                 `${item.Batter}` +
                 `  ${item.dismissalMode} ` +
                 `  ${item.Fielder} ` + ashwintext +
-                `  at ${item.venue}` + ' on ' + `${item.matchDate} ` + '(' 
-                + videoCount + "/ " + videoLength + ') ' , 
-                description : `${item.description}`
-        }); 
+                `  at ${item.venue}` + ' on ' + `${item.matchDate} ` + '('
+                + videoCount + "/ " + videoLength + ') ',
+            description: `${item.description}`
+        });
 
         videoCount++;
-         /*videos.push({
-            url: '../videos/' +item.video + '.mp4', details:  '' +item.description  
-        }); */ 
+        /*videos.push({
+           url: '../videos/' +item.video + '.mp4', details:  '' +item.description  
+       }); */
     });
 
     function playNextVideo() {
@@ -260,7 +289,7 @@ function loadData() {
 loadData();
 
 // Function to update dropdown options based on selected value
-function updateDropdownOptions(selectedOpponent, selectedCountry, selectedVenue, selectedDismissalMode) {
+function updateDropdownOptions(selectedOpponent, selectedCountry, selectedVenue, selectedDismissalMode,selectedFieldingPosition) {
     var filteredData = searchData;
 
     // Filter data based on selected values
@@ -277,11 +306,16 @@ function updateDropdownOptions(selectedOpponent, selectedCountry, selectedVenue,
         filteredData = filteredData.filter(item => item.dismissalMode === selectedDismissalMode);
     }
 
+    if (selectedFieldingPosition !== 'All') {
+        filteredData = filteredData.filter(item => item.fieldingPosition === selectedFieldingPosition);
+    }  
+
     // Update dropdown options
-    populateOpponentDropdown(filteredData,selectedOpponent);
+    populateOpponentDropdown(filteredData, selectedOpponent);
     populateCountryDropdown(filteredData, selectedCountry);
     populateVenueDropdown(filteredData, selectedVenue);
     populateDismissalModeDropdown(filteredData, selectedDismissalMode);
+    populateFieldingPositionDropdown(filteredData, selectedFieldingPosition);
 }
 
 // Function to populate opponent dropdown options
@@ -289,6 +323,7 @@ function populateOpponentDropdown(data, selectedOpponent) {
     var opponentDropdown = document.getElementById('opponentFilter');
     opponentDropdown.innerHTML = '<option value="All">All Opponents</option>';
     var opponents = [...new Set(data.map(item => item.opponent))];
+    opponents = opponents.filter(item => item != undefined);
     opponents.forEach(opponent => {
         var isSelected = (opponent === selectedOpponent) ? 'selected' : '';
         opponentDropdown.innerHTML += `<option value="${opponent}" ${isSelected}>${opponent}</option>`;
@@ -303,6 +338,7 @@ function populateCountryDropdown(data, selectedCountry) {
     var countryDropdown = document.getElementById('countryFilter');
     countryDropdown.innerHTML = '<option value="All">All Countries</option>';
     var countries = [...new Set(data.map(item => item.country))];
+    countries = countries.filter(item => item != undefined);
     countries.forEach(country => {
         var isSelected = (country === selectedCountry) ? 'selected' : '';
         countryDropdown.innerHTML += `<option value="${country}" ${isSelected}>${country}</option>`;
@@ -317,6 +353,7 @@ function populateVenueDropdown(data, selectedVenue) {
     var venueDropdown = document.getElementById('venueFilter');
     venueDropdown.innerHTML = '<option value="All">All Venues</option>';
     var venues = [...new Set(data.map(item => item.venue))];
+    venues = venues.filter(item => item != undefined);
     venues.forEach(venue => {
         var isSelected = (venue === selectedVenue) ? 'selected' : '';
         venueDropdown.innerHTML += `<option value="${venue}" ${isSelected}>${venue}</option>`;
@@ -331,10 +368,40 @@ function populateDismissalModeDropdown(data, selectedDismissalMode) {
     var dismissalModeDropdown = document.getElementById('dismissalModeFilter');
     dismissalModeDropdown.innerHTML = '<option value="All">All Dismissal Modes</option>';
     var dismissalModes = [...new Set(data.map(item => item.dismissalMode))];
+    dismissalModes = dismissalModes.filter(item => item != undefined);
     dismissalModes.forEach(dismissalMode => {
         var isSelected = (dismissalMode === selectedDismissalMode) ? 'selected' : '';
         dismissalModeDropdown.innerHTML += `<option value="${dismissalMode}" ${isSelected}>${dismissalMode}</option>`;
     });
+    document.getElementById('wicketSearch').textContent = '';
+
+
+    // Check if the selected value is "caught"
+    if (dismissalModeDropdown.value == "caught") {
+        // If yes, show the FieldingPositionDropdown
+        fieldingPosition.style.display = "block";
+        console.log(' Displaying the Fielding Position Dropdown');
+    } else {
+        // If not, hide the FieldingPositionDropdown
+        fieldingPosition.style.display = "none";
+    }
+
+    playVideos(data);
+    //renderResults(data);
+}
+
+// Function to populate dismissal mode dropdown options
+function populateFieldingPositionDropdown(data, selectedFieldingPosition) {
+    var fieldingPositionDropdown = document.getElementById('fieldingPositionFilter');
+    fieldingPositionDropdown.innerHTML = '<option value="All">All Dismissal Modes</option>';
+    var fieldingPositions = [...new Set(data.map(item => item.fieldingPosition))];
+    fieldingPositions = fieldingPositions.filter(item => item != undefined);
+
+    fieldingPositions.forEach(fieldingPosition => {
+        var isSelected = (fieldingPosition === selectedFieldingPosition) ? 'selected' : '';
+        fieldingPositionDropdown.innerHTML += `<option value="${fieldingPosition}" ${isSelected}>${fieldingPosition}</option>`;
+    });
+
     document.getElementById('wicketSearch').textContent = '';
     playVideos(data);
     //renderResults(data);
@@ -342,23 +409,56 @@ function populateDismissalModeDropdown(data, selectedDismissalMode) {
 
 // Function to handle change in opponent dropdown
 function handleOpponentChange(selectedOpponent) {
-    updateDropdownOptions(selectedOpponent, document.getElementById('countryFilter').value, document.getElementById('venueFilter').value, document.getElementById('dismissalModeFilter').value);
+    updateDropdownOptions(selectedOpponent, 
+        document.getElementById('countryFilter').value, 
+        document.getElementById('venueFilter').value, 
+        document.getElementById('dismissalModeFilter').value,
+        document.getElementById('fieldingPositionFilter').value);
 }
 
 // Function to handle change in country dropdown
 function handleCountryChange(selectedCountry) {
-    updateDropdownOptions(document.getElementById('opponentFilter').value, selectedCountry, document.getElementById('venueFilter').value, document.getElementById('dismissalModeFilter').value);
+    updateDropdownOptions(document.getElementById('opponentFilter').value, 
+    selectedCountry, 
+    document.getElementById('venueFilter').value, 
+    document.getElementById('dismissalModeFilter').value,
+    document.getElementById('fieldingPositionFilter').value);
 }
 
 // Function to handle change in venue dropdown
 function handleVenueChange(selectedVenue) {
-    updateDropdownOptions(document.getElementById('opponentFilter').value, document.getElementById('countryFilter').value, selectedVenue, document.getElementById('dismissalModeFilter').value);
+    updateDropdownOptions(document.getElementById('opponentFilter').value, 
+    document.getElementById('countryFilter').value, 
+    selectedVenue, 
+    document.getElementById('dismissalModeFilter').value,
+    document.getElementById('fieldingPositionFilter').value
+    );
 }
 
 // Function to handle change in dismissal mode dropdown
 function handleDismissalModeChange(selectedDismissalMode) {
-    updateDropdownOptions(document.getElementById('opponentFilter').value, document.getElementById('countryFilter').value, document.getElementById('venueFilter').value, selectedDismissalMode);
+    updateDropdownOptions(document.getElementById('opponentFilter').value, 
+    document.getElementById('countryFilter').value, 
+    document.getElementById('venueFilter').value, 
+    selectedDismissalMode,
+    document.getElementById('fieldingPositionFilter').value);
 }
+
+// Function to handle change in dismissal mode dropdown
+function handleFieldingPositionChange(selectedFieldingPosition) {
+console.log('Selected Fielding Position ---> ' + selectedFieldingPosition);
+console.log('Selected Opponent --- ' + document.getElementById('opponentFilter').value);
+console.log('Selected Country --- ' + document.getElementById('countryFilter').value);
+console.log('Selected Venue --- ' + document.getElementById('venueFilter').value);
+console.log('Selected Dismissal Mode --- ' + document.getElementById('dismissalModeFilter').value);
+
+    updateDropdownOptions(document.getElementById('opponentFilter').value, 
+    document.getElementById('countryFilter').value, 
+    document.getElementById('venueFilter').value,
+    document.getElementById('dismissalModeFilter').value, 
+    selectedFieldingPosition);
+}
+
 
 // Function to reset all dropdowns to their initial state
 function resetDropdowns() {
@@ -366,26 +466,30 @@ function resetDropdowns() {
     var selectedCountry = 'All';
     var selectedVenue = 'All';
     var selectedDismissalMode = 'All';
+    var selectedFieldingPosition = 'All';
+
 
     populateOpponentDropdown(searchData, selectedOpponent);
     populateCountryDropdown(searchData, selectedCountry);
     populateVenueDropdown(searchData, selectedVenue);
     populateDismissalModeDropdown(searchData, selectedDismissalMode);
+    populateFieldingPositionDropdown(searchData, selectedFieldingPosition);
 
     // Reset search criteria
     document.getElementById('opponentFilter').value = selectedOpponent;
     document.getElementById('countryFilter').value = selectedCountry;
     document.getElementById('venueFilter').value = selectedVenue;
     document.getElementById('dismissalModeFilter').value = selectedDismissalMode;
+    document.getElementById('fieldingPositionFilter').value = selectedFieldingPosition;
     document.getElementById('batsmanNameInput').value = '';
     document.getElementById('wicketSearch').value = '';
     document.getElementById('testSearch').value = '';
-    document.getElementById('fielderNameInput').value = ''; 
+    document.getElementById('fielderNameInput').value = '';
 
     videoContainer.innerHTML = ''; // Clear previous video
     detailsContainer.innerHTML = '';
     //resultsContainer.innerHTML = '';
-    descriptionContainer.innerHTML = ''; 
+    descriptionContainer.innerHTML = '';
 
     // Call updateDropdownOptions to update other dropdowns based on reset values
     //updateDropdownOptions(selectedOpponent, selectedCountry, selectedVenue, selectedDismissalMode);
@@ -419,5 +523,3 @@ function renderResults(data) {
 
     resultsContainer.innerHTML = innerHTML;
 }
-
-
