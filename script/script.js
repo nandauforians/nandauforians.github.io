@@ -1,10 +1,23 @@
 // global variable to store search data
 searchData = [];
+const delayBeforePlay = 500;
+
 var batsmanNameInput = document.getElementById('batsmanNameInput');
 var batsmanNamesList = document.getElementById('batsmanNames');
 
 var fielderNameInput = document.getElementById('fielderNameInput');
 var fielderNamesList = document.getElementById('fielderNames');
+
+// Function to scroll to the video container
+function scrollToVideoContainer() {
+    const videoContainer = document.getElementById('videoContainer');
+    //alert(videoContainer);
+    if (videoContainer) {
+        console.log('Scrolling into view ....');
+        videoContainer.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
 
 // Function to populate dropdowns with distinct values
 function populateDropdowns(data) {
@@ -100,7 +113,10 @@ function handleFielderNameSearch(fielderName) {
     if (fielderName !== '') {
         // Perform search by Wicket#
         var filteredData = searchData.filter(item => item.Fielder === fielderName);
-        playVideos(filteredData);
+        setTimeout(function() {
+            playVideos(filteredData); // Play the videos after delay
+            scrollToVideoContainer(); // Scroll to the video container
+        }, delayBeforePlay);
         //renderResults(filteredData);
         document.getElementById('fielderNameInput').innerHTML = '';
     } else {
@@ -138,7 +154,13 @@ function handleWicketSearch(input) {
         // Perform search by Wicket#
         var filteredData = searchData.filter(item => item.Wicket === wicketNumber);
         console.log(filteredData);
-        playVideos(filteredData);
+
+        setTimeout(function() {
+            playVideos(filteredData); // Play the videos after delay
+            scrollToVideoContainer(); // Scroll to the video container
+        }, delayBeforePlay);
+
+        //playVideos(filteredData);
         //renderResults(filteredData);
         document.getElementById('wicketSearch').innerHTML = '';
     } else {
@@ -155,7 +177,10 @@ function handleTestMatchSearch(input) {
         // Perform search by Wicket#
         var filteredData = searchData.filter(item => item.TestMatchNumber === TestMatchNumber);
         //console.log(filteredData);
-        playVideos(filteredData);
+        setTimeout(function() {
+            playVideos(filteredData); // Play the videos after delay
+            scrollToVideoContainer(); // Scroll to the video container
+        }, delayBeforePlay);
         //renderResults(filteredData);
 
         if (filteredData.length == 0) {
@@ -177,7 +202,10 @@ function handleBatsmenSearch(batsmanName) {
     if (batsmanName !== '') {
         // Perform search by Wicket#
         var filteredData = searchData.filter(item => item.Batter === batsmanName);
-        playVideos(filteredData);
+        setTimeout(function() {
+            playVideos(filteredData); // Play the videos after delay
+            scrollToVideoContainer(); // Scroll to the video container
+        }, delayBeforePlay);
         //renderResults(filteredData);
         document.getElementById('batsmanNameInput').innerHTML = '';
     } else {
@@ -201,8 +229,10 @@ function filterMilestoneWickets() {
     console.log("Displaying only the milestone wickets");
     var filteredData = searchData.filter(item => item.Milestone == 'Yes');
 
-    playVideos(filteredData);
-
+    setTimeout(function() {
+        playVideos(filteredData); // Play the videos after delay
+        scrollToVideoContainer(); // Scroll to the video container
+    }, delayBeforePlay);
 }
 
 
@@ -310,16 +340,18 @@ function updateDropdownOptions(selectedOpponent, selectedCountry, selectedVenue,
         filteredData = filteredData.filter(item => item.fieldingPosition === selectedFieldingPosition);
     }  
 
+   var resetFlag = false;
+
     // Update dropdown options
-    populateOpponentDropdown(filteredData, selectedOpponent);
-    populateCountryDropdown(filteredData, selectedCountry);
-    populateVenueDropdown(filteredData, selectedVenue);
-    populateDismissalModeDropdown(filteredData, selectedDismissalMode);
-    populateFieldingPositionDropdown(filteredData, selectedFieldingPosition);
+    populateOpponentDropdown(filteredData, selectedOpponent, resetFlag);
+    populateCountryDropdown(filteredData, selectedCountry, resetFlag);
+    populateVenueDropdown(filteredData, selectedVenue, resetFlag);
+    populateDismissalModeDropdown(filteredData, selectedDismissalMode, resetFlag);
+    populateFieldingPositionDropdown(filteredData, selectedFieldingPosition, resetFlag);
 }
 
 // Function to populate opponent dropdown options
-function populateOpponentDropdown(data, selectedOpponent) {
+function populateOpponentDropdown(data, selectedOpponent, resetFlag) {
     var opponentDropdown = document.getElementById('opponentFilter');
     opponentDropdown.innerHTML = '<option value="All">All Opponents</option>';
     var opponents = [...new Set(data.map(item => item.opponent))];
@@ -329,12 +361,20 @@ function populateOpponentDropdown(data, selectedOpponent) {
         opponentDropdown.innerHTML += `<option value="${opponent}" ${isSelected}>${opponent}</option>`;
     });
     document.getElementById('wicketSearch').textContent = '';
-    playVideos(data);
+    console.log("reset Flag --- " + resetFlag);
+
+   if (resetFlag == false) {
+    console.log('Playing videos after delay ....')
+    setTimeout(function() {
+        playVideos(data); // Play the videos after delay
+        scrollToVideoContainer(); // Scroll to the video container
+    }, delayBeforePlay);
+   }
     //renderResults(data);
 }
 
 // Function to populate country dropdown options
-function populateCountryDropdown(data, selectedCountry) {
+function populateCountryDropdown(data, selectedCountry, resetFlag) {
     var countryDropdown = document.getElementById('countryFilter');
     countryDropdown.innerHTML = '<option value="All">All Countries</option>';
     var countries = [...new Set(data.map(item => item.country))];
@@ -344,12 +384,18 @@ function populateCountryDropdown(data, selectedCountry) {
         countryDropdown.innerHTML += `<option value="${country}" ${isSelected}>${country}</option>`;
     });
     document.getElementById('wicketSearch').textContent = '';
-    playVideos(data);
+    if (resetFlag == false) {
+        console.log("Populate country drop down ---- " + resetFlag);
+        setTimeout(function() {
+            playVideos(data); // Play the videos after delay
+            scrollToVideoContainer(); // Scroll to the video container
+        }, delayBeforePlay);
+       }
     //renderResults(data);
 }
 
 // Function to populate venue dropdown options
-function populateVenueDropdown(data, selectedVenue) {
+function populateVenueDropdown(data, selectedVenue, resetFlag) {
     var venueDropdown = document.getElementById('venueFilter');
     venueDropdown.innerHTML = '<option value="All">All Venues</option>';
     var venues = [...new Set(data.map(item => item.venue))];
@@ -359,12 +405,17 @@ function populateVenueDropdown(data, selectedVenue) {
         venueDropdown.innerHTML += `<option value="${venue}" ${isSelected}>${venue}</option>`;
     });
     document.getElementById('wicketSearch').innerHTML = '-';
-    playVideos(data);
+    if (resetFlag == false) {
+        setTimeout(function() {
+            playVideos(data); // Play the videos after delay
+            scrollToVideoContainer(); // Scroll to the video container
+        }, delayBeforePlay);
+       }
     //renderResults(data);
 }
 
 // Function to populate dismissal mode dropdown options
-function populateDismissalModeDropdown(data, selectedDismissalMode) {
+function populateDismissalModeDropdown(data, selectedDismissalMode, resetFlag) {
     var dismissalModeDropdown = document.getElementById('dismissalModeFilter');
     dismissalModeDropdown.innerHTML = '<option value="All">All Dismissal Modes</option>';
     var dismissalModes = [...new Set(data.map(item => item.dismissalMode))];
@@ -386,12 +437,17 @@ function populateDismissalModeDropdown(data, selectedDismissalMode) {
         fieldingPosition.style.display = "none";
     }
 
-    playVideos(data);
+    if (resetFlag == false) {
+        setTimeout(function() {
+            playVideos(data); // Play the videos after delay
+            scrollToVideoContainer(); // Scroll to the video container
+        }, delayBeforePlay);
+       }
     //renderResults(data);
 }
 
 // Function to populate dismissal mode dropdown options
-function populateFieldingPositionDropdown(data, selectedFieldingPosition) {
+function populateFieldingPositionDropdown(data, selectedFieldingPosition, resetFlag) {
     var fieldingPositionDropdown = document.getElementById('fieldingPositionFilter');
     fieldingPositionDropdown.innerHTML = '<option value="All">All Dismissal Modes</option>';
     var fieldingPositions = [...new Set(data.map(item => item.fieldingPosition))];
@@ -403,7 +459,12 @@ function populateFieldingPositionDropdown(data, selectedFieldingPosition) {
     });
 
     document.getElementById('wicketSearch').textContent = '';
-    playVideos(data);
+    if (resetFlag == false) {
+        setTimeout(function() {
+            playVideos(data); // Play the videos after delay
+            scrollToVideoContainer(); // Scroll to the video container
+        }, delayBeforePlay);
+       }
     //renderResults(data);
 }
 
@@ -467,13 +528,14 @@ function resetDropdowns() {
     var selectedVenue = 'All';
     var selectedDismissalMode = 'All';
     var selectedFieldingPosition = 'All';
+    var resetFlag = true;
 
 
-    populateOpponentDropdown(searchData, selectedOpponent);
-    populateCountryDropdown(searchData, selectedCountry);
-    populateVenueDropdown(searchData, selectedVenue);
-    populateDismissalModeDropdown(searchData, selectedDismissalMode);
-    populateFieldingPositionDropdown(searchData, selectedFieldingPosition);
+    populateOpponentDropdown(searchData, selectedOpponent,resetFlag);
+    populateCountryDropdown(searchData, selectedCountry, resetFlag);
+    populateVenueDropdown(searchData, selectedVenue, resetFlag);
+    populateDismissalModeDropdown(searchData, selectedDismissalMode), resetFlag;
+    populateFieldingPositionDropdown(searchData, selectedFieldingPosition, resetFlag);
 
     // Reset search criteria
     document.getElementById('opponentFilter').value = selectedOpponent;
