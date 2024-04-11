@@ -1,12 +1,6 @@
 // global variable to store search data
 searchData = [];
-videoData = [];
 const delayBeforePlay = 500;
-var playerName;
-var videoUrls = new Map([
-    ["Ashwin", "https://nandauforians.github.io/raviashwin"],
-    ["Bumrah", "https://nandauforians.github.io/jaspritbumrah"]
-]);
 
 var batsmanNameInput = document.getElementById('batsmanNameInput');
 var batsmanNamesList = document.getElementById('batsmanNames');
@@ -119,8 +113,8 @@ function handleFielderNameSearch(fielderName) {
     if (fielderName !== '') {
         // Perform search by Wicket#
         var filteredData = searchData.filter(item => item.Fielder === fielderName);
-        setTimeout(function () {
-            playVideos(filteredData, 0); // Play the videos after delay
+        setTimeout(function() {
+            playVideos(filteredData); // Play the videos after delay
             scrollToVideoContainer(); // Scroll to the video container
         }, delayBeforePlay);
         //renderResults(filteredData);
@@ -145,7 +139,7 @@ function filterData(data) {
         return (opponentFilterValue === 'All' || item.opponent === opponentFilterValue) &&
             (countryFilterValue === 'All' || item.country === countryFilterValue) &&
             (venueFilterValue === 'All' || item.venue === venueFilterValue) &&
-            (dismissalModeFilterValue === 'All' || item.dismissalMode === dismissalModeFilterValue) &&
+            (dismissalModeFilterValue === 'All' || item.dismissalMode === dismissalModeFilterValue) && 
             (fieldingPositionFilterValue === 'All') || item.fieldingPosition === fieldingPositionFilterValue;
     });
 
@@ -161,8 +155,8 @@ function handleWicketSearch(input) {
         var filteredData = searchData.filter(item => item.Wicket === wicketNumber);
         console.log(filteredData);
 
-        setTimeout(function () {
-            playVideos(filteredData, 0); // Play the videos after delay
+        setTimeout(function() {
+            playVideos(filteredData); // Play the videos after delay
             scrollToVideoContainer(); // Scroll to the video container
         }, delayBeforePlay);
 
@@ -183,8 +177,8 @@ function handleTestMatchSearch(input) {
         // Perform search by Wicket#
         var filteredData = searchData.filter(item => item.TestMatchNumber === TestMatchNumber);
         //console.log(filteredData);
-        setTimeout(function () {
-            playVideos(filteredData, 0); // Play the videos after delay
+        setTimeout(function() {
+            playVideos(filteredData); // Play the videos after delay
             scrollToVideoContainer(); // Scroll to the video container
         }, delayBeforePlay);
         //renderResults(filteredData);
@@ -208,8 +202,8 @@ function handleBatsmenSearch(batsmanName) {
     if (batsmanName !== '') {
         // Perform search by Wicket#
         var filteredData = searchData.filter(item => item.Batter === batsmanName);
-        setTimeout(function () {
-            playVideos(filteredData, 0); // Play the videos after delay
+        setTimeout(function() {
+            playVideos(filteredData); // Play the videos after delay
             scrollToVideoContainer(); // Scroll to the video container
         }, delayBeforePlay);
         //renderResults(filteredData);
@@ -235,161 +229,86 @@ function filterMilestoneWickets() {
     console.log("Displaying only the milestone wickets");
     var filteredData = searchData.filter(item => item.Milestone == 'Yes');
 
-    setTimeout(function () {
-        playVideos(filteredData, 0); // Play the videos after delay
+    setTimeout(function() {
+        playVideos(filteredData); // Play the videos after delay
         scrollToVideoContainer(); // Scroll to the video container
     }, delayBeforePlay);
 }
 
-// Function to filter only the milestone wickets
-function filterBumrahSpecialWickets() {
-    console.log("Displaying only the special wickets");
-    var filteredData = searchData.filter(item => item.Special == 'Yes');
-
-    setTimeout(function () {
-        playVideos(filteredData, 0); // Play the videos after delay
-        scrollToVideoContainer(); // Scroll to the video container
-    }, delayBeforePlay);
-}
 
 
 // Function to play videos in succession
-function playVideos(filteredData, videoIndex) {
+function playVideos(filteredData) {
     var videoContainer = document.getElementById('videoContainer');
     var detailsContainer = document.getElementById('detailsContainer');
     var currentVideoIndex = 0;
     var videos = [];
     var videoLength = filteredData.length;
     var videoCount = 1;
-    var url = videoUrls.get(playerName);
-    videoData = filteredData;
 
-    //currentVideoIndex = videoIndex ? videoIndex = 0 : videoIndex > 0;
-    console.log("PlayVideos: VideoIndex : " + videoIndex);
-
-
-    if (videoIndex > 1) {
-        currentVideoIndex = videoIndex;
-        console.log("new current video index --- " + currentVideoIndex);
-    }
+    console.log("Filter data sizeee " + filteredData.length);
 
     // Populate the videos array with the URLs of videos from filtered data
     filteredData.forEach(item => {
 
-        var playerNameText = item.dismissalMode === 'bowled' ? playerName : ' b ' + playerName;
+        var ashwintext = item.dismissalMode === 'bowled' ? 'Ashwin' : ' b Ashwin';
 
         videos.push({
-            url: url + "/videos/" + item.video + '.mp4',
-            details: `${item.Wicket}. ` +
+            url: '../videos/' + item.video + '.mp4', details: `${item.Wicket}. ` +
                 `${item.Batter}` +
                 `  ${item.dismissalMode} ` +
-                `  ${item.Fielder} ` + playerNameText +
+                `  ${item.Fielder} ` + ashwintext +
                 `  at ${item.venue}` + ' on ' + `${item.matchDate} ` + '('
                 + videoCount + "/ " + videoLength + ') ',
-            description: `${item.description}`,
-            videoCounter: videoCount
+            description: `${item.description}`
         });
-
-        // Start playing the videos
-        playNextVideo(videos, currentVideoIndex);
-
 
         videoCount++;
+        /*videos.push({
+           url: '../videos/' +item.video + '.mp4', details:  '' +item.description  
+       }); */
     });
 
-}
+    function playNextVideo() {
+        if (currentVideoIndex < videos.length) {
+            var video = document.createElement('video');
+            video.src = videos[currentVideoIndex].url;
+            video.controls = true;
+            video.autoplay = true;
+            video.loop = false; // Set to true if you want videos to loop
+            video.controlsList = "nodownload"; // Disable download option
+            videoContainer.innerHTML = ''; // Clear previous video
+            videoContainer.appendChild(video);
 
-function replayVideos() {
-    console.log("Entering replay videos ....");
-    var size = videoData.length;
-    console.log("Video Data Size before replay ---" + size);
+            // Update details below the video container
+            detailsContainer.textContent = videos[currentVideoIndex].details;
+            descriptionContainer.textContent = videos[currentVideoIndex].description;
 
-    playVideos(videoData, 0);
-}
-
-function playNextVideo(videos, currentVideoIndex) {
-    if (currentVideoIndex < videos.length) {
-        var video = document.createElement('video');
-        video.src = videos[currentVideoIndex].url;
-        video.controls = true;
-        video.autoplay = true;
-        video.loop = false; // Set to true if you want videos to loop
-        video.controlsList = "nodownload"; // Disable download option
-        videoContainer.innerHTML = ''; // Clear previous video
-        videoContainer.appendChild(video);
-
-        // Listen for full-screen change event
-        video.addEventListener('fullscreenchange', function () {
-            if (!document.fullscreenElement) {
-                // Exiting full-screen mode
-                // Continue playing next video in full-screen mode
-                playNextVideo(videos, currentVideoIndex + 1);
-            }
-        });
-
-        document.getElementById('replayButtonContainer').style.display = "block";
-
-        if (currentVideoIndex > 0) {
-            console.log("Displaying the previous button ....");
-            document.getElementById('previousButtonContainer').style.display = "block";
+            video.addEventListener('ended', function () {
+                currentVideoIndex++;
+                playNextVideo(); // Play the next video
+            });
         }
-
-        if (currentVideoIndex < (videos.length - 1)) {
-            console.log("Display the next Button ....");
-            document.getElementById('nextButtonContainer').style.display = "block";
-        } else {
-            document.getElementById('nextButtonContainer').style.display = "none";
-        }
-
-        // Update details below the video container
-        detailsContainer.textContent = videos[currentVideoIndex].details;
-        descriptionContainer.textContent = videos[currentVideoIndex].description;
-        document.getElementById('videoCounter').value = videos[currentVideoIndex].videoCounter;
-        //console.log("Video currently playing ---- " + document.getElementById('videoCounter').value); 
-        console.log("current video index ----" + currentVideoIndex);
-
-        video.addEventListener('ended', function () {
-            currentVideoIndex++;
-            playNextVideo(videos, currentVideoIndex); // Play the next video
-        });
     }
+
+    // Start playing the videos
+    playNextVideo();
 }
 
-
-function playbackPreviousVideo(currentVideo) {
-
-    console.log(' Inside play previous video .... -' + currentVideo);
-    playVideos(videoData, currentVideo - 2);
-    //playNextVideo(videoData); 
-}
-
-function playbackNextVideo(currentVideo) {
-    console.log("Inside play next video  ----- " + currentVideo);
-    playVideos(videoData, currentVideo);
-}
-
-function    playAllVideos() {
-    console.log("Play all videos ---" + searchData.length);
-    playVideos(searchData, 0);
-};
+//playVideos();
 
 // Function to load data from CSV file
-function loadData(player) {
-    playerName = player;
-    console.log("Loading data ......"  + player);
-    Papa.parse('../data/' + player + '.csv', {
+function loadData() {
+    console.log("Loading data ......");
+    Papa.parse('../data/data.csv', {
         download: true,
         header: true,
         complete: function (results) {
             searchData = results.data;
-            searchData = searchData.filter(item => item.Wicket != null);
-            console.log("Search date size ---" + searchData.length);
-
             // Pass data to other functions
-            populateDropdowns(searchData);
-            populateBatsmanDropdown(searchData);
-            populateFielderDropdown(searchData);
-            //playVideos(searchData,0);
+            populateDropdowns(results.data);
+            populateBatsmanDropdown(results.data);
+            populateFielderDropdown(results.data);
             //renderResults(results.data);
         },
         error: function (error) {
@@ -402,7 +321,7 @@ function loadData(player) {
 loadData();
 
 // Function to update dropdown options based on selected value
-function updateDropdownOptions(selectedOpponent, selectedCountry, selectedVenue, selectedDismissalMode, selectedFieldingPosition) {
+function updateDropdownOptions(selectedOpponent, selectedCountry, selectedVenue, selectedDismissalMode,selectedFieldingPosition) {
     var filteredData = searchData;
 
     // Filter data based on selected values
@@ -421,9 +340,9 @@ function updateDropdownOptions(selectedOpponent, selectedCountry, selectedVenue,
 
     if (selectedFieldingPosition !== 'All') {
         filteredData = filteredData.filter(item => item.fieldingPosition === selectedFieldingPosition);
-    }
+    }  
 
-    var resetFlag = false;
+   var resetFlag = false;
 
     // Update dropdown options
     populateOpponentDropdown(filteredData, selectedOpponent, resetFlag);
@@ -446,13 +365,13 @@ function populateOpponentDropdown(data, selectedOpponent, resetFlag) {
     document.getElementById('wicketSearch').textContent = '';
     console.log("reset Flag --- " + resetFlag);
 
-    if (resetFlag == false) {
-        console.log('Playing videos after delay ....')
-        setTimeout(function () {
-            playVideos(data, 0); // Play the videos after delay
-            scrollToVideoContainer(); // Scroll to the video container
-        }, delayBeforePlay);
-    }
+   if (resetFlag == false) {
+    console.log('Playing videos after delay ....')
+    setTimeout(function() {
+        playVideos(data); // Play the videos after delay
+        scrollToVideoContainer(); // Scroll to the video container
+    }, delayBeforePlay);
+   }
     //renderResults(data);
 }
 
@@ -469,11 +388,11 @@ function populateCountryDropdown(data, selectedCountry, resetFlag) {
     document.getElementById('wicketSearch').textContent = '';
     if (resetFlag == false) {
         console.log("Populate country drop down ---- " + resetFlag);
-        setTimeout(function () {
-            playVideos(data, 0); // Play the videos after delay
+        setTimeout(function() {
+            playVideos(data); // Play the videos after delay
             scrollToVideoContainer(); // Scroll to the video container
         }, delayBeforePlay);
-    }
+       }
     //renderResults(data);
 }
 
@@ -489,11 +408,11 @@ function populateVenueDropdown(data, selectedVenue, resetFlag) {
     });
     document.getElementById('wicketSearch').innerHTML = '-';
     if (resetFlag == false) {
-        setTimeout(function () {
-            playVideos(data, 0); // Play the videos after delay
+        setTimeout(function() {
+            playVideos(data); // Play the videos after delay
             scrollToVideoContainer(); // Scroll to the video container
         }, delayBeforePlay);
-    }
+       }
     //renderResults(data);
 }
 
@@ -521,11 +440,11 @@ function populateDismissalModeDropdown(data, selectedDismissalMode, resetFlag) {
     }
 
     if (resetFlag == false) {
-        setTimeout(function () {
-            playVideos(data, 0); // Play the videos after delay
+        setTimeout(function() {
+            playVideos(data); // Play the videos after delay
             scrollToVideoContainer(); // Scroll to the video container
         }, delayBeforePlay);
-    }
+       }
     //renderResults(data);
 }
 
@@ -543,64 +462,64 @@ function populateFieldingPositionDropdown(data, selectedFieldingPosition, resetF
 
     document.getElementById('wicketSearch').textContent = '';
     if (resetFlag == false) {
-        setTimeout(function () {
-            playVideos(data, 0); // Play the videos after delay
+        setTimeout(function() {
+            playVideos(data); // Play the videos after delay
             scrollToVideoContainer(); // Scroll to the video container
         }, delayBeforePlay);
-    }
+       }
     //renderResults(data);
 }
 
 // Function to handle change in opponent dropdown
 function handleOpponentChange(selectedOpponent) {
-    updateDropdownOptions(selectedOpponent,
-        document.getElementById('countryFilter').value,
-        document.getElementById('venueFilter').value,
+    updateDropdownOptions(selectedOpponent, 
+        document.getElementById('countryFilter').value, 
+        document.getElementById('venueFilter').value, 
         document.getElementById('dismissalModeFilter').value,
         document.getElementById('fieldingPositionFilter').value);
 }
 
 // Function to handle change in country dropdown
 function handleCountryChange(selectedCountry) {
-    updateDropdownOptions(document.getElementById('opponentFilter').value,
-        selectedCountry,
-        document.getElementById('venueFilter').value,
-        document.getElementById('dismissalModeFilter').value,
-        document.getElementById('fieldingPositionFilter').value);
+    updateDropdownOptions(document.getElementById('opponentFilter').value, 
+    selectedCountry, 
+    document.getElementById('venueFilter').value, 
+    document.getElementById('dismissalModeFilter').value,
+    document.getElementById('fieldingPositionFilter').value);
 }
 
 // Function to handle change in venue dropdown
 function handleVenueChange(selectedVenue) {
-    updateDropdownOptions(document.getElementById('opponentFilter').value,
-        document.getElementById('countryFilter').value,
-        selectedVenue,
-        document.getElementById('dismissalModeFilter').value,
-        document.getElementById('fieldingPositionFilter').value
+    updateDropdownOptions(document.getElementById('opponentFilter').value, 
+    document.getElementById('countryFilter').value, 
+    selectedVenue, 
+    document.getElementById('dismissalModeFilter').value,
+    document.getElementById('fieldingPositionFilter').value
     );
 }
 
 // Function to handle change in dismissal mode dropdown
 function handleDismissalModeChange(selectedDismissalMode) {
-    updateDropdownOptions(document.getElementById('opponentFilter').value,
-        document.getElementById('countryFilter').value,
-        document.getElementById('venueFilter').value,
-        selectedDismissalMode,
-        document.getElementById('fieldingPositionFilter').value);
+    updateDropdownOptions(document.getElementById('opponentFilter').value, 
+    document.getElementById('countryFilter').value, 
+    document.getElementById('venueFilter').value, 
+    selectedDismissalMode,
+    document.getElementById('fieldingPositionFilter').value);
 }
 
 // Function to handle change in dismissal mode dropdown
 function handleFieldingPositionChange(selectedFieldingPosition) {
-    console.log('Selected Fielding Position ---> ' + selectedFieldingPosition);
-    console.log('Selected Opponent --- ' + document.getElementById('opponentFilter').value);
-    console.log('Selected Country --- ' + document.getElementById('countryFilter').value);
-    console.log('Selected Venue --- ' + document.getElementById('venueFilter').value);
-    console.log('Selected Dismissal Mode --- ' + document.getElementById('dismissalModeFilter').value);
+console.log('Selected Fielding Position ---> ' + selectedFieldingPosition);
+console.log('Selected Opponent --- ' + document.getElementById('opponentFilter').value);
+console.log('Selected Country --- ' + document.getElementById('countryFilter').value);
+console.log('Selected Venue --- ' + document.getElementById('venueFilter').value);
+console.log('Selected Dismissal Mode --- ' + document.getElementById('dismissalModeFilter').value);
 
-    updateDropdownOptions(document.getElementById('opponentFilter').value,
-        document.getElementById('countryFilter').value,
-        document.getElementById('venueFilter').value,
-        document.getElementById('dismissalModeFilter').value,
-        selectedFieldingPosition);
+    updateDropdownOptions(document.getElementById('opponentFilter').value, 
+    document.getElementById('countryFilter').value, 
+    document.getElementById('venueFilter').value,
+    document.getElementById('dismissalModeFilter').value, 
+    selectedFieldingPosition);
 }
 
 
@@ -614,7 +533,7 @@ function resetDropdowns() {
     var resetFlag = true;
 
 
-    populateOpponentDropdown(searchData, selectedOpponent, resetFlag);
+    populateOpponentDropdown(searchData, selectedOpponent,resetFlag);
     populateCountryDropdown(searchData, selectedCountry, resetFlag);
     populateVenueDropdown(searchData, selectedVenue, resetFlag);
     populateDismissalModeDropdown(searchData, selectedDismissalMode), resetFlag;
@@ -630,9 +549,6 @@ function resetDropdowns() {
     document.getElementById('wicketSearch').value = '';
     document.getElementById('testSearch').value = '';
     document.getElementById('fielderNameInput').value = '';
-    document.getElementById('previousButtonContainer').style.display = "none";
-    document.getElementById('nextButtonContainer').style.display = "none";
-    document.getElementById('replayButtonContainer').style.display = "none";
 
     videoContainer.innerHTML = ''; // Clear previous video
     detailsContainer.innerHTML = '';
@@ -670,13 +586,4 @@ function renderResults(data) {
     innerHTML = innerHTML + '</table>';
 
     resultsContainer.innerHTML = innerHTML;
-}
-
-// Function to handle button click and access the hidden variable value
-function handleButtonClick() {
-    // Get the hidden variable value by accessing its value attribute
-    var hiddenValue = document.getElementById('hiddenVariable').value;
-
-    // Pass the hidden variable value to another function or perform any action
-    yourFunction(hiddenValue);
 }

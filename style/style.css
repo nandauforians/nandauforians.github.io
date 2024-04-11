@@ -1,4 +1,3 @@
-
 body {
     margin: 0;
     padding: 0;
@@ -14,13 +13,32 @@ header {
     height: 150px;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+  }
+
 #videoContainer {
     width: 100%;
     max-width: 700px;
-    min-height: 600px;
+    min-height: 250px;
+    margin-bottom: 20px;
     margin: 0 auto;
     text-align: center;
+    justify-content: center;
+    overflow: auto; /* Enable scrolling if videos exceed container height */
 }
+
+/* Button container styles */
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    width: 80%; /* Adjust width as needed */
+  }
+  
 
 video {
     width: 100%;
@@ -80,7 +98,7 @@ footer {
   }
 
   .styled-button {
-    background-color: #3a8ec2; /* Green */
+    background-color: #070707; /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -94,8 +112,8 @@ footer {
   }
   
   .styled-button:hover {
-    background-color: hsl(0, 17%, 95%);
-    color: #2644a5;
+    background-color: hsl(0, 15%, 95%);
+    color: #050505;
   }
   
 
@@ -104,7 +122,7 @@ footer {
 
    /* CSS for slideshow container */
    .slideshow-container {
-    max-width: 1000px;
+    max-width: 900px;
     max-height: fit-content;
     position: relative;
     margin: auto;
