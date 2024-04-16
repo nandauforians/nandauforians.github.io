@@ -5,7 +5,8 @@ const delayBeforePlay = 500;
 var playerName;
 var videoUrls = new Map([
     ["Ashwin", "https://nandauforians.github.io/raviashwin"],
-    ["Bumrah", "https://nandauforians.github.io/jaspritbumrah"]
+    ["Bumrah", "https://nandauforians.github.io/jaspritbumrah"],
+    ["Shami", "https://nandauforians.github.io/mdshami"]
 ]);
 
 var batsmanNameInput = document.getElementById('batsmanNameInput');
