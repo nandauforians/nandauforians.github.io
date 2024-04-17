@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uforian Video Search - Jasprit Bumrah</title>
+  <link rel="stylesheet" href="../style/style.css">
+  <link rel="stylesheet" href="../style/styles.css">
+</head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8NWJWLFE3X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8NWJWLFE3X');
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+<body>
+   
+  <div class="slideshow-container"> 
+
+    <!-- Full-width images with number and caption text -->
+    
+    <div class="mySlides fade">
+      <img src="../images/jadeja/jadeja-slide-1.jpg" width="100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="../images/jadeja/jadeja-slide-2.jpg" width="100%">
+    </div>
+  </div>
+
+  <div id="searchContainer">
+    <table align="center">
+        <tr>
+          <td>
+          <input type="text" class="text-field" id="wicketSearch" placeholder="Search by Wicket#" oninput="handleWicketSearch(this)"
+          onkeypress="handleKeyPress(event)">
+        <input type="number" id="testSearch" placeholder="Search by Test#" class="large-input" min="1" max="100" oninput="handleTestMatchSearch(this)"
+          onkeypress="handleKeyPress(event)">  
+        <input type="text" class="text-field" id="batsmanNameInput" list="batsmanNames" placeholder="Enter the batsman name">
+        <datalist id="batsmanNames">
+          <!-- Batsman names will be populated dynamically -->
+        </datalist>
+        <input type="text" class="text-field" id="fielderNameInput" list="fielderNames" placeholder="Enter the Fielder name">
+        <datalist id="fielderNames">
+          <!-- Fielder names will be populated dynamically -->
+        </datalist>
+      </td>
+        </tr>
+        <tr>
+          <td>
+          <select class="dropdown" id="opponentFilter" onchange="handleOpponentChange(this.value)">
+            <option value="All">All Opponents</option>
+          </select>
+          <select class="dropdown" id="countryFilter" onchange="handleCountryChange(this.value)">
+            <option value="All">All Countries</option>
+          </select>
+          <select class="dropdown" id="venueFilter" onchange="handleVenueChange(this.value)">
+            <option value="All">All Venues</option>
+          </select>
+          <select class="dropdown" id="dismissalModeFilter" onchange="handleDismissalModeChange(this.value)">
+            <option value="All">All Dismissal Modes</option>
+          </select>
+        </td>
+        </tr>
+        <tr>
+          <td>
+            <div id="fieldingPosition" style="display: none;">
+              <select class="dropdown" id="fieldingPositionFilter" onchange="handleFieldingPositionChange(this.value)">
+                <option value="All">All Fielding Positions</option>
+              </select>
+            </div>
+            <button class="styled-button" onclick="resetDropdowns()"> Reset</button>
+            <button class="styled-button" onclick="filterMilestoneWickets()"> Milestone Wickets</button>
+            <button class="styled-button" onclick="playAllVideos()"> Play All</button>
+          </td>
+        </tr>
+    </table> 
+  </div>
+
+  <table align="center">
+
+    <tr align="center">
+      <td>
+        <div id="detailsContainer"></div>
+        <div id="hiddenContainer">
+          <input type="hidden" id="videoCounter" name="videoCounter">
+      </div>
+      </td>
+    </tr>
+    <tr align="center">
+      <td>
+        <div id="descriptionContainer"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="videoContainer"></div>
+      </td>
+    </tr>
+  </table>
+  <table align="center">
+    <tr align="center">
+        <td align="right">
+            <div id="previousButtonContainer" style="display: none;">
+                <button class="styled-button" onclick="playbackPreviousVideo(videoCounter.value)"> Previous</button>
+            </div>
+        </td>
+        <td align="center">
+            <div id="replayButtonContainer" style="display: none;">
+                <button class="styled-button" onclick="replayVideos()"> Replay</button>
+            </div>
+        </td>
+        <td align="left">
+            <div id="nextButtonContainer" style="display: none;">
+                <button class="styled-button" onclick="playbackNextVideo(videoCounter.value)"> Next </button>
+            </div>
+    
+        </td>
+    </tr>
+</table>
+  
+
+<div class="footer">
+  <p> © 2024 Uforians. All rights reserved. | Video Footage :<a href="https://twitter.com/KohliSensual05">
+          @KohliSensuous </a> | <a href="../index.html">Home</a> </p> 
+</div>
+ 
+  <script src="../script/script.js"></script>
+  <script>
+    loadData("Jadeja");
+</script>
+<script src="../script/script-slide.js"></script>
+
+
+  
+
+  <!--div id="resultsContainer"></div-->
+</body>
+</html>
