@@ -243,6 +243,17 @@ function filterMilestoneWickets() {
     }, delayBeforePlay);
 }
 
+// Function to filter only the away wickets
+function playAllAwayWickets() {
+    console.log("Displaying only the away wickets");
+    var filteredData = searchData.filter(item => item.country != 'India');
+
+    setTimeout(function () {
+        playVideos(filteredData, 0); // Play the videos after delay
+        scrollToVideoContainer(); // Scroll to the video container
+    }, delayBeforePlay);
+}
+
 // Function to filter only the milestone wickets
 function filterBumrahSpecialWickets() {
     console.log("Displaying only the special wickets");
