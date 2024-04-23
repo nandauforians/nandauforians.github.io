@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Uforian Video Search - R.Ashwin</title>
-  <link rel="stylesheet" href="./style/style.css">
-  <link rel="stylesheet" href="./style/styles.css">
+  <title>Uforian Video Search - Mohammed Shami</title>
+  <link rel="stylesheet" href="../style/style.css">
+  <link rel="stylesheet" href="../style/styles.css">
 </head>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NWJWLFE3X"></script>
@@ -17,46 +17,31 @@
 
   gtag('config', 'G-8NWJWLFE3X');
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 
 <body>
    
-  <div class="slideshow-container">
+  <div class="slideshow-container"> 
 
     <!-- Full-width images with number and caption text -->
     
     <div class="mySlides fade">
-      <img src="images/ashwin-slide-5.jpg" style="width:100%">
+      <img src="../images/ash-jaddu.jpg" width="100%">
     </div>
-
     <div class="mySlides fade">
-      <img src="images/ashwin-slide-3.jpg" style="width:100%">
-    </div>
-    
-    <div class="mySlides fade">
-      <img src="images/ashwin-slide-1.jpg" style="width:100%">
-    </div>
-
-    <div class="mySlides fade">
-        <img src="images/ashwin-slide-2.jpg" style="width:100%">
-    </div>
-  
-    <div class="mySlides fade">
-        <img src="images/ashwin-slide-4.jpg" style="width:100%">
-    </div>
-  
-    <!-- Navigation buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <img src="../images/ash-jaddu.-cover.jpg" width="100%">
+      </div>
   </div>
 
   <div id="searchContainer">
     <table align="center">
         <tr>
-          <td>
-          <input type="text" class="text-field" id="wicketSearch" placeholder="Search by Wicket#" oninput="handleWicketSearch(this)"
-          onkeypress="handleKeyPress(event)">
-        <input type="number" id="testSearch" placeholder="Search by Test#" class="large-input" min="1" max="100" oninput="handleTestMatchSearch(this)"
-          onkeypress="handleKeyPress(event)">  
+          
+                <select id="test-match-id">
+                    <option value="default"> ---</option>
+                    <!-- Options will be populated dynamically using JavaScript -->
+                </select>
+            
         <input type="text" class="text-field" id="batsmanNameInput" list="batsmanNames" placeholder="Enter the batsman name">
         <datalist id="batsmanNames">
           <!-- Batsman names will be populated dynamically -->
@@ -92,17 +77,20 @@
             </div>
             <button class="styled-button" onclick="resetDropdowns()"> Reset</button>
             <button class="styled-button" onclick="filterMilestoneWickets()"> Milestone Wickets</button>
+            <button class="styled-button" onclick="playAllVideos()"> Play All</button>
           </td>
         </tr>
     </table> 
   </div>
 
-
-  <table align="center">
+  <table width="100%">
 
     <tr align="center">
       <td>
         <div id="detailsContainer"></div>
+        <div id="hiddenContainer">
+          <input type="hidden" id="videoCounter" name="videoCounter">
+      </div>
       </td>
     </tr>
     <tr align="center">
@@ -110,21 +98,45 @@
         <div id="descriptionContainer"></div>
       </td>
     </tr>
-    <tr>
-      <td>
-        <div id="videoContainer"></div>
-      </td>
+
+
+    <tr align="center">
+      <td align="center">
+        <div id="videoContainer" class="video-Container"></div>
+     </td>
     </tr>
   </table>
+  <table align="center">
+    <tr align="center">
+        <td align="right">
+            <div id="previousButtonContainer" style="display: none;">
+                <button class="styled-button" onclick="playbackPreviousVideo(videoCounter.value)"> Previous</button>
+            </div>
+        </td>
+        <td align="center">
+            <div id="replayButtonContainer" style="display: none;">
+                <button class="styled-button" onclick="replayVideos()"> Replay</button>
+            </div>
+        </td>
+        <td align="left">
+            <div id="nextButtonContainer" style="display: none;">
+                <button class="styled-button" onclick="playbackNextVideo(videoCounter.value)"> Next </button>
+            </div>
+    
+        </td>
+    </tr>
+</table>
+<div class="footer">
+  <p> © 2024 Uforians. All rights reserved. | Video Footage :<a href="https://twitter.com/KohliSensual05">
+          @KohliSensuous </a> | <a href="../index.html">Home</a> </p> 
+</div>
+ 
+  <script src="../script/script-multi-player.js"></script>
+  <script>
+    initializePage("Ashwin", "Jadeja");
+</script>
+<script src="../script/script-slide.js"></script>
 
-  <div class="footer">
-    <p> © 2024 Uforians. All rights reserved. | Video Footage :<a href="https://twitter.com/KohliSensual05"> @KohliSensuous </a></p>
-  </div>
-  
-  <!--div id="resultsContainer"></div-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-  <script src="./script/script.js"></script>
-  <script src="./script/script-slide.js"></script>
-
+  <div id="resultsContainer"></div>
 </body>
 </html>

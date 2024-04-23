@@ -5,7 +5,18 @@ body {
 }
 
 header {
-    background-image: url('../images/ashwin-header-new.jpg'); /* Replace with your header background image */
+    background-image: url('../images/ash-jaddu.jpg');
+    /* Replace with your header background image */
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    height: 450px;
+}
+
+dual-header {
+    background-image: url('../images/ash-jaddu.jpg');
+    /* Replace with your header background image */
     background-size: cover;
     color: white;
     text-align: center;
@@ -18,8 +29,9 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Full viewport height */
-  }
+    height: 100vh;
+    /* Full viewport height */
+}
 
 #videoContainer {
     width: 100%;
@@ -29,16 +41,18 @@ header {
     margin: 0 auto;
     text-align: center;
     justify-content: center;
-    overflow: auto; /* Enable scrolling if videos exceed container height */
+    overflow: auto;
+    /* Enable scrolling if videos exceed container height */
 }
 
 /* Button container styles */
 .button-container {
     display: flex;
     justify-content: space-around;
-    width: 80%; /* Adjust width as needed */
-  }
-  
+    width: 80%;
+    /* Adjust width as needed */
+}
+
 
 video {
     width: 100%;
@@ -48,14 +62,14 @@ video {
 
 #detailsContainer {
     text-align: center;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
     font-weight: bolder;
 }
 
 #descriptionContainer {
     text-align: left;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
     font-style: italic;
 }
@@ -65,7 +79,8 @@ video {
     margin-bottom: 20px;
 }
 
-#searchContainer input, #searchContainer select {
+#searchContainer input,
+#searchContainer select {
     margin: 10px;
     padding: 5px;
 }
@@ -88,17 +103,18 @@ footer {
     width: 100%;
 }
 
-  .large-input {
+.large-input {
     padding: 10px;
     margin-bottom: 10px;
     width: 250px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-  }
+}
 
-  .styled-button {
-    background-color: #070707; /* Green */
+.styled-button {
+    background-color: #070707;
+    /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -109,19 +125,34 @@ footer {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .styled-button:hover {
+}
+
+.styled-button:hover {
     background-color: hsl(0, 15%, 95%);
     color: #050505;
+}
+
+.video-Container {
+    width: 60%; /* Set the width to 50% to ensure both containers are of equal size */
+    height: auto; /* Maintain aspect ratio */
+    display: inline-block; /* Display containers side by side */
+    margin: 10px; /* Add margin for spacing */
+    position: relative; /* Ensure relative positioning */
   }
   
 
+#videoContainer1 {
+    width: 50%;
+}
 
- /* SECTION BELOW CONTAINS THE STYLES FOR THE IMAGE SLIDE SHOWS */
+#videoContainer2 {
+    width: 50%;
+}
 
-   /* CSS for slideshow container */
-   .slideshow-container {
+/* SECTION BELOW CONTAINS THE STYLES FOR THE IMAGE SLIDE SHOWS */
+
+/* CSS for slideshow container */
+.slideshow-container {
     max-width: 900px;
     max-height: fit-content;
     position: relative;
@@ -145,7 +176,8 @@ footer {
 }
 
 /* CSS for navigation buttons */
-.prev, .next {
+.prev,
+.next {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -172,8 +204,9 @@ footer {
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Javascript for slideshow functionality */
@@ -183,6 +216,36 @@ footer {
 }
 
 @keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.results-table th, .results-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.results-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: left;
+}
+
+.results-table .even-row {
+    background-color: #f9f9f9;
+}
+
+.results-table .odd-row {
+    background-color: #fff;
 }
