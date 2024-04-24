@@ -343,7 +343,7 @@ function playNextVideo(videos, currentVideoIndex) {
         video.src = videos[currentVideoIndex].url;
         var currentPlayer = videos[currentVideoIndex].player;
 
-        //console.log("Video URL ----" + video.src + " :  bowler : " + currentPlayer);
+        console.log("Video URL ----" + video.src + " :  bowler : " + currentPlayer);
         video.controls = true;
         video.autoplay = true;
         video.loop = false; // Set to true if you want videos to loop
@@ -475,6 +475,12 @@ async function initializePage(bowler1Name, bowler2Name) {
             // If 'match' is the same, sort by 'innings'
             if (a.innings < b.innings) return -1;
             if (a.innings > b.innings) return 1;
+            
+            // sort by overs
+            let overA = parseFloat(a.overs);
+            let overB = parseFloat(b.overs);
+
+            return overA - overB;
 
             // If both 'match' and 'innings' are the same, maintain the current order
             return 0;
@@ -748,6 +754,7 @@ function renderResults(data) {
                         <tr>
                             <th>Test #</th>
                             <th>Innings</th>
+                            <th>Over</th>
                             <th>Wicket #</th>
                             <th>Batsman</th>
                             <th>Dismissal Mode</th>
@@ -766,6 +773,7 @@ function renderResults(data) {
         innerHTML += `<tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
                         <td>${item.TestMatchNumber}</td>
                         <td>${item.innings}</td>
+                        <td>${item.overs}</td>
                         <td>${item.Wicket}</td>
                         <td>${item.Batter}</td>
                         <td>${item.dismissalMode}</td>
@@ -784,39 +792,6 @@ function renderResults(data) {
     resultsContainer.innerHTML = innerHTML;
 }
 
-
-// Function to render search results
-/** 
-function renderResults(data) {
-    var resultsContainer = document.getElementById('resultsContainer');
-    var innerHTML = '';
-    resultsContainer.innerHTML = ''; // Clear previous results
-
-    innerHTML = innerHTML + '<table> <th>Test #</th> <th> Innings </th>  <th> Wicket#</th> <th> Batsman </th> <th> Dismissal Mode</th> <th> Fielder</th>' +
-        '<th> Bowler </th> <th> Opponent</th> <th> Country</th> <th> Venue</th> <th> Match Date</th> <th> Match ID </th></tr>';
-
-    data.forEach(item => {
-        innerHTML += `<tr>
-                                          <td>${item.TestMatchNumber}</td>
-                                          <td> ${item.innings}</td>
-                                          <td> ${item.Wicket}</td>
-                                          <td> ${item.Batter}</td>
-                                          <td> ${item.dismissalMode}</td>
-                                          <td> ${item.Fielder}</td>
-                                          <td> ${item.player}</td>
-                                          <td> ${item.opponent}</td>
-                                          <td> ${item.country}</td>
-                                          <td> ${item.venue}</td>
-                                          <td> ${item.matchDate}</td>
-                                          <td> ${item.match} </td>
-                                        </tr>`;
-
-    });
-
-    innerHTML = innerHTML + '</table>';
-
-    resultsContainer.innerHTML = innerHTML;
-}  */
 
 // Function to handle button click and access the hidden variable value
 function handleButtonClick() {
@@ -865,7 +840,6 @@ function populateMatchIds(bowler1Data, bowler2Data) {
 
 
 
-
 // Function to filter only the milestone wickets
 function filterByMatchId(selectedTestMatchId) {
     console.log("Displaying wickets from the selected test match :" + selectedTestMatchId);
@@ -879,4 +853,3 @@ function filterByMatchId(selectedTestMatchId) {
         scrollToVideoContainer(); // Scroll to the video container
     }, delayBeforePlay);
 }
-
