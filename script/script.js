@@ -16,6 +16,9 @@ var batsmanNamesList = document.getElementById('batsmanNames');
 var fielderNameInput = document.getElementById('fielderNameInput');
 var fielderNamesList = document.getElementById('fielderNames');
 
+// Get reference to select element
+const testMatchIdSelect = document.getElementById('test-match-id');
+
 // Function to scroll to the video container
 function scrollToVideoContainer() {
     const videoContainer = document.getElementById('videoContainer');
@@ -26,6 +29,12 @@ function scrollToVideoContainer() {
     }
 }
 
+// Event listener for change in dropdown selection
+testMatchIdSelect.addEventListener('change', function() {
+    const selectedTestId = testMatchIdSelect.value;
+    // Load videos for the selected Test Match ID
+    filterByMatchId(selectedTestId);
+});
 
 // Function to populate dropdowns with distinct values
 function populateDropdowns(data) {
@@ -72,14 +81,38 @@ function populateDropdowns(data) {
 }
 
 
+// code to listen batsman name selections and call the search to display the batsman filter videos
+let batsmanInputTimeout;
 
-
-// Event listener for input change in batsman name input
 batsmanNameInput.addEventListener('input', function () {
     var inputText = this.value;
-    console.log('Input text ---- ' + inputText);
-    handleBatsmenSearch(inputText);
+    // Clear any existing timeout
+
+    clearTimeout(batsmanInputTimeout);
+    batsmanNameInput.addEventListener('input', function () {
+        // Clear any existing timeout
+        clearTimeout(batsmanInputTimeout);
+
+        // Set a timeout to wait for user to finish typing
+       batsmanInputTimeout = setTimeout(() => {
+            // Get the current value of the input field
+            const inputText = this.value.trim();
+
+            // If the value matches an option in the datalist, call the search function
+            const optionSelected = Array.from(batsmanNames.options).some(option => option.value === inputText);
+            if (optionSelected) {
+                console.log('Input text ---- ' + inputText);
+                handleBatsmenSearch(inputText);
+            }
+        }, 500); // Adjust this timeout value as needed (milliseconds)
+    });
+
+    // Listen for blur event to clear the timeout when the input field loses focus
+    batsmanNameInput.addEventListener('blur', function () {
+        clearTimeout(fielderInputTimeout);
+    });
 });
+
 
 // dropdown to populate the batsmen names as the user enters few letters of the name
 function populateBatsmanDropdown(data) {
@@ -93,13 +126,37 @@ function populateBatsmanDropdown(data) {
     });
 }
 
+let fielderInputTimeout;
 
 // Event listener for input change in fielder name input
 
 fielderNameInput.addEventListener('input', function () {
     var inputText = this.value;
-    console.log('Input text ---- ' + inputText);
-    handleFielderNameSearch(inputText);
+    // Clear any existing timeout
+
+    clearTimeout(fielderInputTimeout);
+    fielderNameInput.addEventListener('input', function () {
+        // Clear any existing timeout
+        clearTimeout(fielderInputTimeout);
+
+        // Set a timeout to wait for user to finish typing
+        fielderInputTimeout = setTimeout(() => {
+            // Get the current value of the input field
+            const inputText = this.value.trim();
+
+            // If the value matches an option in the datalist, call the search function
+            const optionSelected = Array.from(fielderNames.options).some(option => option.value === inputText);
+            if (optionSelected) {
+                console.log('Input text ---- ' + inputText);
+                handleFielderNameSearch(inputText);
+            }
+        }, 500); // Adjust this timeout value as needed (milliseconds)
+    });
+
+    // Listen for blur event to clear the timeout when the input field loses focus
+    fielderNameInput.addEventListener('blur', function () {
+        clearTimeout(fielderInputTimeout);
+    });
 });
 
 // dropdown to populate the batsmen names as the user enters few letters of the name
@@ -158,7 +215,8 @@ function filterData(data) {
 function handleWicketSearch(input) {
     var wicketNumber = input.value.trim();
     console.log('wicket number ---  ' + wicketNumber);
-    if (wicketNumber !== '') {
+    console.log("event ----" + input.key);
+    if ((wicketNumber !== '') && (input.key ='Enter')) {
         // Perform search by Wicket#
         var filteredData = searchData.filter(item => item.Wicket === wicketNumber);
         console.log(filteredData);
@@ -200,6 +258,21 @@ function handleTestMatchSearch(input) {
         // Clear results if input is empty
         document.getElementById('resultsContainer').innerHTML = '';
     }
+}
+
+
+// Function to filter only the milestone wickets
+function filterByMatchId(selectedTestMatchId) {
+    console.log("Displaying wickets from the selected test match :" + selectedTestMatchId);
+
+    var filteredData = searchData.filter(item => item.match == selectedTestMatchId);
+    console.log("Data length ---  " + filteredData.length);
+    //renderResults(filteredData);
+
+    setTimeout(function () {
+        playVideos(filteredData, 0); // Play the videos after delays
+        scrollToVideoContainer(); // Scroll to the video container
+    }, delayBeforePlay);
 }
 
 
@@ -381,7 +454,7 @@ function playbackNextVideo(currentVideo) {
     playVideos(videoData, currentVideo);
 }
 
-function    playAllVideos() {
+function playAllVideos() {
     console.log("Play all videos ---" + searchData.length);
     playVideos(searchData, 0);
 };
@@ -389,7 +462,7 @@ function    playAllVideos() {
 // Function to load data from CSV file
 function loadData(player) {
     playerName = player;
-    console.log("Loading data ......"  + player);
+    console.log("Loading data ......" + player);
     Papa.parse('../data/' + player + '.csv', {
         download: true,
         header: true,
@@ -402,6 +475,7 @@ function loadData(player) {
             populateDropdowns(searchData);
             populateBatsmanDropdown(searchData);
             populateFielderDropdown(searchData);
+            populateMatchIds(searchData);
             //playVideos(searchData,0);
             //renderResults(results.data);
         },
@@ -641,11 +715,12 @@ function resetDropdowns() {
     document.getElementById('fieldingPositionFilter').value = selectedFieldingPosition;
     document.getElementById('batsmanNameInput').value = '';
     document.getElementById('wicketSearch').value = '';
-    document.getElementById('testSearch').value = '';
+    //document.getElementById('testSearch').value = '';
     document.getElementById('fielderNameInput').value = '';
     document.getElementById('previousButtonContainer').style.display = "none";
     document.getElementById('nextButtonContainer').style.display = "none";
     document.getElementById('replayButtonContainer').style.display = "none";
+    document.getElementById('test-match-id').value = "default";
 
     videoContainer.innerHTML = ''; // Clear previous video
     detailsContainer.innerHTML = '';
@@ -693,3 +768,28 @@ function handleButtonClick() {
     // Pass the hidden variable value to another function or perform any action
     yourFunction(hiddenValue);
 }
+
+// new code to pick a particular match instead of entering the match number
+
+function populateMatchIds(bowler1Data) {
+    // Assuming bowler1Data and bowler2Data are already available with 'match' field
+
+    // Extract 'match' IDs from both datasets
+    const bowler1MatchIds = bowler1Data.map(row => row['match']);
+   
+    // Populating the dropdown with unique Test Match IDs
+    const uniqueCommonMatchIds = [...new Set(bowler1MatchIds)]; // Remove duplicates
+    uniqueCommonMatchIds.forEach(testMatchId => {
+        // Find additional match details
+        const bowler1MatchDetails = bowler1Data.find(row => row['match'] === testMatchId);
+       
+        // Construct description for the match
+        const description = `${bowler1MatchDetails['match']}, ${bowler1MatchDetails['opponent']} @ ${bowler1MatchDetails['venue']}, Date: ${bowler1MatchDetails['matchDate']}`;
+
+        const option = document.createElement('option');
+        option.textContent = description;
+        option.value = testMatchId;
+        testMatchIdSelect.appendChild(option);
+    });
+}
+

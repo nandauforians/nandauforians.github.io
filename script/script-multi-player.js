@@ -79,12 +79,38 @@ function populateDropdowns(data) {
 
 }
 
-// Event listener for input change in batsman name input
+// code to listen batsman name selections and call the search to display the batsman filter videos
+let batsmanInputTimeout;
+
 batsmanNameInput.addEventListener('input', function () {
     var inputText = this.value;
-    console.log('Input text ---- ' + inputText);
-    handleBatsmenSearch(inputText);
+    // Clear any existing timeout
+
+    clearTimeout(batsmanInputTimeout);
+    batsmanNameInput.addEventListener('input', function () {
+        // Clear any existing timeout
+        clearTimeout(batsmanInputTimeout);
+
+        // Set a timeout to wait for user to finish typing
+       batsmanInputTimeout = setTimeout(() => {
+            // Get the current value of the input field
+            const inputText = this.value.trim();
+
+            // If the value matches an option in the datalist, call the search function
+            const optionSelected = Array.from(batsmanNames.options).some(option => option.value === inputText);
+            if (optionSelected) {
+                console.log('Input text ---- ' + inputText);
+                handleBatsmenSearch(inputText);
+            }
+        }, 500); // Adjust this timeout value as needed (milliseconds)
+    });
+
+    // Listen for blur event to clear the timeout when the input field loses focus
+    batsmanNameInput.addEventListener('blur', function () {
+        clearTimeout(fielderInputTimeout);
+    });
 });
+
 
 // dropdown to populate the batsmen names as the user enters few letters of the name
 function populateBatsmanDropdown(data) {
@@ -99,13 +125,39 @@ function populateBatsmanDropdown(data) {
 }
 
 
-// Event listener for input change in fielder name input
+let fielderInputTimeout;
 
+// Event listener for input change in fielder name input- code changed to ensure search is called only when
+// actual value is selected.
 fielderNameInput.addEventListener('input', function () {
     var inputText = this.value;
-    //console.log('Input text ---- ' + inputText);
-    handleFielderNameSearch(inputText);
+    // Clear any existing timeout
+
+    clearTimeout(fielderInputTimeout);
+    fielderNameInput.addEventListener('input', function () {
+        // Clear any existing timeout
+        clearTimeout(fielderInputTimeout);
+
+        // Set a timeout to wait for user to finish typing
+        fielderInputTimeout = setTimeout(() => {
+            // Get the current value of the input field
+            const inputText = this.value.trim();
+
+            // If the value matches an option in the datalist, call the search function
+            const optionSelected = Array.from(fielderNames.options).some(option => option.value === inputText);
+            if (optionSelected) {
+                console.log('Input text ---- ' + inputText);
+                handleFielderNameSearch(inputText);
+            }
+        }, 500); // Adjust this timeout value as needed (milliseconds)
+    });
+
+    // Listen for blur event to clear the timeout when the input field loses focus
+    fielderNameInput.addEventListener('blur', function () {
+        clearTimeout(fielderInputTimeout);
+    });
 });
+
 
 // dropdown to populate the batsmen names as the user enters few letters of the name
 function populateFielderDropdown(data) {
@@ -853,3 +905,18 @@ function filterByMatchId(selectedTestMatchId) {
         scrollToVideoContainer(); // Scroll to the video container
     }, delayBeforePlay);
 }
+
+function updatePlaceholder() {
+    var dropdown = document.getElementById("test-match-id");
+    var selectedValue = dropdown.value;
+    var placeholderText = "Pick your match";
+
+    if (selectedValue !== "default") {
+        placeholderText = ""; // Clear placeholder text if a value other than default is selected
+    }
+
+    dropdown.setAttribute("data-placeholder", placeholderText);
+}
+
+// Call updatePlaceholder initially to set initial placeholder
+updatePlaceholder();

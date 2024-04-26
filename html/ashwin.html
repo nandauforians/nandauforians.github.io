@@ -55,9 +55,14 @@
             <tr>
                 <td>
                     <input type="text" class="text-field" id="wicketSearch" placeholder="Search by Wicket#"
-                        oninput="handleWicketSearch(this)" onkeypress="handleKeyPress(event)">
-                    <input type="number" id="testSearch" placeholder="Search by Test#" class="large-input" min="1"
-                        max="100" oninput="handleTestMatchSearch(this)" onkeypress="handleKeyPress(event)">
+                         onkeypress="handleKeyPress(event)">
+                    <!--input type="number" id="test-match-id" placeholder="Search by Test#" class="large-input" min="1"
+                        max="100" oninput="handleTestMatchSearch(this)" onkeypress="handleKeyPress(event)"-->
+                    <select id="test-match-id">
+                            <option value="default"> Select the Test Match </option>
+                            <!-- Options will be populated dynamically using JavaScript -->
+                    </select>
+
                     <input type="text" class="text-field" id="batsmanNameInput" list="batsmanNames"
                         placeholder="Enter the batsman name">
                     <datalist id="batsmanNames">
