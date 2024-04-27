@@ -28,7 +28,7 @@ body {
   }
 
   .container {
-    max-width: 700px;
+    max-width: 75%;
     font-style: normal;
     font: rgb(0, 0, 0);
     margin: 50px auto;
