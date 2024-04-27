@@ -105,6 +105,17 @@ batsmanNameInput.addEventListener('input', function () {
         }, 500); // Adjust this timeout value as needed (milliseconds)
     });
 
+    // Listen for change event on the input field to trigger when a value is selected from the dropdown
+    batsmanNameInput.addEventListener('change', function () {
+        var inputText = this.value.trim();
+        // If the value matches an option in the datalist, call the search function
+        const optionSelected = Array.from(batsmanNames.options).some(option => option.value === inputText);
+        if (optionSelected) {
+            console.log('Input text ---- ' + inputText);
+            handleBatsmenSearch(inputText);
+        }
+    });
+
     // Listen for blur event to clear the timeout when the input field loses focus
     batsmanNameInput.addEventListener('blur', function () {
         clearTimeout(fielderInputTimeout);
@@ -150,6 +161,17 @@ fielderNameInput.addEventListener('input', function () {
                 handleFielderNameSearch(inputText);
             }
         }, 500); // Adjust this timeout value as needed (milliseconds)
+    });
+
+     // Listen for change event on the input field to trigger when a value is selected from the dropdown
+     fielderNameInput.addEventListener('change', function () {
+        var inputText = this.value.trim();
+        // If the value matches an option in the datalist, call the search function
+        const optionSelected = Array.from(fielderNames.options).some(option => option.value === inputText);
+        if (optionSelected) {
+            console.log('Input text ---- ' + inputText);
+            handleFielderNameSearch(inputText);
+        }
     });
 
     // Listen for blur event to clear the timeout when the input field loses focus
@@ -433,8 +455,6 @@ function playNextVideo(videos, currentVideoIndex) {
     detailsContainer.textContent = videos[currentVideoIndex].details;
     descriptionContainer.textContent = videos[currentVideoIndex].description;
     document.getElementById('videoCounter').value = videos[currentVideoIndex].videoCounter;
-    //console.log("Video currently playing ---- " + document.getElementById('videoCounter').value); 
-    //console.log("current video index ----" + currentVideoIndex);
 
     video.addEventListener('ended', function () {
         currentVideoIndex++;

@@ -30,7 +30,7 @@ function scrollToVideoContainer() {
 }
 
 // Event listener for change in dropdown selection
-testMatchIdSelect.addEventListener('change', function() {
+testMatchIdSelect.addEventListener('change', function () {
     const selectedTestId = testMatchIdSelect.value;
     // Load videos for the selected Test Match ID
     filterByMatchId(selectedTestId);
@@ -94,7 +94,7 @@ batsmanNameInput.addEventListener('input', function () {
         clearTimeout(batsmanInputTimeout);
 
         // Set a timeout to wait for user to finish typing
-       batsmanInputTimeout = setTimeout(() => {
+        batsmanInputTimeout = setTimeout(() => {
             // Get the current value of the input field
             const inputText = this.value.trim();
 
@@ -105,6 +105,17 @@ batsmanNameInput.addEventListener('input', function () {
                 handleBatsmenSearch(inputText);
             }
         }, 500); // Adjust this timeout value as needed (milliseconds)
+    });
+
+    // Listen for change event on the input field to trigger when a value is selected from the dropdown
+    batsmanNameInput.addEventListener('change', function () {
+        var inputText = this.value.trim();
+        // If the value matches an option in the datalist, call the search function
+        const optionSelected = Array.from(batsmanNames.options).some(option => option.value === inputText);
+        if (optionSelected) {
+            console.log('Input text ---- ' + inputText);
+            handleBatsmenSearch(inputText);
+        }
     });
 
     // Listen for blur event to clear the timeout when the input field loses focus
@@ -133,7 +144,6 @@ let fielderInputTimeout;
 fielderNameInput.addEventListener('input', function () {
     var inputText = this.value;
     // Clear any existing timeout
-
     clearTimeout(fielderInputTimeout);
     fielderNameInput.addEventListener('input', function () {
         // Clear any existing timeout
@@ -151,6 +161,17 @@ fielderNameInput.addEventListener('input', function () {
                 handleFielderNameSearch(inputText);
             }
         }, 500); // Adjust this timeout value as needed (milliseconds)
+    });
+
+    // Listen for change event on the input field to trigger when a value is selected from the dropdown
+    fielderNameInput.addEventListener('change', function () {
+        var inputText = this.value.trim();
+        // If the value matches an option in the datalist, call the search function
+        const optionSelected = Array.from(fielderNames.options).some(option => option.value === inputText);
+        if (optionSelected) {
+            console.log('Input text ---- ' + inputText);
+            handleFielderNameSearch(inputText);
+        }
     });
 
     // Listen for blur event to clear the timeout when the input field loses focus
@@ -216,7 +237,7 @@ function handleWicketSearch(input) {
     var wicketNumber = input.value.trim();
     console.log('wicket number ---  ' + wicketNumber);
     console.log("event ----" + input.key);
-    if ((wicketNumber !== '') && (input.key ='Enter')) {
+    if ((wicketNumber !== '') && (input.key = 'Enter')) {
         // Perform search by Wicket#
         var filteredData = searchData.filter(item => item.Wicket === wicketNumber);
         console.log(filteredData);
@@ -228,7 +249,7 @@ function handleWicketSearch(input) {
 
         //playVideos(filteredData);
         //renderResults(filteredData);
-        document.getElementById('wicketSearch').innerHTML = '';
+        //  document.getElementById('wicketSearch').innerHTML = '';
     } else {
         // Clear results if input is empty
         document.getElementById('resultsContainer').innerHTML = '';
@@ -298,9 +319,9 @@ function handleBatsmenSearch(batsmanName) {
 // Function to handle enter key press for Wicket# search
 function handleKeyPress(event) {
     if (event.key === 'Enter') {
-        document.getElementById('wicketSearch').blur(); // Remove focus from input field
-        handleWicketSearch(document.getElementById('wicketSearch'));
-        document.getElementById('wicketSearch').innerHTML = '';
+        // document.getElementById('wicketSearch').blur(); // Remove focus from input field
+        // handleWicketSearch(document.getElementById('wicketSearch'));
+        // document.getElementById('wicketSearch').innerHTML = '';
         document.getElementById('batsmanNameInput').innerHTML = '';
     }
 }
@@ -530,7 +551,7 @@ function populateOpponentDropdown(data, selectedOpponent, resetFlag) {
         var isSelected = (opponent === selectedOpponent) ? 'selected' : '';
         opponentDropdown.innerHTML += `<option value="${opponent}" ${isSelected}>${opponent}</option>`;
     });
-    document.getElementById('wicketSearch').textContent = '';
+    // document.getElementById('wicketSearch').textContent = '';
     console.log("reset Flag --- " + resetFlag);
 
     if (resetFlag == false) {
@@ -553,7 +574,7 @@ function populateCountryDropdown(data, selectedCountry, resetFlag) {
         var isSelected = (country === selectedCountry) ? 'selected' : '';
         countryDropdown.innerHTML += `<option value="${country}" ${isSelected}>${country}</option>`;
     });
-    document.getElementById('wicketSearch').textContent = '';
+    //document.getElementById('wicketSearch').textContent = '';
     if (resetFlag == false) {
         console.log("Populate country drop down ---- " + resetFlag);
         setTimeout(function () {
@@ -574,7 +595,7 @@ function populateVenueDropdown(data, selectedVenue, resetFlag) {
         var isSelected = (venue === selectedVenue) ? 'selected' : '';
         venueDropdown.innerHTML += `<option value="${venue}" ${isSelected}>${venue}</option>`;
     });
-    document.getElementById('wicketSearch').innerHTML = '-';
+    //document.getElementById('wicketSearch').innerHTML = '-';
     if (resetFlag == false) {
         setTimeout(function () {
             playVideos(data, 0); // Play the videos after delay
@@ -594,7 +615,7 @@ function populateDismissalModeDropdown(data, selectedDismissalMode, resetFlag) {
         var isSelected = (dismissalMode === selectedDismissalMode) ? 'selected' : '';
         dismissalModeDropdown.innerHTML += `<option value="${dismissalMode}" ${isSelected}>${dismissalMode}</option>`;
     });
-    document.getElementById('wicketSearch').textContent = '';
+    //document.getElementById('wicketSearch').textContent = '';
 
 
     // Check if the selected value is "caught"
@@ -628,7 +649,7 @@ function populateFieldingPositionDropdown(data, selectedFieldingPosition, resetF
         fieldingPositionDropdown.innerHTML += `<option value="${fieldingPosition}" ${isSelected}>${fieldingPosition}</option>`;
     });
 
-    document.getElementById('wicketSearch').textContent = '';
+    // document.getElementById('wicketSearch').textContent = '';
     if (resetFlag == false) {
         setTimeout(function () {
             playVideos(data, 0); // Play the videos after delay
@@ -714,7 +735,7 @@ function resetDropdowns() {
     document.getElementById('dismissalModeFilter').value = selectedDismissalMode;
     document.getElementById('fieldingPositionFilter').value = selectedFieldingPosition;
     document.getElementById('batsmanNameInput').value = '';
-    document.getElementById('wicketSearch').value = '';
+    //document.getElementById('wicketSearch').value = '';
     //document.getElementById('testSearch').value = '';
     document.getElementById('fielderNameInput').value = '';
     document.getElementById('previousButtonContainer').style.display = "none";
@@ -776,13 +797,13 @@ function populateMatchIds(bowler1Data) {
 
     // Extract 'match' IDs from both datasets
     const bowler1MatchIds = bowler1Data.map(row => row['match']);
-   
+
     // Populating the dropdown with unique Test Match IDs
     const uniqueCommonMatchIds = [...new Set(bowler1MatchIds)]; // Remove duplicates
     uniqueCommonMatchIds.forEach(testMatchId => {
         // Find additional match details
         const bowler1MatchDetails = bowler1Data.find(row => row['match'] === testMatchId);
-       
+
         // Construct description for the match
         const description = `${bowler1MatchDetails['match']}, ${bowler1MatchDetails['opponent']} @ ${bowler1MatchDetails['venue']}, Date: ${bowler1MatchDetails['matchDate']}`;
 
