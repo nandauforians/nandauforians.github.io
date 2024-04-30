@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Selection</title>
+    <title>Uforian Videos - FabFour</title>
     <style>
         .cover-image {
             position: relative;
@@ -108,30 +108,30 @@
     <div class="cover-image">
     </div>
     <div class="container">
-        <table width="100%">
         <tr>
             <td>
-                <div class="left-grid">
-                    <h2 align="center">Pick your bowler</h2>
-                    <button class="submit-btn" onclick="submitSelection()">Submit</button>
-                    <div class="image-grid" id="leftGrid">
-                        <img src="./images/main-ashwin.png" alt="Ashwin" data-name="Ashwin">
-                        <img src="./images/main-jadeja.png" alt="Jadeja" data-name="Jadeja">
-                        <img src="./images/main-shami.png" alt="Shami" data-name="Shami">
-                        <img src="./images/main-bumrah.png" alt="Bumrah" data-name="Bumrah">
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class="right-grid" id="rightGrid">
-                    <h2>Selected bowler</h2>
-                </div>
-            </td>
-        </tr>
-    </table>
+        <div class="left-grid">
+            <h2 align="center">Pick your bowler</h2>
+            <button class="submit-btn" onclick="submitSelection()">Submit</button>
+            <div class="image-grid" id="leftGrid">
+                <img src="./images/main-ashwin.png" alt="Ashwin" data-name="Ashwin">
+                <img src="./images/main-jadeja.png" alt="Jadeja" data-name="Jadeja">
+                <img src="./images/main-shami.png" alt="Shami" data-name="Shami">
+                <img src="./images/main-bumrah.png" alt="Bumrah" data-name="Bumrah">
+            </div>
+        </div>
+    </td>
+    </tr>
+    <tr>
+        <td>
+        <div class="right-grid" id="rightGrid">
+            <h2>Selected bowler</h2>
+        </div>
+        </td>
+    </tr>
     </div>
     <div class="error-container" id="errorContainer"></div>
-
+   
 
     <script>
         const leftGrid = document.getElementById('leftGrid');
@@ -143,13 +143,13 @@
             if (target.tagName === 'IMG') {
                 console.log("right grid length : " + rightGrid.children.length);
 
-                //if (rightGrid.children.length < 3) {
+                if (rightGrid.children.length < 3) {
                     rightGrid.appendChild(target.cloneNode(true));
                     target.style.opacity = '0.5'; // Dim the image to indicate selection
                     target.remove();
-                //} else {
-                  //  displayError('ERR:1 --- You can select at most 2 images.');
-                //}
+                } else {
+                    displayError('ERR:1 --- You can select at most 2 images.');
+                }
             }
         });
 
@@ -169,6 +169,12 @@
         function submitSelection() {
             const selectedImages = document.querySelectorAll('#rightGrid img');
             const selectedCount = selectedImages.length;
+            //alert("selected images ---" + selectedCount);
+
+            if (selectedCount > 2) {
+                displayError('You can select at most 2 images.');
+                return;
+            }
 
             if (selectedCount === 0) {
                 displayError('Please select at least one image.');
@@ -177,15 +183,17 @@
 
             const selectedNames = Array.from(selectedImages).map(img => img.getAttribute('data-name'));
 
-            // Redirect to the appropriate page with query parameters
+            // Encode selected image values as query parameters
             const queryParams = new URLSearchParams();
-            
-           // Join selected player names with a comma delimiter
-           queryParams.append('players', selectedNames.join(',')); 
+            queryParams.append('player1', selectedNames[0] || ''); // First selected player or empty string if not selected
+            queryParams.append('player2', selectedNames[1] || ''); // Second selected player or empty string if not selected
 
             // Redirect to the appropriate page with query parameters
-            //const redirectPage = selectedNames.length > 1 ? './html/multi-player.html' : './html/single-player.html';
-            window.location.href = './html/generic.html' + '?' + queryParams.toString();
+            if (selectedNames[0] && selectedNames[1]) {
+                window.location.href = './html/multi-player.html?' + queryParams.toString();
+            } else if (selectedNames[0]) {
+                window.location.href = './html/single-player.html?' + queryParams.toString();
+            }
         }
     </script>
 
