@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Page</title>
+
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/home-style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <style>
+        /* Styles for the slider container */
+        .slider-container {
+            width: 100%;
+            max-width: 1280px; /* Set maximum width */
+            height: 300px;
+            margin: 0 auto; /* Center horizontally */
+            overflow: hidden;
+            position: relative;
+        }
+    
+        .slider-images {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+    
+        .slider-image {
+            width: 100%;
+            height: auto; /* Maintain aspect ratio */
+            object-fit: cover;
+        }
+    
+        @media only screen and (max-width: 768px) {
+            /* Adjust for smaller screens like tablets and mobile */
+            .slider-container {
+                height: auto; /* Allow height to adjust */
+            }
+    
+            .slider-image {
+                height: 100%;
+                width: auto; /* Ensure full width */
+            }
+        }
+    </style>
+    
+
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8NWJWLFE3X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-8NWJWLFE3X');
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<body>
+
+    <!-- Slider container -->
+    <div class="slider-container">
+        <div class="slider-images" id="sliderImages">
+            <!-- Images will be added dynamically here -->
+        </div>
+    </div>
+
+    <div id="searchContainer">
+        <table align="center">
+            <tr>
+                <td>
+                    <select id="test-match-id">
+                        <option value="default"> Select the Test Match </option>
+                        <!-- Options will be populated dynamically using JavaScript -->
+                    </select>
+                    <input type="text" class="text-field" id="batsmanNameInput" list="batsmanNames"
+                        placeholder="Enter the batsman name">
+                    <datalist id="batsmanNames">
+                        <!-- Batsman names will be populated dynamically -->
+                    </datalist>
+                    <input type="text" class="text-field" id="fielderNameInput" list="fielderNames"
+                        placeholder="Enter the Fielder name">
+                    <datalist id="fielderNames">
+                        <!-- Fielder names will be populated dynamically -->
+                    </datalist>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select class="dropdown" id="opponentFilter" onchange="handleOpponentChange(this.value)">
+                        <option value="All">All Opponents</option>
+                    </select>
+                    <select class="dropdown" id="countryFilter" onchange="handleCountryChange(this.value)">
+                        <option value="All">All Countries</option>
+                    </select>
+                    <select class="dropdown" id="venueFilter" onchange="handleVenueChange(this.value)">
+                        <option value="All">All Venues</option>
+                    </select>
+                    <select class="dropdown" id="dismissalModeFilter" onchange="handleDismissalModeChange(this.value)">
+                        <option value="All">All Dismissal Modes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="fieldingPosition" style="display: none;">
+                        <select class="dropdown" id="fieldingPositionFilter"
+                            onchange="handleFieldingPositionChange(this.value)">
+                            <option value="All">All Fielding Positions</option>
+                        </select>
+                    </div>
+                    <button class="styled-button" onclick="resetDropdowns()"> Reset</button>
+                    <button class="styled-button" onclick="filterMilestoneWickets()"> Milestone Wickets</button>
+                    <button class="styled-button" onclick="playAllAwayWickets()"> Away Wickets</button>
+                    <button class="styled-button" onclick="playAllVideos()"> Play All</button>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+
+    <table align="center">
+
+        <tr align="center">
+            <td>
+                <div id="detailsContainer"></div>
+                <div id="hiddenContainer">
+                    <input type="hidden" id="videoCounter" name="videoCounter">
+                </div>
+            </td>
+        </tr>
+        <tr align="center">
+            <td>
+                <div id="descriptionContainer"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="videoContainer"></div>
+            </td>
+        </tr>
+    </table>
+    <table align="center">
+        <tr align="center">
+            <td align="right">
+                <div id="previousButtonContainer" style="display: none;">
+                    <button class="styled-button" onclick="playbackPreviousVideo(videoCounter.value)"> Previous</button>
+                </div>
+            </td>
+            <td align="center">
+                <div id="replayButtonContainer" style="display: none;">
+                    <button class="styled-button" onclick="replayVideos()"> Replay</button>
+                </div>
+            </td>
+            <td align="left">
+                <div id="nextButtonContainer" style="display: none;">
+                    <button class="styled-button" onclick="playbackNextVideo(videoCounter.value)"> Next </button>
+                </div>
+
+            </td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        <p> © 2024 Uforians. All rights reserved. | Video Footage :<a href="https://twitter.com/KohliSensual05">
+                @KohliSensuous </a> | <a href="../index.html">Home</a> </p>
+    </div>
+
+
+    <!-- Content of the second page -->
+    <script src="../script/script-generic.js"></script>
+    <script>
+        // JavaScript code to parse query parameters and call initializePage function
+        // Define player names array
+        var playerNames = []; // Change this to the desired list of player names
+
+        // Function to parse query parameters from URL
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            const playerString = params.get('players');
+            playerNames = playerString.split(',');
+
+            console.log('URL ---- ' + params);
+
+            playerNames.forEach(player => {
+                console.log("player ---- " + player);
+            });
+
+            return playerNames;
+        }
+
+        // Function to set the page title based on selected players
+        function setPageTitle(players) {
+            document.title = players.join(' & ');
+            playerNames = players;
+        }
+
+        // Function to create and append image elements to the slider container
+        function createSliderImages(players) {
+            const sliderImages = document.getElementById('sliderImages');
+            players.forEach(player => {
+                console.log("Slider: Player name : " + player);
+                const slide = document.createElement('div');
+                slide.classList.add('slider-image');
+                slide.innerHTML = `<img src="../images/${player}.jpg" alt="${player}">`;
+                sliderImages.appendChild(slide);
+            });
+        }
+
+        // JavaScript code for image slider functionality
+        const sliderImages = document.getElementById('sliderImages');
+        let slideIndex = 0;
+
+        function showSlides() {
+            slideIndex++;
+            if (slideIndex >= sliderImages.children.length) {
+                slideIndex = 0;
+            }
+            const slideWidth = sliderImages.offsetWidth; // Use container width instead of slide width
+            sliderImages.style.transform = `translateX(-${slideWidth * slideIndex}px)`;
+            setTimeout(showSlides, 5000); // Change slides every 5 seconds
+        }
+
+        // Parse query parameters and call initializePage function
+        const players = getQueryParams();
+
+        setPageTitle(players);
+        createSliderImages(players);
+        showSlides(); // Start the slideshow
+        initializePage(players);
+    </script>
+
+    <div id="resultsContainer"></div>
+
+</body>
+
+</html>
