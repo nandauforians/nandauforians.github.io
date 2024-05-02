@@ -4,33 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alternate Colored Dropdown</title>
-<style>
-/* Style for the dropdown container */
-.dropdown {
-  width: 200px;
-  position: relative;
-  display: inline-block;
-}
-
-/* Style for the select element */
-.dropdown select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-/* Default style for options */
-.dropdown select option {
-  background-color: #fff; /* Default background color */
-}
-
-</style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -44,17 +18,11 @@
   </select>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/js/select2.min.js"></script>
 <script>
-// JavaScript to apply alternate background colors to options
-document.addEventListener('DOMContentLoaded', function() {
-  var select = document.getElementById('dropdown-select');
-  var options = select.options;
-  
-  for (var i = 0; i < options.length; i++) {
-    if (i % 2 === 0) {
-      options[i].style.backgroundColor = '#f2f2f2'; // Alternate background color for even options
-    }
-  }
+$(document).ready(function() {
+  $('#dropdown-select').select2();
 });
 </script>
 
