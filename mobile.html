@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alternate Colored Dropdown</title>
 <style>
-/* Style for the dropdown */
+/* Style for the dropdown container */
 .dropdown {
   width: 200px;
   position: relative;
@@ -25,20 +25,17 @@
   cursor: pointer;
 }
 
-/* Style for the options */
-.dropdown select option:nth-child(odd) {
-  background-color: #f2f2f2; /* Alternate background color for odd options */
+/* Default style for options */
+.dropdown select option {
+  background-color: #fff; /* Default background color */
 }
 
-.dropdown select option:nth-child(even) {
-  background-color: #fff; /* Alternate background color for even options */
-}
 </style>
 </head>
 <body>
 
 <div class="dropdown">
-  <select>
+  <select id="dropdown-select">
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>
@@ -48,9 +45,16 @@
 </div>
 
 <script>
-// JavaScript to handle the select change event
-document.querySelector('.dropdown select').addEventListener('change', function() {
-  console.log('Selected option:', this.value);
+// JavaScript to apply alternate background colors to options
+document.addEventListener('DOMContentLoaded', function() {
+  var select = document.getElementById('dropdown-select');
+  var options = select.options;
+  
+  for (var i = 0; i < options.length; i++) {
+    if (i % 2 === 0) {
+      options[i].style.backgroundColor = '#f2f2f2'; // Alternate background color for even options
+    }
+  }
 });
 </script>
 
