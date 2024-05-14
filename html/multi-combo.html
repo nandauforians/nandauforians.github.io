@@ -4,10 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uforian Video Search - Ravichandran Ashwin</title>
+    <title>Second Page</title>
+
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/home-style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <style>
+        /* Styles for the slider container */
+        .slider-container {
+            width: 1200px;
+            height: 300px;
+            /* Adjust the height of the slider container */
+            overflow: hidden;
+            /* Hide overflow content */
+            position: relative;
+            /* Set position to relative for absolute positioning of images */
+        }
+
+        .slider-images {
+            display: flex;
+            /* Set display to flex for horizontal layout */
+            transition: transform 0.5s ease;
+            /* Add smooth transition effect */
+        }
+
+        .slider-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ensure the images cover the entire slide */
+        }
+    </style>
+
 </head>
+
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NWJWLFE3X"></script>
 <script>
@@ -18,51 +50,25 @@
     gtag('config', 'G-8NWJWLFE3X');
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <body>
 
-    <div class="slideshow-container">
-
-        <!-- Full-width images with number and caption text -->
-
-        <div class="mySlides fade">
-            <img src="../images/ashwin/ashwin-slide-1.jpg" style="width:100%">
+    <!-- Slider container -->
+    <div class="slider-container">
+        <div class="slider-images" id="sliderImages">
+            <!-- Images will be added dynamically here -->
         </div>
-
-        <div class="mySlides fade">
-            <img src="../images/ashwin/ashwin-slide-3.jpg" style="width:100%">
-        </div>
-
-        <div class="mySlides fade">
-            <img src="../images/ashwin/ashwin-slide-1.jpg" style="width:100%">
-        </div>
-
-        <div class="mySlides fade">
-            <img src="../images/ashwin/ashwin-slide-2.jpg" style="width:100%">
-        </div>
-
-        <div class="mySlides fade">
-            <img src="../images/ashwin/ashwin-slide-4.jpg" style="width:100%">
-        </div>
-
-        <!-- Navigation buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
 
     <div id="searchContainer">
         <table align="center">
             <tr>
                 <td>
-                    <input type="text" class="text-field" id="wicketSearch" placeholder="Search by Wicket#"
-                         onkeypress="handleKeyPress(event)">
-                    <!--input type="number" id="test-match-id" placeholder="Search by Test#" class="large-input" min="1"
-                        max="100" oninput="handleTestMatchSearch(this)" onkeypress="handleKeyPress(event)"-->
                     <select id="test-match-id">
-                            <option value="default"> Select the Test Match </option>
-                            <!-- Options will be populated dynamically using JavaScript -->
+                        <option value="default"> Select the Test Match </option>
+                        <!-- Options will be populated dynamically using JavaScript -->
                     </select>
-
                     <input type="text" class="text-field" id="batsmanNameInput" list="batsmanNames"
                         placeholder="Enter the batsman name">
                     <datalist id="batsmanNames">
@@ -158,16 +164,71 @@
     </div>
 
 
-    <script src="../script/script.js"></script>
+    <!-- Content of the second page -->
+    <script src="../script/script-generic.js"></script>
     <script>
-        loadData("Ashwin");
+        // JavaScript code to parse query parameters and call initializePage function
+        // Define player names array
+        var playerNames = []; // Change this to the desired list of player names
+
+        // Function to parse query parameters from URL
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            const playerString = params.get('players');
+            playerNames = playerString.split(',');
+
+            console.log('URL ---- ' + params);
+
+            playerNames.forEach(player => {
+                console.log("player ---- " + player);
+            });
+
+            return playerNames;
+        }
+
+        // Function to set the page title based on selected players
+        function setPageTitle(players) {
+            document.title = players.join(' & ');
+            playerNames = players;
+        }
+
+        // Function to create and append image elements to the slider container
+        function createSliderImages(players) {
+            const sliderImages = document.getElementById('sliderImages');
+            players.forEach(player => {
+                console.log("Slider: Player name : " + player);
+                const slide = document.createElement('div');
+                slide.classList.add('slider-image');
+                slide.innerHTML = `<img src="../images/${player}.jpg" alt="${player}">`;
+                sliderImages.appendChild(slide);
+            });
+        }
+
+        // JavaScript code for image slider functionality
+        const sliderImages = document.getElementById('sliderImages');
+        let slideIndex = 0;
+
+        function showSlides() {
+            slideIndex++;
+            if (slideIndex >= sliderImages.children.length) {
+                slideIndex = 0;
+            }
+            const slideWidth = sliderImages.offsetWidth; // Use container width instead of slide width
+            sliderImages.style.transform = `translateX(-${slideWidth * slideIndex}px)`;
+            setTimeout(showSlides, 5000); // Change slides every 5 seconds
+        }
+
+        // Parse query parameters and call initializePage function
+        const players = getQueryParams();
+
+        setPageTitle(players);
+        createSliderImages(players);
+        showSlides(); // Start the slideshow
+        initializePage(players);
     </script>
-    <script src="../script/script-slide.js"></script>
 
+    <div id="resultsContainer"></div>
 
-
-
-    <!--div id="resultsContainer"></div-->
 </body>
 
 </html>
