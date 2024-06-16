@@ -10,7 +10,8 @@ var videoUrls = new Map([
     ["Jadeja", "https://nandauforians.github.io/ravijadeja"],
     ["Steyn", "https://nandauforians.github.io/dalesteyn"],
     ["Kuldeep","https://nandauforians.github.io/kuldeepyadav"],
-    ["Cummins","https://nandauforians.github.io/patcummins"]
+    ["Cummins","https://nandauforians.github.io/patcummins"],
+    ["Starc","https://nandauforians.github.io/mitchellstarc"],
 ]);
 
 var bowler1;
