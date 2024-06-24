@@ -1,18 +1,13 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="en">
 
-
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Wicket-O-Media</title>
-
     <style>
+        /* Add your existing CSS here */
         .cover-image {
 
             position: relative;
@@ -202,207 +197,185 @@
             display: none;
 
         }
-    </style>
 
+
+        /* New styles for tabs */
+        .tabs {
+            overflow: hidden;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .tab {
+            cursor: pointer;
+            padding: 14px 20px;
+            transition: 0.3s;
+        }
+
+        .tab:hover {
+            background-color: #ddd;
+        }
+
+        .tab.active {
+            background-color: #ccc;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
 </head>
 
-
-
 <body>
-
-    <div class="cover-image">
-
+    <div class="cover-image"></div>
+    <div class="tabs">
+        <div class="tab active" onclick="showTab('tests')">Tests</div>
+        <div class="tab" onclick="showTab('odi')">ODI</div>
     </div>
-
     <div class="container">
-
-        <table width="100%">
-
-            <tr>
-
-                <td>
-
-                    <div class="left-grid">
-
-                        <h2 align="center"><font color="blue">TEST MATCH WICKETS  (Multi-Select) !
-                             Select One or More </font>
-                        </h2>
-                        
-
-                        <button class="submit-btn" onclick="submitSelection()">Submit</button>
-
-                        <div class="image-grid" id="leftGrid">
-
-                            <img src="./images/main-starc.png" alt="Cummins" data-name="Starc">
-                            
-                            <img src="./images/main-cummins.png" alt="Cummins" data-name="Cummins">
-
-                            <img src="./images/main-steyn.jpg" alt="Steyn"  data-name="Steyn">
-
-                            <img src="./images/main-ashwin.png" alt="Ashwin" data-name="Ashwin">
-
-                            <img src="./images/main-jadeja.png" alt="Jadeja" data-name="Jadeja">
-
-                            <img src="./images/main-shami.png" alt="Shami" data-name="Shami">
-
-                            <img src="./images/main-bumrah.png" alt="Bumrah" data-name="Bumrah">
-
-                            <img src="./images/main-siraj.png" alt="Siraj" data-name="Siraj">
-                            
+        <!-- Tests Tab Content -->
+        <div id="tests" class="tab-content active">
+            <table width="100%">
+                <tr>
+                    <td>
+                        <div class="left-grid">
+                            <h2 align="center">
+                                <font color="blue">TEST MATCH WICKETS (Multi-Select) ! Select One or More </font>
+                            </h2>
+                            <button class="submit-btn" onclick="submitSelection()">Submit</button>
+                            <div class="image-grid" id="leftGrid">
+                                <img src="./images/main-starc.png" alt="Starc" data-name="Starc">
+                                <img src="./images/main-cummins.png" alt="Cummins" data-name="Cummins">
+                                <img src="./images/main-steyn.jpg" alt="Steyn" data-name="Steyn">
+                                <img src="./images/main-ashwin.png" alt="Ashwin" data-name="Ashwin">
+                                <img src="./images/main-jadeja.png" alt="Jadeja" data-name="Jadeja">
+                                <img src="./images/main-shami.png" alt="Shami" data-name="Shami">
+                                <img src="./images/main-bumrah.png" alt="Bumrah" data-name="Bumrah">
+                                <img src="./images/main-siraj.png" alt="Siraj" data-name="Siraj">
+                            </div>
                         </div>
+                    </td>
+                    <td>
+                        <div class="right-grid" id="rightGrid">
+                            <h2>Selected bowler</h2>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
-                    </div>
-
-                </td>
-
-                <td>
-
-                    <div class="right-grid" id="rightGrid">
-
-                        <h2>Selected bowler</h2>
-
-                    </div>
-
-                </td>
-
-            </tr>
-
-        </table>
-
-        <table>
-
-            <tr>
-                <td class="right-grid">
-                    <h2>Kuldeep Yadav - ODI Wickets !</h2>
-                </td>
-                <td class="right-grid">
-                    <a href="./html/multi-combo.html?players=Kuldeep">
-                        <img src="./images/main-kulpdeep.png" alt="Kuldeep" data-name="Kuldeep">
-                    </a>
-                </td>
-            </tr>
-        </table>
-
+        <!-- ODI Tab Content -->
+        <div id="odi" class="tab-content">
+            <table width="100%">
+                <tr>
+                    <td>
+                        <div class="left-grid">
+                            <h2 align="center">
+                                <font color="blue">ODI MATCH WICKETS (Multi-Select) ! Select One or More </font>
+                            </h2>
+                            <button class="submit-btn" onclick="submitSelection()">Submit</button>
+                            <div class="image-grid" id="leftGridOdi">
+                                <img src="./images/main-kulpdeep.png" alt="Kuleep" data-name="Kuldeep">
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="right-grid" id="rightGridOdi">
+                            <h2>Selected bowler</h2>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
-
     <div class="error-container" id="errorContainer"></div>
-
-
-
     <script>
-
+        // Existing JavaScript code
         const leftGrid = document.getElementById('leftGrid');
-
         const rightGrid = document.getElementById('rightGrid');
-
+        const leftGridOdi = document.getElementById('leftGridOdi');
+        const rightGridOdi = document.getElementById('rightGridOdi');
         const errorContainer = document.getElementById('errorContainer');
 
+        // Tab switching logic
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
 
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
+        }
 
         leftGrid.addEventListener('click', function (event) {
-
             const target = event.target;
-
             if (target.tagName === 'IMG') {
-
-                console.log("right grid length : " + rightGrid.children.length);
-
-
-
-                //if (rightGrid.children.length < 3) {
-
                 rightGrid.appendChild(target.cloneNode(true));
-
-                target.style.opacity = '0.5'; // Dim the image to indicate selection
-
+                target.style.opacity = '0.5';
                 target.remove();
-
-                //} else {
-
-                //  displayError('ERR:1 --- You can select at most 2 images.');
-
-                //}
-
             }
-
         });
-
-
 
         rightGrid.addEventListener('click', function (event) {
-
             const target = event.target;
-
             if (target.tagName === 'IMG') {
-
                 leftGrid.appendChild(target.cloneNode(true));
-
                 target.remove();
-
             }
-
         });
 
+        leftGridOdi.addEventListener('click', function (event) {
+            const target = event.target;
+            if (target.tagName === 'IMG') {
+                rightGridOdi.appendChild(target.cloneNode(true));
+                target.style.opacity = '0.5';
+                target.remove();
+            }
+        });
 
+        rightGridOdi.addEventListener('click', function (event) {
+            const target = event.target;
+            if (target.tagName === 'IMG') {
+                leftGridOdi.appendChild(target.cloneNode(true));
+                target.remove();
+            }
+        });
 
         function displayError(message) {
-
             errorContainer.textContent = message;
-
             errorContainer.style.display = 'block';
-
         }
-
-
 
         function submitSelection() {
-
-            const selectedImages = document.querySelectorAll('#rightGrid img');
-
+            const selectedImagesTests = document.querySelectorAll('#rightGrid img');
+            const selectedImagesOdi = document.querySelectorAll('#rightGridOdi img');
+            const selectedImages = [...selectedImagesTests, ...selectedImagesOdi];
             const selectedCount = selectedImages.length;
 
-
-
             if (selectedCount === 0) {
-
                 displayError('Please select at least one image.');
-
                 return;
-
             }
 
-
-
             const selectedNames = Array.from(selectedImages).map(img => img.getAttribute('data-name'));
-
-
-
-            // Redirect to the appropriate page with query parameters
-
             const queryParams = new URLSearchParams();
-
-
-
-            // Join selected player names with a comma delimiter
-
             queryParams.append('players', selectedNames.join(','));
-
-
-
-            // Redirect to the appropriate page with query parameters
-
-            //const redirectPage = selectedNames.length > 1 ? './html/multi-player.html' : './html/single-player.html';
-
             window.location.href = './html/multi-combo.html' + '?' + queryParams.toString();
-
         }
-
     </script>
-
-
-
 </body>
-
-
 
 </html>
