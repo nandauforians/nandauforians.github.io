@@ -2,13 +2,13 @@
     position: relative;
     width: 100%;
     height: 30vh;
-    background-image: url('./images/uforians-cover-header.png');
+    background-image: url('../images/uforians-cover-header.png');
     background-size: cover;
     background-position: center;
 }
 
 .header {
-    background-image: url('./images/uforians-vod-logo.jpg');
+    background-image: url('../images/uforians-vod-logo.jpg');
     align-content: center;
     background-size: cover;
     background-position: center;
