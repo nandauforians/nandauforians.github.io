@@ -1,237 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wicket-O-Media</title>
-    <style>
-        /* Add your existing CSS here */
-        .cover-image {
-
-            position: relative;
-
-            width: 100%;
-
-            height: 30vh;
-
-            /* Set height to 100% of the viewport height */
-
-            background-image: url('./images/uforians-cover-header.png');
-
-            /* Replace 'cover-image.jpg' with your image path */
-
-            background-size: cover;
-
-            /* Scale the background image to cover the entire container */
-
-            background-position: center;
-
-            /* Center the background image horizontally and vertically */
-
-        }
-
-
-
-        .header {
-
-            background-image: url('./images/uforians-vod-logo.jpg');
-
-            align-content: center;
-
-            background-size: cover;
-
-            background-position: center;
-
-            height: 225px;
-
-            /* Adjust t7he height according to your logo image */
-
-        }
-
-
-
-        h1 {
-
-            color: #333;
-
-        }
-
-
-
-        body {
-
-            font-family: Arial, sans-serif;
-
-        }
-
-
-
-        .container {
-
-            display: flex;
-
-            flex-direction: column;
-
-            /* Stack containers vertically on smaller screens */
-
-            align-items: center;
-
-            /* Center align content horizontally */
-
-        }
-
-
-
-        .image-grid {
-
-            display: grid;
-
-            grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-
-            /* Adjust number of columns dynamically */
-
-            gap: 10px;
-
-            margin-bottom: 20px;
-
-        }
-
-
-
-        .image-grid img {
-
-            width: 70%;
-
-            /* Ensure images take up full width of grid cells */
-
-            height: auto;
-
-            /* Maintain aspect ratio */
-
-            cursor: pointer;
-
-            user-select: none;
-
-            /* Prevent image selection */
-
-        }
-
-
-
-        .right-grid {
-
-            min-width: 150px;
-
-            /* Set a minimum width for the right grid */
-
-            border: 2px dashed #007bff;
-
-            /* Add a dashed border to indicate drop area */
-
-            padding: 10px;
-
-            /* Add padding to increase drop area */
-
-            max-width: 90%;
-
-            /* Ensure grid doesn't overflow on smaller screens */
-
-        }
-
-
-
-        .right-grid img {
-
-            width: 150px;
-
-            /* Ensure images take up full width of grid cells */
-
-            height: auto;
-
-            /* Maintain aspect ratio */
-
-            cursor: pointer;
-
-        }
-
-
-
-        .submit-btn {
-
-            display: block;
-
-            margin: 20px auto;
-
-            /* Add margin for spacing */
-
-            padding: 10px 20px;
-
-            background-color: #007bff;
-
-            color: #fff;
-
-            border: none;
-
-            border-radius: 5px;
-
-            cursor: pointer;
-
-        }
-
-
-
-        /* Styles for image selection */
-
-        .error-container {
-
-            color: #fff;
-
-            background-color: #ff0000;
-
-            padding: 10px;
-
-            margin-bottom: 10px;
-
-            display: none;
-
-        }
-
-
-        /* New styles for tabs */
-        .tabs {
-            overflow: hidden;
-            background-color: #f1f1f1;
-            display: flex;
-            justify-content: center;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .tab {
-            cursor: pointer;
-            padding: 14px 20px;
-            transition: 0.3s;
-        }
-
-        .tab:hover {
-            background-color: #ddd;
-        }
-
-        .tab.active {
-            background-color: #ccc;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="./style/styles-main.css">
 </head>
-
 <body>
     <div class="cover-image"></div>
     <div class="tabs">
@@ -241,23 +15,45 @@
     <div class="container">
         <!-- Tests Tab Content -->
         <div id="tests" class="tab-content active">
-            <table width="100%">
+            <table>
                 <tr>
                     <td>
                         <div class="left-grid">
-                            <h2 align="center">
-                                <font color="blue">TEST MATCH WICKETS (Multi-Select) ! Select One or More </font>
-                            </h2>
+                            <h2 align="center"><font color="blue">TEST MATCH WICKETS  (Multi-Select)! Select One or More</font></h2>
                             <button class="submit-btn" onclick="submitSelection()">Submit</button>
                             <div class="image-grid" id="leftGrid">
-                                <img src="./images/main-starc.png" alt="Starc" data-name="Starc">
-                                <img src="./images/main-cummins.png" alt="Cummins" data-name="Cummins">
-                                <img src="./images/main-steyn.jpg" alt="Steyn" data-name="Steyn">
-                                <img src="./images/main-ashwin.png" alt="Ashwin" data-name="Ashwin">
-                                <img src="./images/main-jadeja.png" alt="Jadeja" data-name="Jadeja">
-                                <img src="./images/main-shami.png" alt="Shami" data-name="Shami">
-                                <img src="./images/main-bumrah.png" alt="Bumrah" data-name="Bumrah">
-                                <img src="./images/main-siraj.png" alt="Siraj" data-name="Siraj">
+                                <div class="tooltip">
+                                    <img src="./images/main-starc.png" alt="Starc" data-name="Starc">
+                                    <span class="tooltiptext">Starc</span>
+                                </div>
+                                <div class="tooltip">
+                                    <img src="./images/main-cummins.png" alt="Cummins" data-name="Cummins">
+                                    <span class="tooltiptext">Cummins</span>
+                                </div>
+                                <div class="tooltip">
+                                    <img src="./images/main-steyn.jpg" alt="Steyn" data-name="Steyn">
+                                    <span class="tooltiptext">Steyn</span>
+                                </div>
+                                <div class="tooltip">
+                                    <img src="./images/main-ashwin.png" alt="Ashwin" data-name="Ashwin">
+                                    <span class="tooltiptext">Ashwin</span>
+                                </div>
+                                <div class="tooltip">
+                                    <img src="./images/main-jadeja.png" alt="Jadeja" data-name="Jadeja">
+                                    <span class="tooltiptext">Jadeja</span>
+                                </div>
+                                <div class="tooltip">
+                                    <img src="./images/main-shami.png" alt="Shami" data-name="Shami">
+                                    <span class="tooltiptext">Shami</span>
+                                </div>
+                                <div class="tooltip">
+                                    <img src="./images/main-bumrah.png" alt="Bumrah" data-name="Bumrah">
+                                    <span class="tooltiptext">Bumrah</span>
+                                </div>
+                                <div class="tooltip">
+                                    <img src="./images/main-siraj.png" alt="Siraj" data-name="Siraj">
+                                    <span class="tooltiptext">Siraj</span>
+                                </div>
                             </div>
                         </div>
                     </td>
@@ -272,16 +68,18 @@
 
         <!-- ODI Tab Content -->
         <div id="odi" class="tab-content">
-            <table width="100%">
+            <table>
                 <tr>
                     <td>
                         <div class="left-grid">
-                            <h2 align="center">
-                                <font color="blue">ODI MATCH WICKETS (Multi-Select) ! Select One or More </font>
-                            </h2>
+                            <h2 align="center"><font color="blue">ODI MATCH WICKETS  (Multi-Select)! Select One or More</font></h2>
                             <button class="submit-btn" onclick="submitSelection()">Submit</button>
                             <div class="image-grid" id="leftGridOdi">
-                                <img src="./images/main-kulpdeep.png" alt="Kuleep" data-name="Kuldeep">
+                                <div class="tooltip">
+                                    <img src="./images/main-kulpdeep.png" alt="Kuldeep" data-name="Kuldeep">
+                                    <span class="tooltiptext">Kuldeep</span>
+                                </div>
+                        
                             </div>
                         </div>
                     </td>
@@ -295,87 +93,6 @@
         </div>
     </div>
     <div class="error-container" id="errorContainer"></div>
-    <script>
-        // Existing JavaScript code
-        const leftGrid = document.getElementById('leftGrid');
-        const rightGrid = document.getElementById('rightGrid');
-        const leftGridOdi = document.getElementById('leftGridOdi');
-        const rightGridOdi = document.getElementById('rightGridOdi');
-        const errorContainer = document.getElementById('errorContainer');
-
-        // Tab switching logic
-        function showTab(tabId) {
-            const tabs = document.querySelectorAll('.tab');
-            const tabContents = document.querySelectorAll('.tab-content');
-
-            tabs.forEach(tab => {
-                tab.classList.remove('active');
-            });
-
-            tabContents.forEach(content => {
-                content.classList.remove('active');
-            });
-
-            document.getElementById(tabId).classList.add('active');
-            document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
-        }
-
-        leftGrid.addEventListener('click', function (event) {
-            const target = event.target;
-            if (target.tagName === 'IMG') {
-                rightGrid.appendChild(target.cloneNode(true));
-                target.style.opacity = '0.5';
-                target.remove();
-            }
-        });
-
-        rightGrid.addEventListener('click', function (event) {
-            const target = event.target;
-            if (target.tagName === 'IMG') {
-                leftGrid.appendChild(target.cloneNode(true));
-                target.remove();
-            }
-        });
-
-        leftGridOdi.addEventListener('click', function (event) {
-            const target = event.target;
-            if (target.tagName === 'IMG') {
-                rightGridOdi.appendChild(target.cloneNode(true));
-                target.style.opacity = '0.5';
-                target.remove();
-            }
-        });
-
-        rightGridOdi.addEventListener('click', function (event) {
-            const target = event.target;
-            if (target.tagName === 'IMG') {
-                leftGridOdi.appendChild(target.cloneNode(true));
-                target.remove();
-            }
-        });
-
-        function displayError(message) {
-            errorContainer.textContent = message;
-            errorContainer.style.display = 'block';
-        }
-
-        function submitSelection() {
-            const selectedImagesTests = document.querySelectorAll('#rightGrid img');
-            const selectedImagesOdi = document.querySelectorAll('#rightGridOdi img');
-            const selectedImages = [...selectedImagesTests, ...selectedImagesOdi];
-            const selectedCount = selectedImages.length;
-
-            if (selectedCount === 0) {
-                displayError('Please select at least one image.');
-                return;
-            }
-
-            const selectedNames = Array.from(selectedImages).map(img => img.getAttribute('data-name'));
-            const queryParams = new URLSearchParams();
-            queryParams.append('players', selectedNames.join(','));
-            window.location.href = './html/multi-combo.html' + '?' + queryParams.toString();
-        }
-    </script>
+    <script src="./script/script-main.js"></script>
 </body>
-
 </html>
