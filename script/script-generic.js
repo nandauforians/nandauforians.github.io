@@ -6,13 +6,13 @@ var playerName;
 var videoUrls = new Map([
     ["Ashwin", "../raviashwin"],
     ["Bumrah", "../jaspritbumrah"],
-    ["Shami", "https://nandauforians.github.io/mdshami"],
-    ["Jadeja", "https://nandauforians.github.io/ravijadeja"],
-    ["Steyn", "https://nandauforians.github.io/dalesteyn"],
-    ["Kuldeep","https://nandauforians.github.io/kuldeepyadav"],
-    ["Cummins","https://nandauforians.github.io/patcummins"],
-    ["Starc","https://nandauforians.github.io/mitchellstarc"],
-    ["Siraj","https://nandauforians.github.io/mdsiraj"]
+    ["Shami", "../mdshami"],
+    ["Jadeja", "../ravijadeja"],
+    ["Steyn", "../dalesteyn"],
+    ["Kuldeep","../kuldeepyadav"],
+    ["Cummins","../patcummins"],
+    ["Starc","../mitchellstarc"],
+    ["Siraj","../mdsiraj"]
 
 ]);
 
