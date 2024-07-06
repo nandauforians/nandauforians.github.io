@@ -4,7 +4,7 @@ videoData = [];
 const delayBeforePlay = 500;
 var playerName;
 var videoUrls = new Map([
-    ["Ashwin", "./raviashwin"],
+    ["Ashwin", "../raviashwin"],
     ["Bumrah", "https://nandauforians.github.io/jaspritbumrah"],
     ["Shami", "https://nandauforians.github.io/mdshami"],
     ["Jadeja", "https://nandauforians.github.io/ravijadeja"],
