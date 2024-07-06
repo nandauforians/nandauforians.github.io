@@ -4,8 +4,8 @@ videoData = [];
 const delayBeforePlay = 500;
 var playerName;
 var videoUrls = new Map([
-    ["Ashwin", "https://www.uforiancricket.in/raviashwin"],
-    ["Bumrah", "https://nandauforians.github.io/jaspritbumrah"],
+    ["Ashwin", "../raviashwin"],
+    ["Bumrah", "../jaspritbumrah"],
     ["Shami", "https://nandauforians.github.io/mdshami"],
     ["Jadeja", "https://nandauforians.github.io/ravijadeja"],
     ["Steyn", "https://nandauforians.github.io/dalesteyn"],
