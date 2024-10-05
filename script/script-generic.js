@@ -4,16 +4,16 @@ videoData = [];
 const delayBeforePlay = 500;
 var playerName;
 var videoUrls = new Map([
-    ["Ashwin", "../raviashwin"],
-    ["Bumrah", "../jaspritbumrah"],
-    ["Shami", "../mdshami"],
-    ["Jadeja", "../ravijadeja"],
-    ["Steyn", "../dalesteyn"],
-    ["Kuldeep","../kuldeepyadav"],
-    ["Cummins","../patcummins"],
-    ["Starc","../mitchellstarc"],
-    ["Siraj","../mdsiraj"]
-
+    ["Ashwin", "https://nandauforians.github.io/raviashwin"],
+    ["Bumrah", "https://nandauforians.github.io/jaspritbumrah"],
+    ["Shami", "https://nandauforians.github.io/mdshami"],
+    ["Jadeja", "https://nandauforians.github.io/ravijadeja"],
+    ["Steyn", "https://nandauforians.github.io/dalesteyn"],
+    ["Kuldeep","https://nandauforians.github.io/kuldeepyadav"],
+    ["Cummins","https://nandauforians.github.io/patcummins"],
+    ["Starc","https://nandauforians.github.io/mitchellstarc"],
+    ["Siraj","https://nandauforians.github.io/mdsiraj"],
+    ["Bumrah-ODI","https://nandauforians.github.io/jaspritbumrah-odi"]
 ]);
 
 var bowler1;
@@ -378,6 +378,7 @@ function playVideos(filteredData, videoIndex) {
     // Populate the videos array with the URLs of videos from filtered data
     filteredData.forEach(item => {
         playerName = item.player;
+        console.log("Player Name from teh CSV file ----" + playerName);
         var url = videoUrls.get(playerName);
 
         console.log("Wkt: " + item.Wicket + " MatchID: " + item.match +
