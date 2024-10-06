@@ -12,8 +12,8 @@ var videoUrls = new Map([
     ["Kuldeep","https://nandauforians.github.io/kuldeepyadav"],
     ["Cummins","https://nandauforians.github.io/patcummins"],
     ["Starc","https://nandauforians.github.io/mitchellstarc"],
-    ["Siraj","https://nandauforians.github.io/mdsiraj"]
-
+    ["Siraj","https://nandauforians.github.io/mdsiraj"],
+    ["Bumrah-ODI","https://nandauforians.github.io/jaspritbumrah-odi"]
 ]);
 
 var bowler1;
@@ -378,6 +378,7 @@ function playVideos(filteredData, videoIndex) {
     // Populate the videos array with the URLs of videos from filtered data
     filteredData.forEach(item => {
         playerName = item.player;
+        console.log("Player Name from teh CSV file ----" + playerName);
         var url = videoUrls.get(playerName);
 
         console.log("Wkt: " + item.Wicket + " MatchID: " + item.match +
