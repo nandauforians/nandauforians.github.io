@@ -55,7 +55,7 @@
         "name": "Kartick",
         "image": "images/karthick.jpeg",
         "birthday": "January 02 1977",
-        "anniversary": "June 07 2021",
+        "anniversary": "June 07 2001",
         "kids":[
             {
                 "name":"Sathya",
@@ -102,7 +102,7 @@
     },
     {
         "name": "Azwey",
-        "image": "",
+        "image": "images/azwey.png",
         "birthday": "29 July 1976",
         "anniversary": "07 July 2000",
         "kids":[
@@ -118,7 +118,7 @@
     },
     {
         "name": "Kaushik",
-        "image": "",
+        "image": "images/kaushik.png",
         "birthday": "31 March 1976",
         "anniversary": "14 February 2005",
         "kids":[
@@ -134,9 +134,9 @@
     },
     {
         "name": "CTP",
-        "image": "",
-        "birthday": "31 March 1976",
-        "anniversary": "14 February 2005",
+        "image": "images/ctp.png",
+        "birthday": "",
+        "anniversary": "February 02 2003",
         "kids":[
             {
                 "name": "Anjali",
@@ -157,17 +157,57 @@
     },
     {
         "name": "Nattu",
-        "image": "",
+        "image": "images/nattu.png",
         "birthday": "04 July 1976",
         "anniversary": "13 July 2006",
         "kids":[
             {
-                "name":"Abhi",
-                "birthday":"February 04 2004"
+                "name":"Advaith",
+                "birthday":"January 25 2011"
             },
             {
-                "name":"Dhiya",
-                "birthday":"January 23 2009"
+                "name":"Veda",
+                "birthday":"December 23 2016"
+            }
+        ]
+    },
+    {
+        "name": "Thyagi",
+        "image": "",
+        "birthday": "15 December 1975",
+        "anniversary": "13 June 2006",
+        "kids":[
+            {
+                "name":"Varun",
+                "birthday":"August 20 2013"
+            }
+        ]
+    },
+    {
+        "name": "Sriram",
+        "image": "",
+        "birthday": "20 February 1976",
+        "anniversary": "",
+        "kids":[
+            {
+                "name":"abc",
+                "birthday":"01 June 2011"
+            }
+        ]
+    },
+    {
+        "name": "Aravind",
+        "image": "images/aravind.png",
+        "birthday": "06 November 1975",
+        "anniversary": "18 March 2006",
+        "kids":[
+            {
+                "name":"Kiran",
+                "birthday":"September 16 2007"
+            },
+            {
+                "name":"Naveen",
+                "birthday":"November 10 2011"
             }
         ]
     }
