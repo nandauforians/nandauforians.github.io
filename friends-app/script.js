@@ -4,46 +4,73 @@ document.addEventListener("DOMContentLoaded", async function () {
     const container = document.getElementById("friends-container");
     const detailsContainer = document.getElementById("details-container");
 
-    // Function to format birthday as "Day Month"
     function formatBirthday(birthday) {
         if (!birthday) return "";
         const date = new Date(birthday);
         return date.toLocaleDateString("en-US", { day: "numeric", month: "long" });
     }
 
-    // Function to extract MMDD format for sorting
-    function getSortableDate(birthday) {
-        if (!birthday) return 9999; // Push empty birthdays to the end
-        const date = new Date(birthday);
-        return date.getMonth() * 100 + date.getDate(); // Convert to MMDD format
+    function calculateAge(birthday) {
+        if (!birthday) return null;
+        const birthDate = new Date(birthday);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
     }
 
-    // Get today's date in MMDD format
+    function daysToFifty(birthday) {
+        if (!birthday) return Infinity;
+        const birthDate = new Date(birthday);
+        const age = calculateAge(birthday);
+        
+        if (age >= 50) return Infinity; 
+
+        const fiftyBirthday = new Date(birthDate);
+        fiftyBirthday.setFullYear(birthDate.getFullYear() + 50);
+
+        const today = new Date();
+        const timeDiff = fiftyBirthday - today;
+        return Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+    }
+
+    function getSortableDate(birthday) {
+        if (!birthday) return 9999;
+        const date = new Date(birthday);
+        return date.getMonth() * 100 + date.getDate();
+    }
+
     const today = new Date();
     const todaySortable = today.getMonth() * 100 + today.getDate();
 
-    // Sort friends by birthday (ignoring year)
-    friends.sort((a, b) => getSortableDate(a.birthday) - getSortableDate(b.birthday));
+    // Sort by shortest time to reach 50 years
+    friends.sort((a, b) => daysToFifty(a.birthday) - daysToFifty(b.birthday));
 
-    // Find the next 2 upcoming birthdays
+    // Find next 2 upcoming birthdays (ignoring sorting by 50)
     const upcomingBirthdays = friends
-        .filter(friend => getSortableDate(friend.birthday) >= todaySortable) // Filter future birthdays
-        .slice(0, 2); // Get the next 2 birthdays
+        .filter(friend => getSortableDate(friend.birthday) >= todaySortable)
+        .sort((a, b) => getSortableDate(a.birthday) - getSortableDate(b.birthday))
+        .slice(0, 2);
 
-    // Populate friend tiles
     friends.forEach(friend => {
         const card = document.createElement("div");
         card.classList.add("friend-card");
 
-        // Highlight upcoming birthdays
         if (upcomingBirthdays.includes(friend)) {
             card.classList.add("highlight");
         }
+
+        const daysLeft = daysToFifty(friend.birthday);
+        const daysTo50Text = daysLeft !== Infinity ? `<p class="fifty-countdown">🎈 ${daysLeft} days to 50!</p>` : '';
 
         card.innerHTML = `
             <img src="${friend.image}" alt="${friend.name}">
             <h3>${friend.name}</h3>
             <h3>${formatBirthday(friend.birthday)}</h3>
+            ${daysTo50Text}
         `;
         card.addEventListener("click", () => showDetails(friend));
         container.appendChild(card);
@@ -55,16 +82,12 @@ document.addEventListener("DOMContentLoaded", async function () {
             return;
         }
 
-        // Clear existing details before updating
-        detailsContainer.innerHTML = "";
-
         detailsContainer.innerHTML = `
             <h2>${friend.name}'s Celebrations</h2>
             <div class="tree-container">
                 <div class="tree-item">🎂 Birthday: ${formatBirthday(friend.birthday) || "N/A"}</div>
                 <div class="tree-item">💍 Anniversary: ${formatBirthday(friend.anniversary) || "N/A"}</div>
                 
-                <!-- Wedding Pic Centered -->
                 ${friend.weddingPic ? `
                     <div class="wedding-container">
                         <img src="${friend.weddingPic}" alt="Wedding" class="wedding-pic">
@@ -72,7 +95,6 @@ document.addEventListener("DOMContentLoaded", async function () {
                     </div>
                 ` : ''}
 
-                <!-- Kids Positioned as Tree -->
                 <div class="kids-container">
                     ${friend.kids && friend.kids.length > 0 ? `
                         ${friend.kids.map((kid, index) => `

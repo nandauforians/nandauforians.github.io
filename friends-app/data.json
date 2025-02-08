@@ -46,7 +46,7 @@
         "kids":[
             {
                 "name": "Surachirth",
-                "image": "",
+                "image": "images/such.png",
                 "birthday": "November 24 2019"
             }
         ]
@@ -55,14 +55,17 @@
         "name": "Kartick",
         "image": "images/karthick.jpeg",
         "birthday": "January 02 1977",
+        "weddingPic":"images/kartick-radhu.png",
         "anniversary": "June 07 2001",
         "kids":[
             {
                 "name":"Sathya",
+                "image":"images/sathya.png",
                 "birthday":"June 18 2005"
             },
             {
                 "name":"Sakthi",
+                "image":"images/sakthi.png",
                 "birthday":"Sep 07 2015"
             }
         ]
@@ -124,10 +127,12 @@
         "kids":[
             {
                 "name":"Raghav",
+                "image":"images/raghav.png",
                 "birthday":"October 03 2006"
             },
             {
                 "name":"Suchetha",
+                "image":"images/suchetha.png",
                 "birthday":"July 30 2010"
             }
         ]
@@ -185,7 +190,7 @@
     },
     {
         "name": "Sriram",
-        "image": "",
+        "image": "images/sriram.png",
         "birthday": "20 February 1976",
         "anniversary": "",
         "kids":[
@@ -213,13 +218,25 @@
     },
     {
         "name": "Ashok",
-        "image": "",
+        "image": "images/ashok.png",
         "birthday": "July 12 1976",
         "anniversary": "17 April 2011",
         "kids":[
             {
-                "name":"Varun",
-                "birthday":"August 20 2013"
+                "name":"",
+                "birthday":""
+            }
+        ]
+    },
+    {
+        "name": "Barry",
+        "image": "",
+        "birthday": "Nov 21 1976",
+        "anniversary": "17 April 2011",
+        "kids":[
+            {
+                "name":"",
+                "birthday":""
             }
         ]
     }
