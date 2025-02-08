@@ -175,7 +175,7 @@
         "name": "Thyagi",
         "image": "",
         "birthday": "15 December 1975",
-        "anniversary": "13 June 2006",
+        "anniversary": "14 June 2006",
         "kids":[
             {
                 "name":"Varun",
@@ -208,6 +208,18 @@
             {
                 "name":"Naveen",
                 "birthday":"November 10 2011"
+            }
+        ]
+    },
+    {
+        "name": "Ashok",
+        "image": "",
+        "birthday": "July 02 1976",
+        "anniversary": "17 April 2011",
+        "kids":[
+            {
+                "name":"Varun",
+                "birthday":"August 20 2013"
             }
         ]
     }
