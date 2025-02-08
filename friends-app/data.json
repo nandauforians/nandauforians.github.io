@@ -21,6 +21,154 @@
     {
         "name": "Sridhar",
         "image": "images/sridhar.jpg",
-        "birthday": "Sep 12 1976"
+        "birthday": "Sep 12 1976",
+        "anniversary": "January 19 2001",
+        "weddingPic": "images/ob-janani.jpg",
+        "kids": [
+            {
+                "name": "Adhavan",
+                "birthday": "Jan 23 2007",
+                "image": "./images/adhavan.png"
+            },
+            {            
+                "name": "Shruthi",
+                "image":"./images/shruthi.png",
+                "birthday": "Jan 10 2009"
+            }
+        ]
+    },
+    {
+        "name": "Gujju",
+        "image": "images/gujju.png",
+        "birthday": "February 26 1976",
+        "anniversary": "",
+        "weddingPic":"",
+        "kids":[
+            {
+                "name": "Surachirth",
+                "image": "",
+                "birthday": "November 24 2019"
+            }
+        ]
+    },
+    {
+        "name": "Kartick",
+        "image": "images/karthick.jpeg",
+        "birthday": "January 02 1977",
+        "anniversary": "June 07 2021",
+        "kids":[
+            {
+                "name":"Sathya",
+                "birthday":"June 18 2005"
+            },
+            {
+                "name":"Sakthi",
+                "birthday":"Sep 07 2015"
+            }
+        ]
+    },
+    {
+        "name": "Ziva",
+        "image": "images/ziva.png",
+        "birthday": "May 24 1976",
+        "anniversary": "June 06 2008",
+        "kids":[
+            {
+                "name":"Dhiksha",
+                "birthday":"September 10 2011"
+            }
+        ]
+    }, 
+    {
+        "name": "Sairam",
+        "image": "images/sai.png",
+        "birthday": "July 13 1976",
+        "anniversary": "July 13 2001",
+        "weddingPic":"images/sai-sangeetha.png",
+        "kids":[
+            {
+                "name":"Pranav",
+                "birthday":"February 02 2007"
+            },
+            {
+                "name":"Poorna",
+                "birthday":"February 05 2009"
+            },
+            {
+                "name":"Shruthi",
+                "birthday":"February 05 2009"
+            }
+        ]
+    },
+    {
+        "name": "Azwey",
+        "image": "",
+        "birthday": "29 July 1976",
+        "anniversary": "07 July 2000",
+        "kids":[
+            {
+                "name":"Abhi",
+                "birthday":"February 04 2004"
+            },
+            {
+                "name":"Dhiya",
+                "birthday":"January 23 2009"
+            }
+        ]
+    },
+    {
+        "name": "Kaushik",
+        "image": "",
+        "birthday": "31 March 1976",
+        "anniversary": "14 February 2005",
+        "kids":[
+            {
+                "name":"Raghav",
+                "birthday":"October 03 2006"
+            },
+            {
+                "name":"Suchetha",
+                "birthday":"July 30 2010"
+            }
+        ]
+    },
+    {
+        "name": "CTP",
+        "image": "",
+        "birthday": "31 March 1976",
+        "anniversary": "14 February 2005",
+        "kids":[
+            {
+                "name": "Anjali",
+                "birthday": "May 21 2005",
+                "image": ""
+            },
+            {            
+                "name": "Krupa",
+                "image": "",
+                "birthday": "June 06 2008"
+            },
+            {
+                "name": "Anand",
+                "image": "",
+                "birthday": "December 09 2011"
+            }
+        ]
+    },
+    {
+        "name": "Nattu",
+        "image": "",
+        "birthday": "04 July 1976",
+        "anniversary": "13 July 2006",
+        "kids":[
+            {
+                "name":"Abhi",
+                "birthday":"February 04 2004"
+            },
+            {
+                "name":"Dhiya",
+                "birthday":"January 23 2009"
+            }
+        ]
     }
 ]

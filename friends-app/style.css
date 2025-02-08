@@ -75,3 +75,18 @@
 .kid-pic:hover .kid-img, .wedding-container:hover img {
     transform: scale(1.5);
 }
+
+.highlight {
+    border: 3px solid gold;
+    background-color: #fffbe6;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(255, 165, 0, 1);
+    }
+}
