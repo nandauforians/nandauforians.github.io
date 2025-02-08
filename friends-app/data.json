@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Nanda",
+        "image": "./images/nanda.jpg",
+        "birthday": "July 28 1974",
+        "anniversary": "January 26 2004",
+        "weddingPic": "images/nanda-shri.jpg",
+        "kids": [
+            {
+                "name": "Sharran",
+                "birthday": "Jan 6 2006",
+                "image": "images/sharran.jpg"
+            },
+            {            
+                "name": "Shalini",
+                "image": "images/shalini.jpg",
+                "birthday": "Jan 20 2009"
+            }
+        ]
+    },
+    {
+        "name": "Sridhar",
+        "image": "images/sridhar.jpg",
+        "birthday": "Sep 12 1976"
+    }
+]
