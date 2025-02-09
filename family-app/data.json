@@ -113,7 +113,7 @@
         "name": "Selvaraj",
         "image": "images/selvaraj.png",
         "birthday": "July 10 1951",
-        "anniversary": "May 27 1976",
+        "anniversary": "",
         "weddingPic": "",
         "kids": [
             {
@@ -194,7 +194,7 @@
         "name": "Parameswari",
         "image": "images/parameswari.png",
         "birthday": "Dec 27 1954",
-        "anniversary": "Feb 09 1987",
+        "anniversary": "",
         "weddingPic": "",
         "kids": [
             {
@@ -230,15 +230,15 @@
                 "birthday": "Jan 08 1982",
                 "image": "images/kopinath.png",
                 "anniversary":"Feb 08 2006",
-                "weddingPic":"images/sangeetha-wedding.jpg",
+                "weddingPic":"images/sangeetha-wedding.JPG",
                 "kids": [
                     {
                         "name": "Praneeth",
-                        "birthday": "March 27 2010",
+                        "birthday": "Oct 01 2006",
                         "image": ""
                     },
                     {
-                        "name": "Harshavardhini",
+                        "name": "Harshavarshini",
                         "birthday": "May 06 2014",
                         "image": ""
                     }
