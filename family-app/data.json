@@ -65,48 +65,232 @@
         "image": "images/sathasivam.png",
         "birthday": "Nov 10 1949",
         "anniversary": "May 27 1976",
-        "weddingPic": "images/ob-janani.jpg",
+        "weddingPic": "images/satha-sundari.jpg",
         "kids": [
             {
                 "name": "Vinodha",
                 "birthday": "June 12 1980",
-                "image": "images/vino.jpg",
+                "image": "images/vino.png",
                 "anniversary":"Dec 08 2008",
-                "weddingPic":"",
+                "weddingPic":"images/ranga-vino.jpg",
                 "kids": [
                     {
                         "name": "Sahana",
                         "birthday": "Jan 12 2012",
-                        "image": ""
+                        "image": "images/sahana.png"
                     }
                 ]
             },
             {
                 "name": "Viveka",
                 "birthday": "January 16 1983",
-                "image": "images/ram-veka.png",
+                "image": "images/viveka.png",
                 "anniversary":"Aug 31 2007",
-                "weddingPic":"",
+                "weddingPic":"images/ramanan-veka.jpeg",
                 "kids": [
                     {
                         "name": "Shreenidhi",
                         "birthday": "Oct 15 2008",
-                        "image": ""
+                        "image": "images/shreenidhi.png"
                     },
                     {
                         "name": "Pranav",
                         "birthday": "Feb 06 2016",
-                        "image": ""
+                        "image": "images/pranav.png"
                     }
                 ]
             },
             {
                 "name": "Senthilkumaran",
                 "birthday": "June 03 1987",
-                "image": "images/kumaran-lakshi.jpg",
+                "image": "images/kumaran.png",
                 "anniversary":"Feb 05 2020",
-                "weddingPic":""
+                "weddingPic":"images/kumaran-lakshi.jpg"
+            }
+        ]
+    },
+    {
+        "name": "Selvaraj",
+        "image": "images/selvaraj.png",
+        "birthday": "July 10 1951",
+        "anniversary": "May 27 1976",
+        "weddingPic": "",
+        "kids": [
+            {
+                "name": "Kajamuhe",
+                "birthday": "Oct 16 1983",
+                "image": "images/kajamuhe.png",
+                "anniversary":"Mov 07 2011",
+                "weddingPic":"images/prash-kajamuhe.png",
+                "kids": [
+                    {
+                        "name": "Aadhiv",
+                        "birthday": "Dec 26 2013",
+                        "image": ""
+                    }
+                ]
+            },
+            {
+                "name": "Sindu",
+                "birthday": "June 30 1986",
+                "image": "images/sindu.png",
+                "anniversary":"Sep 4 2014",
+                "weddingPic":"",
+                "kids": [
+                    {
+                        "name": "Akshit",
+                        "birthday": "Oct 15 2008",
+                        "image": "images/akshit.png"
+                    },
+                    {
+                        "name": "Avyukt",
+                        "birthday": "Jan 24 2025",
+                        "image": ""
+                    }
+                ]
+            },
+            {
+                "name": "Deepika",
+                "birthday": "January 10 1992",
+                "image": "images/deepika.png",
+                "anniversary":"March 06 2023",
+                "weddingPic":"images/deepi-thanush.png"
+            }
+        ]
+    },
+    {
+        "name": "Ganeshan",
+        "image": "images/ganeshan.png",
+        "birthday": "Sep 07 1956",
+        "anniversary": "Feb 09 1987",
+        "weddingPic": "",
+        "kids": [
+            {
+                "name": "Thushanth",
+                "birthday": "Sep 18 1988",
+                "image": "images/thushanth.png",
+                "anniversary":"Sep 04 2008",
+                "weddingPic":"images/thushi-wedding.png",
+                "kids": [
+                    {
+                        "name": "Dhruvic",
+                        "birthday": "April 24 2020",
+                        "image": ""
+                    }
+                ]
+            },
+            {
+                "name": "Krishanth",
+                "birthday": "January 22 1990",
+                "image": "images/krishanth.png",
+                "anniversary":"Sep 05 2019",
+                "weddingPic":"images/kg-wedding.png",
+                "kids": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Parameswari",
+        "image": "images/parameswari.png",
+        "birthday": "Dec 27 1954",
+        "anniversary": "Feb 09 1987",
+        "weddingPic": "",
+        "kids": [
+            {
+                "name": "Kopinath",
+                "birthday": "Dec 09 1976",
+                "image": "images/kopinath.png",
+                "anniversary":"Feb 24 2007",
+                "weddingPic":"",
+                "kids": [
+                    {
+                        "name": "Vineeth",
+                        "birthday": "May 05 2009",
+                        "image": ""
+                    },
+                    {
+                        "name": "Vidushan",
+                        "birthday": "March 27 2012",
+                        "image": ""
+                    }
+                ]
+            },
+            {
+                "name": "Senthilkumar",
+                "birthday": "October 18 1978",
+                "image": "images/senthil.png",
+                "anniversary":"",
+                "weddingPic":"",
+                "kids": [
+                ]
+            },
+            {
+                "name": "Sangeetha",
+                "birthday": "Jan 08 1982",
+                "image": "images/kopinath.png",
+                "anniversary":"Feb 08 2006",
+                "weddingPic":"images/sangeetha-wedding.jpg",
+                "kids": [
+                    {
+                        "name": "Praneeth",
+                        "birthday": "March 27 2010",
+                        "image": ""
+                    },
+                    {
+                        "name": "Harshavardhini",
+                        "birthday": "May 06 2014",
+                        "image": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Vasanthi",
+        "image": "images/vasanthi.png",
+        "birthday": "Dec 27 1954",
+        "anniversary": "Feb 09 1987",
+        "weddingPic": "",
+        "kids": [
+            {
+                "name": "Sujiv",
+                "birthday": "April 17 1984",
+                "image": "images/sujiv.png",
+                "anniversary":"July 03 2021",
+                "weddingPic":"images/sujiv-wedding.png",
+                "kids": [
+                ]
+            },
+            {
+                "name": "Janane",
+                "birthday": "Oct 26 1990",
+                "image": "images/janane.png",
+                "anniversary":"November 07 2020",
+                "weddingPic":"images/janane-wedding.png",
+                "kids": [
+                    {
+                        "name": "Ashwath",
+                        "birthday": "Feb 10 2021",
+                        "image": "images/ashwath.png"
+                    }
+                ]
+            },
+            {
+                "name": "Hareithra",
+                "birthday": "August 26 1993",
+                "image": "images/hareithra.png",
+                "anniversary":"Feb 08 2006",
+                "weddingPic":"images/hari-wedding.png",
+                "kids": [
+                    {
+                        "name": "Praneeth",
+                        "birthday": "March 27 2010",
+                        "image": ""
+                    }
+                ]
             }
         ]
     }
+    
 ]
