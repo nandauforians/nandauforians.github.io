@@ -1,10 +1,10 @@
 [
     {
         "name": "Subramaniam",
-        "image": "./images/nanda.jpg",
+        "image": "./images/subramaniam.png",
         "birthday": "April 22 1943",
         "anniversary": "January 22 1972",
-        "weddingPic": "images/nanda-shri.jpg",
+        "weddingPic": "images/sub-chandra.jpg",
         "kids": [
             {
                 "name": "Nanda",
@@ -27,34 +27,34 @@
             },
             {
                 "name": "Prem",
-                "image": "",
+                "image": "images/prem.png",
                 "birthday": "June 29 1980",
                 "anniversary":"Dec 02 2015",
-                "weddingPic":"",
+                "weddingPic":"images/prem-sharanya.jpg",
                 "kids": [
                     {
                         "name": "Advik",
                         "birthday": "Sep 07 2018",
-                        "image": ""
+                        "image": "images/advik.png"
                     }
                 ]
             },
             {
                 "name": "Dharshini",
-                "image": "",
+                "image": "images/dharshini.png",
                 "birthday": "Dec 16 1982",
                 "anniversary":"May 20 2009",
-                "weddingPic":"",
+                "weddingPic":"images/sri-dharshi.png",
                 "kids": [
                     {
                         "name": "Ashmita",
                         "birthday": "Nov 05 2010",
-                        "image": ""
+                        "image": "images/asmita.png"
                     },
                     {
                         "name": "Kavinaya",
                         "birthday": "March 26 2014",
-                        "image": ""
+                        "image": "images/kavi.png"
                     }
                 ]
             }
@@ -62,7 +62,7 @@
     },
     {
         "name": "Sathasivam",
-        "image": "images/sridhar.jpg",
+        "image": "images/sathasivam.png",
         "birthday": "Nov 10 1949",
         "anniversary": "May 27 1976",
         "weddingPic": "images/ob-janani.jpg",
@@ -70,7 +70,7 @@
             {
                 "name": "Vinodha",
                 "birthday": "June 12 1980",
-                "image": "",
+                "image": "images/vino.jpg",
                 "anniversary":"Dec 08 2008",
                 "weddingPic":"",
                 "kids": [
@@ -84,7 +84,7 @@
             {
                 "name": "Viveka",
                 "birthday": "January 16 1983",
-                "image": "",
+                "image": "images/ram-veka.png",
                 "anniversary":"Aug 31 2007",
                 "weddingPic":"",
                 "kids": [
@@ -103,7 +103,7 @@
             {
                 "name": "Senthilkumaran",
                 "birthday": "June 03 1987",
-                "image": "",
+                "image": "images/kumaran-lakshi.jpg",
                 "anniversary":"Feb 05 2020",
                 "weddingPic":""
             }

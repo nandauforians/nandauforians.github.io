@@ -94,10 +94,19 @@ document.addEventListener("DOMContentLoaded", async function () {
     
                 <div class="kids-container">
                     ${friend.kids ? friend.kids.map(kid => `
-                        <div class="kid-pic">
+                        <div class="kid-card">
                             <img src="${kid.image}" alt="${kid.name}" class="kid-img">
                             <p>🎈 ${kid.name} - Birthday: ${formatBirthday(kid.birthday)}</p>
-                            
+    
+                            <!-- Display kid's wedding details if available -->
+                            ${kid.anniversary ? `<div class="tree-item">💍 Anniversary: ${kid.anniversary}</div>` : ''}
+                            ${kid.weddingPic ? `
+                                <div class="wedding-container">
+                                    <img src="${kid.weddingPic}" alt="Wedding" class="wedding-pic">
+                                    <p>Wedding Day</p>
+                                </div>
+                            ` : ''}
+    
                             ${kid.kids ? `<div class="grandkids-container">
                                 ${kid.kids.map(grandkid => `
                                     <div class="grandkid-pic">
@@ -114,5 +123,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     
         detailsContainer.style.display = "block";
     }
+    
     
 });

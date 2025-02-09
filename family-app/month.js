@@ -16,20 +16,18 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(error => console.error("Error loading data:", error));
 
-    // Parse the event data into a structured format
-    function parseEvents(data) {
+    // Recursively parse events for all generations
+    function parseEvents(data, generation = 1) {
         let events = [];
         data.forEach(person => {
             if (person.birthday) {
-                events.push({ name: person.name, type: "Birthday", date: new Date(person.birthday), image: person.image });
+                events.push({ name: person.name, type: "Birthday", date: new Date(person.birthday), image: person.image, generation });
             }
             if (person.anniversary) {
-                events.push({ name: person.name, type: "Anniversary", date: new Date(person.anniversary), image: person.weddingPic || person.image });
+                events.push({ name: person.name, type: "Anniversary", date: new Date(person.anniversary), image: person.weddingPic || person.image, generation });
             }
             if (person.kids) {
-                person.kids.forEach(kid => {
-                    events.push({ name: kid.name, type: "Birthday", date: new Date(kid.birthday), image: kid.image });
-                });
+                events = events.concat(parseEvents(person.kids, generation + 1)); // Recursively add kids' events
             }
         });
         return events;
@@ -66,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (eventsForDay.length > 0) {
                 eventsForDay.forEach(event => {
                     const eventDiv = document.createElement("div");
-                    eventDiv.classList.add("event");
+                    eventDiv.classList.add("event", `gen-${event.generation}`);
                     eventDiv.innerHTML = `<img src="${event.image}" alt="${event.name}"><br>${event.name}'s ${event.type}`;
                     dayCell.appendChild(eventDiv);
                 });

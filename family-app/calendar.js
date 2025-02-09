@@ -6,48 +6,47 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         let events = [];
 
-        // Extract all birthdays, anniversaries, and kids' birthdays
-        friends.forEach(friend => {
-            if (friend.birthday) {
-                events.push({
-                    name: friend.name,
-                    type: "🎂 Birthday",
-                    date: new Date(friend.birthday),
-                    image: friend.image
-                });
-            }
-            if (friend.anniversary) {
-                events.push({
-                    name: friend.name,
-                    type: "💍 Anniversary",
-                    date: new Date(friend.anniversary),
-                    image: friend.weddingPic || friend.image
-                });
-            }
-            if (friend.kids) {
-                friend.kids.forEach(kid => {
+        // Recursive function to extract birthdays & anniversaries from all generations
+        function extractEvents(data, generation = 1) {
+            data.forEach(person => {
+                if (person.birthday) {
                     events.push({
-                        name: kid.name,
-                        type: "🎈 Kid's Birthday",
-                        date: new Date(kid.birthday),
-                        image: kid.image
+                        name: person.name,
+                        type: generation === 1 ? "🎂 Birthday" : generation === 2 ? "🎈 Kid's Birthday" : "👶 Grandkid's Birthday",
+                        date: new Date(person.birthday),
+                        image: person.image,
+                        generation
                     });
-                });
-            }
-        });
+                }
+                if (person.anniversary) {
+                    events.push({
+                        name: person.name,
+                        type: "💍 Anniversary",
+                        date: new Date(person.anniversary),
+                        image: person.weddingPic || person.image,
+                        generation
+                    });
+                }
+                if (person.kids) {
+                    extractEvents(person.kids, generation + 1); // Recursively process kids
+                }
+            });
+        }
+
+        extractEvents(friends); // Start processing from the first generation
 
         // Sort events by date
         events.sort((a, b) => a.date - b.date);
 
         // Display events in a structured grid format
         calendarContainer.innerHTML = events.map(event => `
-            <div class="event-box">
+            <div class="event-box gen-${event.generation}">
                 <div class="event-date">${event.date.toDateString()}</div>
                 <div class="event-content">
                     <img src="${event.image}" alt="${event.name}">
                     <div class="event-info">
                         <h3>${event.name}</h3>
-                        <p>${event.type}</p>
+                        <p>${event.type} (Gen ${event.generation})</p>
                     </div>
                 </div>
             </div>
