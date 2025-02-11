@@ -292,12 +292,12 @@
                     {
                         "name": "Vineeth",
                         "birthday": "May 05 2009",
-                        "image": ""
+                        "image": "images/vineeth.png"
                     },
                     {
                         "name": "Vidushan",
                         "birthday": "March 27 2012",
-                        "image": ""
+                        "image": "images/vidushan.png"
                     }
                 ]
             },
@@ -318,19 +318,19 @@
                 "weddingPic":"images/sangeetha-wedding.JPG",
                 "spouse": {
                     "name": "Sathish",
-                    "image": "",
+                    "image": "images/sathish.png",
                     "birthday": ""
                 },
                 "kids": [
                     {
                         "name": "Praneeth",
                         "birthday": "Oct 01 2006",
-                        "image": ""
+                        "image": "images/praneeth.png"
                     },
                     {
-                        "name": "Harshavarshini",
+                        "name": "Harsivarshini",
                         "birthday": "May 06 2014",
-                        "image": ""
+                        "image": "images/varshini.png"
                     }
                 ]
             }
