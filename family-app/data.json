@@ -189,17 +189,17 @@
                 "spouse": {
                     "name": "Gopi",
                     "image": "images/gopi.png",
-                    "birthday": ""
+                    "birthday": "May 05"
                 },
                 "kids": [
                     {
-                        "name": "Akshit",
-                        "birthday": "Oct 15 2008",
+                        "name": "Akshat",
+                        "birthday": "May 07 2008",
                         "image": "images/akshit.png"
                     },
                     {
                         "name": "Avyukt",
-                        "birthday": "Jan 24 2025",
+                        "birthday": "Jan 18 2025",
                         "image": ""
                     }
                 ]
@@ -245,7 +245,7 @@
                     {
                         "name": "Dhruvic",
                         "birthday": "April 24 2020",
-                        "image": ""
+                        "image": "images/dhruvic.png"
                     }
                 ]
             },
