@@ -285,7 +285,7 @@
                 "weddingPic":"",
                 "spouse": {
                     "name": "Aarthi",
-                    "image": "",
+                    "image": "images/aarthi.png",
                     "birthday": ""
                 },
                 "kids": [
@@ -388,13 +388,13 @@
                 "anniversary":"Feb 08 2006",
                 "weddingPic":"images/hari-wedding.png",
                 "spouse": {
-                    "name": "Husband",
+                    "name": "Sugunath",
                     "image": "images/loganathan.png",
                     "birthday": ""
                 },
                 "kids": [
                     {
-                        "name": "Praneeth",
+                        "name": "Prityush",
                         "birthday": "March 27 2010",
                         "image": ""
                     }
