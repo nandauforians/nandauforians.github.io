@@ -1,135 +1,78 @@
-/* Friend Tiles */
 #friends-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    padding: 20px;
-}
-
-.friend-card {
-    width: 120px;
-    text-align: center;
-    cursor: pointer;
-    background: white;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-}
-
-.friend-card:hover {
-    transform: scale(1.1);
-}
-
-.friend-card img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #ddd;
-}
-
-/* Family Tree Layout */
-.tree-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.wedding-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px auto;
-}
-
-.wedding-container img {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
-    object-fit: cover;
-    transition: transform 0.3s;
-}
-
-.kids-container {
     display: flex;
     justify-content: center;
     gap: 20px;
     margin-top: 20px;
 }
 
-.kid-pic {
+.person-card {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 10px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    width: 120px;
 }
 
-.kid-img {
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
-    object-fit: cover;
-    transition: transform 0.3s;
-}
-
-.kid-pic:hover .kid-img, .wedding-container:hover img {
+.person-card:hover {
     transform: scale(1.5);
 }
 
-.highlight {
-    border: 3px solid gold;
-    background-color: #fffbe6;
-    animation: glow 1.5s infinite alternate;
+.profile-img {
+    width: 100px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
 }
 
-@keyframes glow {
-    from {
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-    }
-    to {
-        box-shadow: 0 0 20px rgba(255, 165, 0, 1);
-    }
+.profile-img.small {
+    width: 80px;
+    height: 100px;
 }
 
-.highlight {
-    border: 3px solid gold;
-    background-color: #fffbe6;
-    animation: glow 1.5s infinite alternate;
-}
-
-@keyframes glow {
-    from {
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-    }
-    to {
-        box-shadow: 0 0 20px rgba(255, 165, 0, 1);
-    }
-}
-
-.fifty-countdown {
+.name-label {
     font-size: 14px;
+    text-align: center;
+    margin-top: 5px;
     font-weight: bold;
-    color: #d32f2f;
-    background: #ffebee;
-    padding: 5px;
-    border-radius: 5px;
+}
+
+.birthday-label {
+    font-size: 12px;
+    color: #ff4081;
+    font-family: 'Cursive', sans-serif;
+}
+
+.anniversary-label {
+    font-size: 12px;
+    color: #3f51b5;
+    font-family: 'Cursive', sans-serif;
     margin-top: 5px;
 }
 
-.kids-container, .grandkids-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-}
-
-.kid-pic, .grandkid-pic {
+.family-block {
     text-align: center;
+    margin: 20px auto;
 }
 
-.kid-img, .grandkid-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 2px solid #ddd;
+.person-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.kids-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+#details-container {
+    margin-top: 40px;
+    text-align: center;
 }

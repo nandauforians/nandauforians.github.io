@@ -18,15 +18,30 @@ document.addEventListener("DOMContentLoaded", async function () {
                         generation
                     });
                 }
-                if (person.anniversary) {
-                    events.push({
-                        name: person.name,
-                        type: "💍 Anniversary",
-                        date: new Date(person.anniversary),
-                        image: person.weddingPic || person.image,
-                        generation
-                    });
+                
+                // Include spouse details
+                if (person.spouse) {
+                    if (person.spouse.birthday) {
+                        events.push({
+                            name: person.spouse.name,
+                            type: "🎂 Spouse's Birthday",
+                            date: new Date(person.spouse.birthday),
+                            image: person.spouse.image,
+                            generation
+                        });
+                    }
+                    
+                    if (person.anniversary) {
+                        events.push({
+                            name: `${person.name} & ${person.spouse.name}`,
+                            type: "💍 Anniversary",
+                            date: new Date(person.anniversary),
+                            image: person.weddingPic || person.image || person.spouse.image,
+                            generation
+                        });
+                    }
                 }
+
                 if (person.kids) {
                     extractEvents(person.kids, generation + 1); // Recursively process kids
                 }

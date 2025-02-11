@@ -23,9 +23,23 @@ document.addEventListener("DOMContentLoaded", () => {
             if (person.birthday) {
                 events.push({ name: person.name, type: "Birthday", date: new Date(person.birthday), image: person.image, generation });
             }
-            if (person.anniversary) {
-                events.push({ name: person.name, type: "Anniversary", date: new Date(person.anniversary), image: person.weddingPic || person.image, generation });
+
+            // Include spouse details with correct formatting
+            if (person.spouse) {
+                if (person.spouse.birthday) {
+                    events.push({ name: person.spouse.name, type: "Birthday", date: new Date(person.spouse.birthday), image: person.spouse.image, generation });
+                }
+                if (person.anniversary) {
+                    events.push({
+                        name: `${person.name} & ${person.spouse.name}`,
+                        type: "Anniversary",
+                        date: new Date(person.anniversary),
+                        image: person.weddingPic || person.image || person.spouse.image,
+                        generation
+                    });
+                }
             }
+
             if (person.kids) {
                 events = events.concat(parseEvents(person.kids, generation + 1)); // Recursively add kids' events
             }
@@ -59,7 +73,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Check for events on this day
             const eventDate = new Date(year, month, day);
-            const eventsForDay = eventsData.filter(event => event.date.getDate() === day && event.date.getMonth() === month);
+            const eventsForDay = eventsData.filter(event => 
+                event.date.getDate() === day && event.date.getMonth() === month
+            );
 
             if (eventsForDay.length > 0) {
                 eventsForDay.forEach(event => {
