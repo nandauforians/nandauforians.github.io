@@ -269,7 +269,7 @@
         "name": "Parameswari",
         "image": "images/parameswari.png",
         "birthday": "Dec 27 1954",
-        "anniversary": "",
+        "anniversary": "04 Feb 1976",
         "weddingPic": "",
         "spouse": {
                     "name": "Ratnam",
@@ -286,7 +286,7 @@
                 "spouse": {
                     "name": "Aarthi",
                     "image": "images/aarthi.png",
-                    "birthday": ""
+                    "birthday": "25 Sep 1986"
                 },
                 "kids": [
                     {
@@ -296,7 +296,7 @@
                     },
                     {
                         "name": "Vidushan",
-                        "birthday": "March 27 2012",
+                        "birthday": "March 30 2012",
                         "image": "images/vidushan.png"
                     }
                 ]
@@ -319,17 +319,17 @@
                 "spouse": {
                     "name": "Sathish",
                     "image": "images/sathish.png",
-                    "birthday": ""
+                    "birthday": "22 Dec 1976"
                 },
                 "kids": [
                     {
                         "name": "Praneeth",
-                        "birthday": "Oct 01 2006",
+                        "birthday": "Nov 01 2006",
                         "image": "images/praneeth.png"
                     },
                     {
                         "name": "Harsivarshini",
-                        "birthday": "May 06 2014",
+                        "birthday": "Sep 20 2014",
                         "image": "images/varshini.png"
                     }
                 ]
