@@ -89,7 +89,7 @@
         "spouse": {
                     "name": "Sundarambal",
                     "image": "images/sundarambal.png",
-                    "birthday": "October 02 1962"
+                    "birthday": "October 02 1954"
                 },
         "kids": [
             {
@@ -153,12 +153,12 @@
         "name": "Selvaraj",
         "image": "images/selvaraj.png",
         "birthday": "July 10 1951",
-        "anniversary": "",
+        "anniversary": "7 July 1982",
         "weddingPic": "",
         "spouse": {
                     "name": "Nirmala",
                     "image": "images/nirmala.png",
-                    "birthday": "Sep 06 1963"
+                    "birthday": "Sep 07 1958"
                 },
         "kids": [
             {
@@ -175,7 +175,7 @@
                 "kids": [
                     {
                         "name": "Aadhiv",
-                        "birthday": "Dec 26 2013",
+                        "birthday": "Dec 26 2014",
                         "image": "images/aadhiv.png"
                     }
                 ]
@@ -189,12 +189,12 @@
                 "spouse": {
                     "name": "Gopi",
                     "image": "images/gopi.png",
-                    "birthday": "May 05"
+                    "birthday": "May 05 1984"
                 },
                 "kids": [
                     {
                         "name": "Akshat",
-                        "birthday": "May 07 2008",
+                        "birthday": "May 07 2018",
                         "image": "images/akshit.png"
                     },
                     {
@@ -206,14 +206,14 @@
             },
             {
                 "name": "Deepika",
-                "birthday": "January 10 1992",
+                "birthday": "January 10 1993",
                 "image": "images/deepika.png",
                 "anniversary":"March 06 2023",
                 "weddingPic":"images/deepi-thanush.png",
                 "spouse": {
-                    "name": "Thanush",
+                    "name": "Dhanush",
                     "image": "images/thanush.png",
-                    "birthday": ""
+                    "birthday": "Sep 05 1989"
                 }
             }
         ]
@@ -221,7 +221,7 @@
     {
         "name": "Ganeshan",
         "image": "images/ganeshan.png",
-        "birthday": "07 Sep 1957",
+        "birthday": "08 Sep 1957",
         "anniversary": "Feb 09 1987",
         "weddingPic": "",
         "spouse": {
@@ -268,20 +268,20 @@
     {
         "name": "Parameswari",
         "image": "images/parameswari.png",
-        "birthday": "Dec 27 1954",
+        "birthday": "Dec 27 1953",
         "anniversary": "04 Feb 1976",
         "weddingPic": "",
         "spouse": {
                     "name": "Ratnam",
                     "image": "images/ratnam.png",
-                    "birthday": "July 15"
+                    "birthday": "July 15 1946"
                 },
         "kids": [
             {
                 "name": "Kopinath",
                 "birthday": "Dec 09 1976",
                 "image": "images/kopinath.png",
-                "anniversary":"Feb 24 2007",
+                "anniversary":"Feb 24 2008",
                 "weddingPic":"",
                 "spouse": {
                     "name": "Aarthi",
@@ -328,7 +328,7 @@
                         "image": "images/praneeth.png"
                     },
                     {
-                        "name": "Harsivarshini",
+                        "name": "Harivarshini",
                         "birthday": "Sep 20 2014",
                         "image": "images/varshini.png"
                     }
@@ -339,8 +339,8 @@
     {
         "name": "Vasanthi",
         "image": "images/vasanthi.png",
-        "birthday": "Dec 27 1954",
-        "anniversary": "Feb 09 1987",
+        "birthday": "Oct 07 1960",
+        "anniversary": "May 24 1983",
         "weddingPic": "",
         "spouse": {
                     "name": "Kumar",
@@ -352,7 +352,7 @@
                 "name": "Sujiv",
                 "birthday": "April 17 1984",
                 "image": "images/sujiv.png",
-                "anniversary":"July 03 2021",
+                "anniversary":"June 26",
                 "weddingPic":"images/sujiv-wedding.png",
                 "spouse": {
                     "name": "Pratheeba",
@@ -366,7 +366,7 @@
                 "name": "Janane",
                 "birthday": "Oct 26 1990",
                 "image": "images/janane.png",
-                "anniversary":"November 07 2020",
+                "anniversary":"December 8 2019",
                 "weddingPic":"images/janane-wedding.png",
                 "spouse": {
                     "name": "Chandru",
@@ -385,17 +385,17 @@
                 "name": "Hareithra",
                 "birthday": "August 26 1993",
                 "image": "images/hareithra.png",
-                "anniversary":"Feb 08 2006",
+                "anniversary":"November 11 2023",
                 "weddingPic":"images/hari-wedding.png",
                 "spouse": {
                     "name": "Sugunath",
                     "image": "images/loganathan.png",
-                    "birthday": ""
+                    "birthday": "June 15 1988"
                 },
                 "kids": [
                     {
                         "name": "Prityush",
-                        "birthday": "March 27 2010",
+                        "birthday": "October 30 2024",
                         "image": ""
                     }
                 ]
