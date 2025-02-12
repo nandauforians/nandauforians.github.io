@@ -3,7 +3,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     const families = await response.json();
     const container = document.getElementById("friends-container");
     const detailsContainer = document.getElementById("details-container");
-    const notificationContainer = document.getElementById("notification-container");
+
+    let notificationContainer = document.getElementById("notification-container");
+    if (!notificationContainer) {
+        notificationContainer = document.createElement("div");
+        notificationContainer.id = "notification-container";
+        document.body.appendChild(notificationContainer);
+    }
 
     function renderFirstGeneration() {
         families.sort((a, b) => new Date(a.birthday) - new Date(b.birthday));
@@ -21,6 +27,67 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
 
         checkUpcomingEvents(families);
+    }
+
+    function displayFamilyTree(person) {
+        detailsContainer.innerHTML = renderFamilyTree(person);
+    }
+
+    function renderFamilyTree(person) {
+        if (!person) return "";
+
+        let spouseHTML = "";
+        let weddingPicHTML = "";
+        let anniversaryHTML = "";
+
+        if (person.spouse) {
+            spouseHTML = `
+                <div class="person-card">
+                    <img src="${person.spouse.image}" alt="${person.spouse.name}" class="profile-img">
+                    <p class="name-label">${person.spouse.name}</p>
+                    <p class="birthday-label">🎂 ${person.spouse.birthday}</p>
+                </div>
+            `;
+
+            if (person.weddingPic) {
+                weddingPicHTML = `
+                    <div class="wedding-section">
+                        <img src="${person.weddingPic}" alt="Wedding Picture" class="wedding-img">
+                    </div>
+                `;
+                anniversaryHTML = `<p class="anniversary-label">💍 Anniversary: ${person.anniversary}</p>`;
+            }
+        }
+
+        let personBlock = `
+            <div class="person-group">
+                <div class="person-card">
+                    <img src="${person.image}" alt="${person.name}" class="profile-img">
+                    <p class="name-label">${person.name}</p>
+                    <p class="birthday-label">🎂 ${person.birthday}</p>
+                </div>
+                ${spouseHTML}
+            </div>
+        `;
+
+        let kidsHTML = "";
+        if (person.kids && person.kids.length > 0) {
+            kidsHTML = `
+                <div class="kids-container">
+                    <h3>Children</h3>
+                    ${person.kids.map(child => renderFamilyTree(child)).join('')}
+                </div>
+            `;
+        }
+
+        return `
+            <div class="family-block">
+                ${personBlock}
+                ${weddingPicHTML}
+                ${anniversaryHTML}
+                ${kidsHTML}
+            </div>
+        `;
     }
 
     function checkUpcomingEvents(families) {
@@ -44,7 +111,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
                 if (anniversaryDate >= today && anniversaryDate <= twoWeeksLater) {
                     let coupleName = `${person.name} & ${person.spouse.name}`;
-                    showNotification(coupleName, "💍 Anniversary", person.anniversary, person.image, person.spouse.image);
+                    showNotification(coupleName, "💍 Anniversary", person.anniversary, person.spouse.image);
                 }
             }
 
@@ -56,12 +123,11 @@ document.addEventListener("DOMContentLoaded", async function () {
         families.forEach(person => traverseFamilyTree(person));
     }
 
-    function showNotification(name, eventType, date, image, spouseImage) {
+    function showNotification(name, eventType, date, image) {
         const notification = document.createElement("div");
         notification.classList.add("notification-popup");
         notification.innerHTML = `
             <img src="${image}" alt="${name}" class="notification-img">
-            <img src="${spouseImage}"  class="notification-img">
             <div class="notification-content">
                 <p class="notification-text"><strong>${name}</strong>'s ${eventType} is coming up!</p>
                 <p class="notification-date">📅 ${date}</p>
@@ -73,52 +139,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         setTimeout(() => {
             notification.remove();
         }, 10000);
-    }
-
-    function displayFamilyTree(person) {
-        detailsContainer.innerHTML = renderFamilyTree(person);
-    }
-
-    function renderFamilyTree(person) {
-        if (!person) return "";
-
-        const spouseHTML = person.spouse ? `
-            <div class="person-card">
-                <img src="${person.spouse.image}" alt="${person.spouse.name}" class="profile-img small">
-                <p class="name-label">${person.spouse.name}</p>
-                <p class="birthday-label">🎂 ${person.spouse.birthday}</p>
-            </div>
-        ` : "";
-
-        let personBlock = `
-            <div class="person-group">
-                <div class="person-card">
-                    <img src="${person.image}" alt="${person.name}" class="profile-img small">
-                    <p class="name-label">${person.name}</p>
-                    <p class="birthday-label">🎂 ${person.birthday}</p>
-                </div>
-                ${spouseHTML}
-            </div>
-        `;
-
-        let anniversaryHTML = person.spouse ? `<p class="anniversary-label">💍 Anniversary: ${person.anniversary}</p>` : "";
-
-        let kidsHTML = "";
-        if (person.kids && person.kids.length > 0) {
-            kidsHTML = `
-                <div class="kids-container">
-                    ${person.kids.map(child => renderFamilyTree(child)).join('')}
-                </div>
-            `;
-        }
-
-        return `
-            <div class="family-block">
-                ${personBlock}
-                ${anniversaryHTML}
-                ${kidsHTML}
-            </div>
-        `;
     }
 
     renderFirstGeneration();

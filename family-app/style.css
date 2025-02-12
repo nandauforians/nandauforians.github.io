@@ -77,29 +77,64 @@
     text-align: center;
 }
 
-/* Notification Popup */
+/* Wedding Picture Styles */
+.wedding-picture {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Kids Picture Styles */
+.kids-container .kid-img {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Container for wedding details */
+.wedding-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Styling for wedding picture */
+.wedding-img {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+/* Notification Styles */
 #notification-container {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    top: 10px;
+    left: 10px;
     z-index: 1000;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    gap: 10px;
 }
 
 .notification-popup {
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 10px;
-    border-radius: 8px;
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    background: #fffae5;
+    border: 1px solid #f0c36d;
+    border-radius: 8px;
+    padding: 10px;
     width: 250px;
-    opacity: 0;
-    transform: translateX(50px);
-    animation: slideIn 0.5s forwards, fadeOut 0.5s 9.5s forwards;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.notification-popup:hover {
+    opacity: 1;
 }
 
 .notification-img {
@@ -110,38 +145,18 @@
 }
 
 .notification-content {
-    flex: 1;
+    flex-grow: 1;
 }
 
 .notification-text {
-    margin: 0;
     font-size: 14px;
+    margin: 0;
+    font-weight: bold;
+    color: #444;
 }
 
 .notification-date {
-    margin: 0;
     font-size: 12px;
-    color: #ddd;
+    color: #666;
+    margin: 3px 0 0;
 }
-
-/* Animation */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
-

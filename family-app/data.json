@@ -185,7 +185,7 @@
                 "birthday": "June 30 1986",
                 "image": "images/sindu.png",
                 "anniversary":"Sep 4 2014",
-                "weddingPic":"",
+                "weddingPic":"images/sindu-wedding.png",
                 "spouse": {
                     "name": "Gopi",
                     "image": "images/gopi.png",
@@ -282,7 +282,7 @@
                 "birthday": "Dec 09 1976",
                 "image": "images/kopinath.png",
                 "anniversary":"Feb 24 2008",
-                "weddingPic":"",
+                "weddingPic":"images/kopi-wedding.png",
                 "spouse": {
                     "name": "Aarthi",
                     "image": "images/aarthi.png",
@@ -295,7 +295,7 @@
                         "image": "images/vineeth.png"
                     },
                     {
-                        "name": "Vidushan",
+                        "name": "Vidhusan",
                         "birthday": "March 30 2012",
                         "image": "images/vidushan.png"
                     }
@@ -329,7 +329,7 @@
                     },
                     {
                         "name": "Harivarshini",
-                        "birthday": "Sep 20 2014",
+                        "birthday": "Sep 20 2012",
                         "image": "images/varshini.png"
                     }
                 ]
