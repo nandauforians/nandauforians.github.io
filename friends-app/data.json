@@ -140,7 +140,7 @@
     {
         "name": "CTP",
         "image": "images/ctp.png",
-        "birthday": "",
+        "birthday": "March 18 1975",
         "anniversary": "February 02 2003",
         "kids":[
             {
@@ -165,14 +165,17 @@
         "image": "images/nattu.png",
         "birthday": "04 July 1976",
         "anniversary": "13 July 2006",
+        "weddingPic":"images/nattu-wedding.png",
         "kids":[
             {
                 "name":"Advaith",
-                "birthday":"January 25 2011"
+                "birthday":"January 25 2011",
+                "image":"images/advaith.png"
             },
             {
                 "name":"Veda",
-                "birthday":"December 23 2016"
+                "birthday":"December 23 2016",
+                "image":"images/veda.png"
             }
         ]
     },
@@ -231,7 +234,7 @@
     {
         "name": "Barry",
         "image": "",
-        "birthday": "Nov 21 1976",
+        "birthday": "Nov 21 1975",
         "anniversary": "17 April 2011",
         "kids":[
             {

@@ -1,0 +1,107 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+}
+
+.race-flag {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+
+/* Each Race Bar */
+.bar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 8px 0;
+}
+
+/* Friend's Profile Image */
+.friend-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Friend's Name */
+.friend-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+    flex: 1;
+    text-align: left;
+}
+
+
+/* Progress Text */
+.progress-text {
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+#race-container {
+    width: 60%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.bar-container {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    gap: 10px;
+}
+
+.friend-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.friend-name {
+    width: 100px;
+    font-weight: bold;
+}
+
+.race-bar {
+    height: 30px;
+    border-radius: 5px;
+    position: relative;
+    transition: width 0.5s ease-in-out;
+}
+
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .friend-image {
+        width: 30px;
+        height: 30px;
+    }
+    .friend-name {
+        font-size: 14px;
+    }
+    .race-bar {
+        height: 20px;
+    }
+    .progress-text {
+        font-size: 12px;
+    }
+}
+
+

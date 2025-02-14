@@ -55,6 +55,68 @@ document.addEventListener("DOMContentLoaded", async function () {
         .sort((a, b) => getSortableDate(a.birthday) - getSortableDate(b.birthday))
         .slice(0, 2);
 
+    function getDaysUntil(date) {
+            if (!date) return Infinity;
+            const eventDate = new Date(date);
+            const today = new Date();
+            eventDate.setFullYear(today.getFullYear());
+            if (eventDate < today) {
+                eventDate.setFullYear(today.getFullYear() + 1);
+            }
+            return Math.ceil((eventDate - today) / (1000 * 60 * 60 * 24));
+        }
+
+     function getUpcomingEvents() {
+        const today = new Date();
+        return friends.flatMap(friend => {
+            const events = [];
+            if (friend.birthday) {
+                const daysToBirthday = getDaysUntil(friend.birthday);
+                if (daysToBirthday <= 14) {
+                    events.push({ name: friend.name, type: "Birthday", date: formatBirthday(friend.birthday), image: friend.image });
+                }
+            }
+            if (friend.anniversary) {
+                const daysToAnniversary = getDaysUntil(friend.anniversary);
+                if (daysToAnniversary <= 14) {
+                    events.push({ name: friend.name, type: "Anniversary", date: formatBirthday(friend.anniversary), image: friend.weddingPic });
+                }
+            }
+            return events;
+        });
+    }
+
+    function showNotifications() {
+        const upcomingEvents = getUpcomingEvents();
+        if (upcomingEvents.length === 0) return;
+
+        const notificationContainer = document.createElement("div");
+        notificationContainer.classList.add("notification-container");
+        document.body.appendChild(notificationContainer);
+
+        upcomingEvents.forEach(event => {
+            const notification = document.createElement("div");
+            notification.classList.add("notification");
+            notification.innerHTML = `
+                <img src="${event.image}" alt="${event.type}" class="notification-img">
+                <div class="notification-content">
+                    <p class="notification-text"><strong>${event.name}</strong>'s ${event.type} is coming up!</p>
+                    <p class="notification-date">📅 ${event.date}</p>
+                </div>
+            `;
+            notificationContainer.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+                if (notificationContainer.childElementCount === 0) {
+                    notificationContainer.remove();
+                }
+            }, 10000);
+        });
+    }
+
+    showNotifications();
+
     friends.forEach(friend => {
         const card = document.createElement("div");
         card.classList.add("friend-card");
@@ -111,3 +173,44 @@ document.addEventListener("DOMContentLoaded", async function () {
         detailsContainer.style.display = "block";
     }
 });
+
+const style = document.createElement('style');
+style.innerHTML = `
+    .notification-container {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+    }
+    .notification {
+       background: #fffae5;
+        color: #333;
+        padding: 10px 15px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-size: 14px;
+        font-weight: bold;
+        animation: fadeOut 10s forwards;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .notification-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+    .notification-content {
+        display: flex;
+        flex-direction: column;
+    }
+    @keyframes fadeOut {
+        0% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+`;
+document.head.appendChild(style);
