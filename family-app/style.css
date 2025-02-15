@@ -160,3 +160,57 @@
     color: #666;
     margin: 3px 0 0;
 }
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Login Page */
+.login-container {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
+}
+
+.google-btn img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+/* Header */
+.user-info {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+}
+
+.logout-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.logout-btn:hover {
+    background-color: darkred;
+}

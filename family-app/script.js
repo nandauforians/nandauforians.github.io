@@ -4,12 +4,31 @@ document.addEventListener("DOMContentLoaded", async function () {
     const container = document.getElementById("friends-container");
     const detailsContainer = document.getElementById("details-container");
 
-    let notificationContainer = document.getElementById("notification-container");
-    if (!notificationContainer) {
-        notificationContainer = document.createElement("div");
-        notificationContainer.id = "notification-container";
-        document.body.appendChild(notificationContainer);
+    // 🔹 Ensure we check localStorage, not sessionStorage
+    const user = JSON.parse(localStorage.getItem("google_user"));
+    const logoutButton = document.getElementById("logout-btn");
+    const userNameDisplay = document.getElementById("user-name");
+
+    console.log("User Data: ", user); // Debugging purpose
+
+    if (!user || !user.name) {
+        console.warn("User not authenticated, redirecting to login...");
+        localStorage.removeItem("google_user"); // Ensure no stale data
+        window.location.href = "index.html";
+        return;
     }
+
+    console.log(`Logged in as ${user.name}`);
+    document.getElementById("loading").style.display = "none";
+    container.style.visibility = "visible";
+    container.style.opacity = "1";
+    userNameDisplay.innerText = `👤 ${user.name}`;
+
+    // ✅ Handle logout properly
+    logoutButton.addEventListener("click", function () {
+        localStorage.removeItem("google_user"); // Clear localStorage on logout
+        window.location.href = "index.html";
+    });
 
     function renderFirstGeneration() {
         families.sort((a, b) => new Date(a.birthday) - new Date(b.birthday));
@@ -124,6 +143,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     function showNotification(name, eventType, date, image) {
+        const notificationContainer = document.getElementById("notification-container") || document.createElement("div");
+        notificationContainer.id = "notification-container";
+        document.body.appendChild(notificationContainer);
+
         const notification = document.createElement("div");
         notification.classList.add("notification-popup");
         notification.innerHTML = `

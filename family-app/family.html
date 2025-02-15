@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends & Family</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>🎉 Friends & Family Celebrations 🎊</h1>
+        <a href="calendar.html" class="calendar-link">📅 View Calendar</a> |
+        <a href="month.html" class="calendar-link">📆 Monthly View</a>
+        <div id="user-info">
+            <span id="user-name"></span>
+            <button id="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <main id="content">
+        <div id="loading">🔄 Loading...</div>
+        <div id="friends-container" class="grid-container" style="visibility: hidden; opacity: 0; transition: opacity 0.5s;"></div>
+        <div id="details-container" class="details"></div>
+    </main>
+
+    <footer>
+        <p>Designed with ❤️ for Friends & Family</p>
+    </footer>
+</body>
+</html>
+

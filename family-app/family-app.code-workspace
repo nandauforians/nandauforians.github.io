@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../friends-app"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "friends-app"
+	}
+}

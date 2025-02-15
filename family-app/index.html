@@ -3,26 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friends & Family</title>
+    <title>Login | Friends & Family</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <script defer src="login.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
-    <header>
-        <h1>🎉 Friends & Family Celebrations 🎊</h1> 
-            <a href="calendar.html" class="calendar-link">📅 View Calendar</a> | 
-            <a href="month.html" class="calendar-link">📆 Monthly View</a>
-    </header>
-
-    <main>
-        <div id="friends-container" class="grid-container"></div>
-        <div id="details-container" class="details"></div>
-    </main>
-
-    <footer>
-        <p>Designed with ❤️ for Friends & Family</p>
-    </footer>
-    <!-- Notification Popup -->
-<div id="notification-container"></div>
+    <div id="login-container">
+        <h2>Welcome to Friends & Family</h2>
+        <p id="status-text">Checking authentication...</p>
+        <div id="google-login-button" class="g_id_signin" data-type="standard" data-size="large" data-theme="outline"></div>
+    </div>
 </body>
 </html>
+
