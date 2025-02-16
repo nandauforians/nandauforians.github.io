@@ -25,7 +25,7 @@
                 "kids": [
                     {
                         "name": "Sharran",
-                        "birthday": "January 06 2006",
+                        "birthday": "Jan 06 2006",
                         "image": "images/sharran.jpg"
                     },
                     {
@@ -120,7 +120,7 @@
                 "spouse": {
                     "name": "Ramanan",
                     "image": "images/ramanan.png",
-                    "birthday": ""
+                    "birthday": "Sep 24 1980"
                 },
                 "kids": [
                     {
@@ -153,7 +153,7 @@
         "name": "Selvaraj",
         "image": "images/selvaraj.png",
         "birthday": "July 10 1951",
-        "anniversary": "7 July 1982",
+        "anniversary": "July 07 1982",
         "weddingPic": "",
         "spouse": {
                     "name": "Nirmala",
@@ -221,7 +221,7 @@
     {
         "name": "Ganeshan",
         "image": "images/ganeshan.png",
-        "birthday": "08 Sep 1957",
+        "birthday": "Sep 08 1957",
         "anniversary": "Feb 09 1987",
         "weddingPic": "",
         "spouse": {
@@ -269,7 +269,7 @@
         "name": "Parameswari",
         "image": "images/parameswari.png",
         "birthday": "Dec 27 1953",
-        "anniversary": "04 Feb 1976",
+        "anniversary": "Feb 04 1976",
         "weddingPic": "",
         "spouse": {
                     "name": "Ratnam",
@@ -286,7 +286,7 @@
                 "spouse": {
                     "name": "Aarthi",
                     "image": "images/aarthi.png",
-                    "birthday": "25 Sep 1986"
+                    "birthday": "Sep 25 1986"
                 },
                 "kids": [
                     {
@@ -319,7 +319,7 @@
                 "spouse": {
                     "name": "Sathish",
                     "image": "images/sathish.png",
-                    "birthday": "22 Dec 1976"
+                    "birthday": "Dec 22 1976"
                 },
                 "kids": [
                     {
@@ -352,7 +352,7 @@
                 "name": "Sujiv",
                 "birthday": "April 17 1984",
                 "image": "images/sujiv.png",
-                "anniversary":"June 26",
+                "anniversary":"June 26 2021",
                 "weddingPic":"images/sujiv-wedding.png",
                 "spouse": {
                     "name": "Pratheeba",
