@@ -1,0 +1,78 @@
+/* ===== Login Page Styling ===== */
+#login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Status message */
+#status-text {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* Google Sign-In Button */
+.g_id_signin {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add animation */
+.g_id_signin:hover {
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
+
+/* ===== Logout Button ===== */
+#logout-btn {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#logout-btn:hover {
+    background-color: #c9302c;
+}
+
+#user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+#user-name {
+    font-weight: bold;
+    color: #ffffff;
+    background: #333;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+#logout-btn {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#logout-btn:hover {
+    background: #d93636;
+}
+

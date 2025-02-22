@@ -4,6 +4,46 @@ document.addEventListener("DOMContentLoaded", async function () {
     const container = document.getElementById("friends-container");
     const detailsContainer = document.getElementById("details-container");
 
+    // Handle user authentication & login flow
+    await handleUserAuthentication();
+
+    async function handleUserAuthentication() {
+        const user = JSON.parse(localStorage.getItem("google_user"));
+        const logoutButton = document.getElementById("logout-btn");
+        const userNameDisplay = document.getElementById("user-name");
+
+        if (!user || !user.email) {
+            localStorage.removeItem("google_user");
+            window.location.href = "index.html";
+            return;
+        }
+
+        const approvedResponse = await fetch("uforians.json");
+        const approvedEmails = await approvedResponse.json();
+
+        if (!approvedEmails.includes(user.email)) {
+            localStorage.removeItem("google_user");
+            const requestAccessUrl = new URL("request-access.html", window.location.origin);
+            const encryptedName = btoa(user.name);
+            const encryptedEmail = btoa(user.email);
+            requestAccessUrl.searchParams.set("name", encryptedName);
+            requestAccessUrl.searchParams.set("email", encryptedEmail);
+            window.location.href = requestAccessUrl.toString();
+            return;
+        }
+
+        document.getElementById("loading").style.display = "none";
+        container.style.visibility = "visible";
+        container.style.opacity = "1";
+        userNameDisplay.innerText = `👤 ${user.name}`;
+
+        // Handle logout
+        logoutButton.addEventListener("click", function () {
+            localStorage.removeItem("google_user");
+            window.location.href = "index.html";
+        });
+    }
+
     function formatBirthday(birthday) {
         if (!birthday) return "";
         const date = new Date(birthday);

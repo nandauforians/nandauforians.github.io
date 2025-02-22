@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Friends & Family</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script defer src="login.js"></script>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Welcome to Friends & Family</h2>
+        <div id="g_id_onload"
+             data-client_id="903504580116-2b6bac5ktp46of9i8sd1p51sedoruapu.apps.googleusercontent.com"
+             data-context="signin"
+             data-ux_mode="popup"
+             data-callback="handleCredentialResponse"
+             data-auto_select="true">
+        </div>
+        <div class="g_id_signin" data-type="standard"></div>
+        <p id="status"></p>
+    </div>
+</body>
+</html>

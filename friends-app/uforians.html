@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends & Family</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <!-- Logo and Title -->
+            <div class="header-left">
+                <img src="images/uforians.png" alt="Uforians Logo" class="logo">
+                <h1 class="site-title">Friends & Family Events</h1>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="nav-links">
+                <a href="calendar.html" class="calendar-link">📅 View Calendar</a> | 
+                <a href="month.html" class="calendar-link">📆 Monthly View</a>
+            </div>
+
+            <!-- User Info & Logout -->
+            <div class="header-right">
+                <span id="user-name"></span>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="loading">🔄 Loading...</div>
+        <div id="friends-container" class="grid-container"></div>
+        <div id="details-container" class="details"></div>
+    </main>
+
+    <footer>
+        <p>Designed with ❤️ for Friends & Family</p>
+    </footer>
+</body>
+</html>

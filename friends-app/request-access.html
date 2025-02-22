@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Access | Friends & Family</title>
+    <link rel="stylesheet" href="request-access.css">
+</head>
+<body>
+    <div id="popup-message" class="popup">
+        <div class="popup-content">
+            <h3>Access Denied</h3>
+            <p>You are not authorized to view this page. Please submit a request below if you think you require access.</p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+    <div id="request-access-container">
+        <h2>Request Access</h2>
+        <form id="request-access-form">
+            <label for="to-email">To:</label>
+            <input type="email" id="to-email" name="to-email" value="nanda.uforians@gmail.com" readonly>
+            
+            <label for="from-email">From:</label>
+            <input type="email" id="from-email" name="from-email" readonly>
+            
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" value="Access Request: Uforians Page" readonly>
+            
+            <label for="body">Message:</label>
+            <textarea id="body" name="body" rows="5">Hello,
+
+I am requesting access to the Uforians page. Please review my request.
+
+Thank you.</textarea>
+            
+            <button type="button" onclick="sendRequest()">Send Request</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const encryptedName = urlParams.get("name");
+            const encryptedEmail = urlParams.get("email");
+
+            if (encryptedName && encryptedEmail) {
+                const userName = atob(encryptedName);
+                const userEmail = atob(encryptedEmail);
+                document.getElementById("from-email").value = userEmail;
+                document.getElementById("body").value = `Hello,\n\nI am ${userName} (${userEmail}) and I am requesting access to the Uforians page. Please review my request.\n\nThank you.`;
+            }
+
+            // Show popup message
+            document.getElementById("popup-message").style.display = "flex";
+        });
+
+        function sendRequest() {
+            const toEmail = document.getElementById("to-email").value;
+            const fromEmail = document.getElementById("from-email").value;
+            const subject = encodeURIComponent(document.getElementById("subject").value);
+            const body = encodeURIComponent(document.getElementById("body").value);
+            const mailtoLink = `mailto:${toEmail}?subject=${subject}&body=${body}&from=${fromEmail}`;
+            window.location.href = mailtoLink;
+
+            // Display confirmation message
+            document.getElementById("request-access-container").innerHTML = `
+                <h2>Request Sent</h2>
+                <p>Your request will be reviewed and approved upon receiving your email request.</p>
+                <p>Thank you for your patience.</p>
+                <a href="index.html">Go back to Login Page</a>
+            `;
+        }
+
+        function closePopup() {
+            document.getElementById("popup-message").style.display = "none";
+        }
+    </script>
+</body>
+</html>
