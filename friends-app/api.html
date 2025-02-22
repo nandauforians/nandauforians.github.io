@@ -12,13 +12,13 @@
 
     <script>
         function testApi() {
-            fetch("https://ae6um7bpca.execute-api.us-west-2.amazonaws.com/dev/check", {
+            fetch("https://b85qcq4xrk.execute-api.us-west-2.amazonaws.com/dev/my-resource", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     "x-api-key": "79NHtBiXbg5SyfA15OBst2gAWmnB69rc9zdfY1V1"
                 },
-                body: JSON.stringify({ email: "nanda.uforians@gmail.com" })
+                body: JSON.stringify({ email: "nanda.uforians@gmail.co" })
             })
             .then(response => {
                 if (!response.ok) {
