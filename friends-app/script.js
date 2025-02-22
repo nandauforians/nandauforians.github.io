@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         if (!approvedEmails.includes(user.email)) {
             localStorage.removeItem("google_user");
-            const requestAccessUrl = new URL("request-access.html", window.location.origin);
+            const requestAccessUrl = new URL("./request-access.html", window.location.origin);
             const encryptedName = btoa(user.name);
             const encryptedEmail = btoa(user.email);
             requestAccessUrl.searchParams.set("name", encryptedName);
