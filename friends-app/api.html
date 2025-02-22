@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test API Gateway Call</title>
+</head>
+<body>
+    <h2>API Gateway Test</h2>
+    <button onclick="testApi()">Call API</button>
+    <p id="response"></p>
+
+    <script>
+        function testApi() {
+            fetch("https://ae6um7bpca.execute-api.us-west-2.amazonaws.com/dev/check", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-api-key": "79NHtBiXbg5SyfA15OBst2gAWmnB69rc9zdfY1V1"
+                },
+                body: JSON.stringify({ email: "nanda.uforians@gmail.com" })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById("response").innerText = "Response: " + JSON.stringify(data);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                document.getElementById("response").innerText = "Error: " + error;
+            });
+        }
+    </script>
+</body>
+</html>
