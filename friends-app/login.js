@@ -42,7 +42,7 @@ async function checkAuthorization(user) {
             if (isAuthorized) {
                 window.location.href = "uforians.html";
             } else {
-                const requestAccessUrl = new URL("request-access.html", window.location.origin);
+                const requestAccessUrl = new URL("/friends-app/request-access.html", window.location.origin);
                 requestAccessUrl.searchParams.set("name", btoa(user.name));
                 requestAccessUrl.searchParams.set("email", btoa(user.email));
                 window.location.href = requestAccessUrl.toString();
