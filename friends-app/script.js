@@ -58,12 +58,12 @@ document.addEventListener("DOMContentLoaded", async function () {
             if (!isAuthorized) {
                 localStorage.removeItem("google_user");
                 
-                const requestAccessUrl = new URL("https://uforiancricket.world/friends-app/request-access.html", window.location.origin);
+                const requestAccessUrl = new URL("/friends-app/request-access.html", window.location.origin);
                 requestAccessUrl.searchParams.set("name", btoa(user.name));
                 requestAccessUrl.searchParams.set("email", btoa(user.email));
-                window.location.href = requestAccessUrl.toString();
-                console.log("Redirecting to request access page..." + requestAccessUrl).toString;
+                console.log("Redirecting to request access page..." + requestAccessUrl.toString);
                 alert(requestAccessUrl.toString);
+                window.location.href = "reqeuest-access.html";     
                 return;
             }
 
