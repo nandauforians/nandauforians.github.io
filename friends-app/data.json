@@ -182,13 +182,15 @@
     },
     {
         "name": "Thyagi",
-        "image": "",
+        "image": "images/thyagi.jpeg",
         "birthday": "15 December 1975",
         "anniversary": "14 June 2006",
+        "weddingPic":"images/thyagi-wedding.jpeg",
         "kids":[
             {
                 "name":"Varun",
-                "birthday":"August 20 2013"
+                "birthday":"August 20 2013",
+                "image":"images/varun.jpeg"
             }
         ]
     },
