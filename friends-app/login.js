@@ -1,20 +1,60 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const user = localStorage.getItem("google_user");
-
-    if (user) {
-        window.location.href = "uforians.html"; // Redirect if already logged in
-    } else {
-        document.getElementById("status-text").textContent = "Please log in to continue.";
-        document.getElementById("google-login-button").style.display = "block";
-    }
+    document.getElementById("status-text").textContent = "Please log in to continue.";
+    document.getElementById("google-login-button").style.display = "block";
 });
+
+const API_GATEWAY_URL = "https://b85qcq4xrk.execute-api.us-west-2.amazonaws.com/dev/my-resource";
+const API_KEY = "79NHtBiXbg5SyfA15OBst2gAWmnB69rc9zdfY1V1";
 
 // Google Sign-In Callback
 function handleCredentialResponse(response) {
     const jwtPayload = JSON.parse(atob(response.credential.split(".")[1]));
+    localStorage.setItem("google_user", JSON.stringify(jwtPayload));
+    checkAuthorization(jwtPayload);
+}
 
-    localStorage.setItem("google_user", JSON.stringify(jwtPayload)); // Ensure consistency
-    window.location.href = "uforians.html"; // Redirect to the main content page
+async function checkAuthorization(user) {
+    console.log("Checking authorization for:", user.email);
+    try {
+        const response = await fetch(API_GATEWAY_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "x-api-key": API_KEY
+            },
+            body: JSON.stringify({ 
+                body: JSON.stringify({ 
+                    operation: "check_email", 
+                    email: user.email 
+                })
+            }),
+            mode: "cors"
+        });
+
+        const responseBody = await response.json();
+        console.log("Response from API:", responseBody);
+        if (responseBody.body) {
+            const parsedBody = JSON.parse(responseBody.body);
+            console.log("Parsed body:", parsedBody);
+            const isAuthorized = parsedBody.authorized === true;
+            console.log("isAuthorized:", isAuthorized);
+
+            if (isAuthorized) {
+                window.location.href = "uforians.html";
+            } else {
+                const requestAccessUrl = new URL("request-access.html", window.location.origin);
+                requestAccessUrl.searchParams.set("name", btoa(user.name));
+                requestAccessUrl.searchParams.set("email", btoa(user.email));
+                window.location.href = requestAccessUrl.toString();
+            }
+        } else {
+            console.error("No body in response:", responseBody);
+            document.getElementById("status-text").textContent = "Error connecting to server. Please try again later.";
+        }
+    } catch (error) {
+        console.error("Error checking authorization:", error);
+        document.getElementById("status-text").textContent = "Error connecting to server. Please try again later.";
+    }
 }
 
 // Initialize Google Login Button

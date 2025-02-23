@@ -30,12 +30,7 @@
     border: 3px solid #ddd;
 }
 
-/* Family Tree Layout */
-.tree-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
+/* Wedding Picture */
 .wedding-container {
     display: flex;
     flex-direction: column;
@@ -44,13 +39,15 @@
 }
 
 .wedding-container img {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
+    width: 100px; /* Match friends' images */
+    height: 100px;
+    border-radius: 50%;
     object-fit: cover;
+    border: 3px solid #ddd;
     transition: transform 0.3s;
 }
 
+/* Kids Section - Fixed Sizing */
 .kids-container {
     display: flex;
     justify-content: center;
@@ -65,47 +62,37 @@
 }
 
 .kid-img {
-    width: 100px;
+    width: 100px;  /* Match friends and wedding images */
     height: 100px;
-    border-radius: 10px;
+    border-radius: 50%;
     object-fit: cover;
+    border: 3px solid #ddd;
     transition: transform 0.3s;
 }
 
 .kid-pic:hover .kid-img, .wedding-container:hover img {
-    transform: scale(1.5);
+    transform: scale(1.1);
 }
 
-.highlight {
-    border: 3px solid gold;
-    background-color: #fffbe6;
-    animation: glow 1.5s infinite alternate;
+/* Notification Pop-up */
+.notification {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #ff9800;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    transition: opacity 5s ease-in-out;
 }
 
-@keyframes glow {
-    from {
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-    }
-    to {
-        box-shadow: 0 0 20px rgba(255, 165, 0, 1);
-    }
+.notification.hide {
+    opacity: 0;
 }
 
-.highlight {
-    border: 3px solid gold;
-    background-color: #fffbe6;
-    animation: glow 1.5s infinite alternate;
-}
-
-@keyframes glow {
-    from {
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-    }
-    to {
-        box-shadow: 0 0 20px rgba(255, 165, 0, 1);
-    }
-}
-
+/* Countdown Badge */
 .fifty-countdown {
     font-size: 14px;
     font-weight: bold;
@@ -116,28 +103,7 @@
     margin-top: 5px;
 }
 
-.nav-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.race-link {
-    display: inline-block;
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-.race-link:hover {
-    background-color: #0056b3;
-}
-
-
-/* Header Container */
+/* Header */
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -147,7 +113,7 @@
     background-color: #f5f5f5;
 }
 
-/* Left Section: Logo and Title */
+/* Logo and Title */
 .header-left {
     display: flex;
     align-items: center;
@@ -155,7 +121,7 @@
 }
 
 .logo {
-    width: 60px; /* Adjust size as needed */
+    width: 100px;
     height: auto;
 }
 
@@ -194,4 +160,55 @@
 
 #logout-btn:hover {
     background-color: #d32f2f;
+}
+
+.notification-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.notification-container {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+.event-notification {
+    position: fixed;
+    left: -300px; /* Start off-screen */
+    top: 10px;
+    width: 250px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideIn 0.5s forwards;
+}
+
+.notification-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+@keyframes slideIn {
+    from { left: -300px; }
+    to { left: 10px; }
+}
+
+@keyframes slideOut {
+    from { left: 10px; opacity: 1; }
+    to { left: -300px; opacity: 0; }
+}
+
+.slide-out {
+    animation: slideOut 0.5s forwards;
 }

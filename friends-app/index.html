@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <script defer src="login.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        // Clear any stored user information when the page loads
+        window.onload = function() {
+            localStorage.removeItem("google_user");
+        };
+    </script>
 </head>
 <body>
     <div id="login-container">

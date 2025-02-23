@@ -37,6 +37,9 @@ Thank you.</textarea>
         </form>
     </div>
     <script>
+        const API_GATEWAY_URL = "https://b85qcq4xrk.execute-api.us-west-2.amazonaws.com/dev/my-resource";
+        const API_KEY = "79NHtBiXbg5SyfA15OBst2gAWmnB69rc9zdfY1V1";
+
         document.addEventListener("DOMContentLoaded", function () {
             const urlParams = new URLSearchParams(window.location.search);
             const encryptedName = urlParams.get("name");
@@ -53,21 +56,44 @@ Thank you.</textarea>
             document.getElementById("popup-message").style.display = "flex";
         });
 
-        function sendRequest() {
-            const toEmail = document.getElementById("to-email").value;
+        async function sendRequest() {
             const fromEmail = document.getElementById("from-email").value;
-            const subject = encodeURIComponent(document.getElementById("subject").value);
-            const body = encodeURIComponent(document.getElementById("body").value);
-            const mailtoLink = `mailto:${toEmail}?subject=${subject}&body=${body}&from=${fromEmail}`;
-            window.location.href = mailtoLink;
 
-            // Display confirmation message
-            document.getElementById("request-access-container").innerHTML = `
-                <h2>Request Sent</h2>
-                <p>Your request will be reviewed and approved upon receiving your email request.</p>
-                <p>Thank you for your patience.</p>
-                <a href="index.html">Go back to Login Page</a>
-            `;
+            try {
+                const response = await fetch(API_GATEWAY_URL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "x-api-key": API_KEY
+                    },
+                    body: JSON.stringify({ 
+                        body: JSON.stringify({ 
+                            operation: "insert_email", 
+                            email: fromEmail 
+                        })
+                    }),
+                    mode: "cors"
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+
+                // Display confirmation message
+                document.getElementById("request-access-container").innerHTML = `
+                    <h2>Request Sent</h2>
+                    <p>Your request will be reviewed and approved upon receiving your email request.</p>
+                    <p>Thank you for your patience.</p>
+                    <a href="index.html">Go back to Login Page</a>
+                `;
+            } catch (error) {
+                console.error("Error:", error);
+                document.getElementById("request-access-container").innerHTML = `
+                    <h2>Error</h2>
+                    <p>There was an error sending your request. Please try again later.</p>
+                    <a href="index.html">Go back to Login Page</a>
+                `;
+            }
         }
 
         function closePopup() {

@@ -1,0 +1,139 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #eef2f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+#approval-container {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    width: 600px;
+    text-align: center;
+}
+
+/* Logo */
+.logo {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+/* Heading */
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #007BFF;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Hover effect on rows */
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Approval Button */
+.approve-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.approve-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Refresh Button */
+#refresh-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s;
+    margin-top: 20px;
+}
+
+#refresh-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Message Container */
+#message-container {
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#message-container.success {
+    color: #28a745;
+}
+
+#message-container.error {
+    color: #d9534f;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    #approval-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    .approve-btn {
+        padding: 8px 14px;
+    }
+
+    #refresh-btn {
+        padding: 10px 16px;
+    }
+}

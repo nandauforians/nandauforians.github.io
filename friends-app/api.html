@@ -12,28 +12,36 @@
 
     <script>
         function testApi() {
-            fetch("https://b85qcq4xrk.execute-api.us-west-2.amazonaws.com/dev/my-resource", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "x-api-key": "79NHtBiXbg5SyfA15OBst2gAWmnB69rc9zdfY1V1"
-                },
-                body: JSON.stringify({ email: "nanda.uforians@gmail.co" })
+    fetch("https://b85qcq4xrk.execute-api.us-west-2.amazonaws.com/dev/my-resource", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "x-api-key": "79NHtBiXbg5SyfA15OBst2gAWmnB69rc9zdfY1V1"
+        },
+        body: JSON.stringify({ 
+            body: JSON.stringify({ 
+                operation: "check_email", 
+                email: "nanda.uforians@gmail.com" 
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json();
-            })
-            .then(data => {
-                document.getElementById("response").innerText = "Response: " + JSON.stringify(data);
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                document.getElementById("response").innerText = "Error: " + error;
-            });
+        }),
+        mode: "cors"  // Ensure CORS mode is enabled
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
         }
+        return response.json();
+    })
+    .then(data => {
+        document.getElementById("response").innerText = "Response: " + JSON.stringify(data);
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        document.getElementById("response").innerText = "Error: " + error;
+    });
+}
+
     </script>
 </body>
 </html>
+
