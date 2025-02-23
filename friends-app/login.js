@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const API_GATEWAY_URL = "https://b85qcq4xrk.execute-api.us-west-2.amazonaws.com/dev/my-resource";
 const API_KEY = "79NHtBiXbg5SyfA15OBst2gAWmnB69rc9zdfY1V1";
 
-// Google Sign-In Callback
+// Google Sign-In Callback with integration to API Gateway
 function handleCredentialResponse(response) {
     const jwtPayload = JSON.parse(atob(response.credential.split(".")[1]));
     localStorage.setItem("google_user", JSON.stringify(jwtPayload));

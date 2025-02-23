@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const response = await fetch("data.json");
-    const friends = await response.json();
+    const API_GATEWAY_URL = "https://b85qcq4xrk.execute-api.us-west-2.amazonaws.com/dev/my-resource";
+    const API_KEY = "79NHtBiXbg5SyfA15OBst2gAWmnB69rc9zdfY1V1";
+
     const container = document.getElementById("friends-container");
     const detailsContainer = document.getElementById("details-container");
 
-    // Handle user authentication & login flow
     await handleUserAuthentication();
 
     async function handleUserAuthentication() {
@@ -18,165 +18,173 @@ document.addEventListener("DOMContentLoaded", async function () {
             return;
         }
 
-        const approvedResponse = await fetch("uforians.json");
-        const approvedEmails = await approvedResponse.json();
-
-        if (!approvedEmails.includes(user.email)) {
-            localStorage.removeItem("google_user");
-            const requestAccessUrl = new URL("./friends-app/request-access.html", window.location.origin);
-            const encryptedName = btoa(user.name);
-            const encryptedEmail = btoa(user.email);
-            requestAccessUrl.searchParams.set("name", encryptedName);
-            requestAccessUrl.searchParams.set("email", encryptedEmail);
-            window.location.href = requestAccessUrl.toString();
-            return;
+        if (user.email === "nanda.uforians@gmail.com") {
+            const adminLinkPlaceholder = document.getElementById("admin-link-placeholder");
+            if (adminLinkPlaceholder) {
+                const approvalLink = document.createElement("a");
+                approvalLink.href = "approval.html";
+                approvalLink.textContent = "🔒 Admin Approval";
+                approvalLink.classList.add("calendar-link");
+                adminLinkPlaceholder.appendChild(approvalLink);
+            }
         }
 
-        document.getElementById("loading").style.display = "none";
-        container.style.visibility = "visible";
-        container.style.opacity = "1";
-        userNameDisplay.innerText = `👤 ${user.name}`;
+        try {
+            console.log("Checking authorization...");
+            console.log(user.email);
 
-        // Handle logout
-        logoutButton.addEventListener("click", function () {
-            localStorage.removeItem("google_user");
-            window.location.href = "index.html";
-        });
+            const response = await fetch(API_GATEWAY_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-api-key": API_KEY
+                },
+                body: JSON.stringify({ 
+                    body: JSON.stringify({ 
+                        operation: "check_email", 
+                        email: user.email 
+                    })
+                }),
+                mode: "cors"
+            });
+
+            const responseBody = await response.json();
+            console.log("Response from API:", responseBody);
+            const parsedBody = JSON.parse(responseBody.body);
+            console.log("Parsed body:", parsedBody);
+            const isAuthorized = parsedBody.authorized === true;
+            console.log("isAuthorized:", isAuthorized);
+
+            if (!isAuthorized) {
+                localStorage.removeItem("google_user");
+                const requestAccessUrl = new URL("request-access.html", window.location.origin);
+                requestAccessUrl.searchParams.set("name", btoa(user.name));
+                requestAccessUrl.searchParams.set("email", btoa(user.email));
+                window.location.href = requestAccessUrl.toString();
+                return;
+            }
+
+            document.getElementById("loading").style.display = "none";
+            container.style.visibility = "visible";
+            container.style.opacity = "1";
+            userNameDisplay.innerText = `👤 ${user.name}`;
+
+            logoutButton.addEventListener("click", function () {
+                localStorage.removeItem("google_user");
+                window.location.href = "index.html";
+            });
+
+        } catch (error) {
+            console.error("Error checking authorization:", error);
+            showPopupNotification("Error connecting to server", true);
+        }
     }
 
     function formatBirthday(birthday) {
-        if (!birthday) return "";
-        const date = new Date(birthday);
-        return date.toLocaleDateString("en-US", { day: "numeric", month: "long" });
+        return birthday ? new Date(birthday).toLocaleDateString("en-US", { day: "numeric", month: "long" }) : "";
     }
-
-    function calculateAge(birthday) {
-        if (!birthday) return null;
-        const birthDate = new Date(birthday);
-        const today = new Date();
-        let age = today.getFullYear() - birthDate.getFullYear();
-        const monthDiff = today.getMonth() - birthDate.getMonth();
-        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
-        }
-        return age;
-    }
-
-    function daysToFifty(birthday) {
-        if (!birthday) return Infinity;
-        const birthDate = new Date(birthday);
-        const age = calculateAge(birthday);
-        
-        if (age >= 50) return Infinity; 
-
-        const fiftyBirthday = new Date(birthDate);
-        fiftyBirthday.setFullYear(birthDate.getFullYear() + 50);
-
-        const today = new Date();
-        const timeDiff = fiftyBirthday - today;
-        return Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-    }
-
-    function getSortableDate(birthday) {
-        if (!birthday) return 9999;
-        const date = new Date(birthday);
-        return date.getMonth() * 100 + date.getDate();
-    }
-
-    const today = new Date();
-    const todaySortable = today.getMonth() * 100 + today.getDate();
-
-    // Sort by shortest time to reach 50 years
-    friends.sort((a, b) => daysToFifty(a.birthday) - daysToFifty(b.birthday));
-
-    // Find next 2 upcoming birthdays (ignoring sorting by 50)
-    const upcomingBirthdays = friends
-        .filter(friend => getSortableDate(friend.birthday) >= todaySortable)
-        .sort((a, b) => getSortableDate(a.birthday) - getSortableDate(b.birthday))
-        .slice(0, 2);
 
     function getDaysUntil(date) {
-            if (!date) return Infinity;
-            const eventDate = new Date(date);
-            const today = new Date();
-            eventDate.setFullYear(today.getFullYear());
-            if (eventDate < today) {
-                eventDate.setFullYear(today.getFullYear() + 1);
-            }
-            return Math.ceil((eventDate - today) / (1000 * 60 * 60 * 24));
-        }
-
-     function getUpcomingEvents() {
+        if (!date) return Infinity;
+        const eventDate = new Date(date);
         const today = new Date();
+        eventDate.setFullYear(today.getFullYear());
+        if (eventDate < today) {
+            eventDate.setFullYear(today.getFullYear() + 1);
+        }
+        return Math.ceil((eventDate - today) / (1000 * 60 * 60 * 24));
+    }
+
+    function getUpcomingEvents(friends) {
         return friends.flatMap(friend => {
             const events = [];
-            if (friend.birthday) {
-                const daysToBirthday = getDaysUntil(friend.birthday);
-                if (daysToBirthday <= 14) {
-                    events.push({ name: friend.name, type: "Birthday", date: formatBirthday(friend.birthday), image: friend.image });
-                }
+            if (friend.birthday && getDaysUntil(friend.birthday) <= 14) {
+                events.push({ name: friend.name, type: "Birthday", date: formatBirthday(friend.birthday), image: friend.image });
             }
-            if (friend.anniversary) {
-                const daysToAnniversary = getDaysUntil(friend.anniversary);
-                if (daysToAnniversary <= 14) {
-                    events.push({ name: friend.name, type: "Anniversary", date: formatBirthday(friend.anniversary), image: friend.weddingPic });
-                }
+            if (friend.anniversary && getDaysUntil(friend.anniversary) <= 14) {
+                events.push({ name: friend.name, type: "Anniversary", date: formatBirthday(friend.anniversary), image: friend.weddingPic });
             }
             return events;
         });
     }
 
-    function showNotifications() {
-        const upcomingEvents = getUpcomingEvents();
-        if (upcomingEvents.length === 0) return;
+    function showPopupNotification(message, isError = false) {
+        const notification = document.createElement("div");
+        notification.innerText = message;
+        notification.style.position = "fixed";
+        notification.style.top = "10px";
+        notification.style.left = "10px";
+        notification.style.padding = "8px 15px";
+        notification.style.backgroundColor = isError ? "red" : "green";
+        notification.style.color = "white";
+        notification.style.fontSize = "13px";
+        notification.style.borderRadius = "5px";
+        notification.style.zIndex = "1000";
+        notification.style.boxShadow = "0 2px 5px rgba(0,0,0,0.2)";
+        notification.style.opacity = "0.9";
+        
+        document.body.appendChild(notification);
 
+        setTimeout(() => {
+            notification.style.opacity = "0";
+            setTimeout(() => document.body.removeChild(notification), 500);
+        }, 3000);
+    }
+
+    function showEventNotifications(friends) {
+        const upcomingEvents = getUpcomingEvents(friends);
+        if (upcomingEvents.length === 0) return;
+    
         const notificationContainer = document.createElement("div");
         notificationContainer.classList.add("notification-container");
         document.body.appendChild(notificationContainer);
-
+    
         upcomingEvents.forEach(event => {
             const notification = document.createElement("div");
-            notification.classList.add("notification");
+            notification.classList.add("event-notification");
+    
             notification.innerHTML = `
-                <img src="${event.image}" alt="${event.type}" class="notification-img">
-                <div class="notification-content">
-                    <p class="notification-text"><strong>${event.name}</strong>'s ${event.type} is coming up!</p>
-                    <p class="notification-date">📅 ${event.date}</p>
+                <img src="${event.image}" alt="${event.name}" class="notification-image">
+                <div class="event-text">
+                    <p><strong>${event.name}</strong>'s ${event.type} is coming up!</p>
+                    <p>📅 ${event.date}</p>
                 </div>
             `;
+    
             notificationContainer.appendChild(notification);
-
+    
+            // Slide out after 5 seconds
             setTimeout(() => {
-                notification.remove();
-                if (notificationContainer.childElementCount === 0) {
-                    notificationContainer.remove();
-                }
-            }, 10000);
+                notification.classList.add("slide-out");
+                setTimeout(() => notification.remove(), 500);
+            }, 5000);
         });
     }
+    
 
-    showNotifications();
+    async function loadFriends() {
+        try {
+            const response = await fetch("data.json");
+            const friends = await response.json();
 
-    friends.forEach(friend => {
-        const card = document.createElement("div");
-        card.classList.add("friend-card");
+            showEventNotifications(friends);
 
-        if (upcomingBirthdays.includes(friend)) {
-            card.classList.add("highlight");
+            friends.forEach(friend => {
+                const card = document.createElement("div");
+                card.classList.add("friend-card");
+                card.innerHTML = `
+                    <img src="${friend.image}" alt="${friend.name}">
+                    <h3>${friend.name}</h3>
+                    <h3>${formatBirthday(friend.birthday)}</h3>
+                `;
+                card.addEventListener("click", () => showDetails(friend));
+                container.appendChild(card);
+            });
+        } catch (error) {
+            console.error("Error loading friends:", error);
+            showPopupNotification("Failed to load friends data", true);
         }
-
-        const daysLeft = daysToFifty(friend.birthday);
-        const daysTo50Text = daysLeft !== Infinity ? `<p class="fifty-countdown">🎈 ${daysLeft} days to 50!</p>` : '';
-
-        card.innerHTML = `
-            <img src="${friend.image}" alt="${friend.name}">
-            <h3>${friend.name}</h3>
-            <h3>${formatBirthday(friend.birthday)}</h3>
-            ${daysTo50Text}
-        `;
-        card.addEventListener("click", () => showDetails(friend));
-        container.appendChild(card);
-    });
+    }
 
     function showDetails(friend) {
         if (!friend) {
@@ -185,10 +193,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
         detailsContainer.innerHTML = `
-            <h2>${friend.name}'s Celebrations</h2>
+            <h2 align="center">${friend.name}'s Celebrations</h2>
             <div class="tree-container">
-                <div class="tree-item">🎂 Birthday: ${formatBirthday(friend.birthday) || "N/A"}</div>
-                <div class="tree-item">💍 Anniversary: ${formatBirthday(friend.anniversary) || "N/A"}</div>
+                <div class="tree-item" align="center">🎂 Birthday: ${formatBirthday(friend.birthday) || "N/A"}</div>
+                <div class="tree-item" align="center">💍 Anniversary: ${formatBirthday(friend.anniversary) || "N/A"}</div>
                 
                 ${friend.weddingPic ? `
                     <div class="wedding-container">
@@ -212,45 +220,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         detailsContainer.style.display = "block";
     }
-});
 
-const style = document.createElement('style');
-style.innerHTML = `
-    .notification-container {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        z-index: 1000;
-    }
-    .notification {
-       background: #fffae5;
-        color: #333;
-        padding: 10px 15px;
-        border-radius: 5px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        font-size: 14px;
-        font-weight: bold;
-        animation: fadeOut 10s forwards;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    .notification-img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-    }
-    .notification-content {
-        display: flex;
-        flex-direction: column;
-    }
-    @keyframes fadeOut {
-        0% { opacity: 1; }
-        90% { opacity: 1; }
-        100% { opacity: 0; }
-    }
-`;
-document.head.appendChild(style);
+    loadFriends();
+});

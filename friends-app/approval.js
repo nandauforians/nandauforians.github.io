@@ -90,5 +90,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     refreshButton.addEventListener("click", fetchApprovalList);
 
-    fetchApprovalList(); // Initial fetch
+    fetchApprovalList(); // Initial fetch the list
 });
