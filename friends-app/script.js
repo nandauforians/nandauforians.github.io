@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 requestAccessUrl.searchParams.set("email", btoa(user.email));
                 console.log("Redirecting to request access page..." + requestAccessUrl.toString);
                 alert(requestAccessUrl.toString);
-                window.location.href = "reqeuest-access.html";     
+                window.location.href = "https://uforiancricket.world/friends-app/request-access.html";     
                 return;
             }
 
