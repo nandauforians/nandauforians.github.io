@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const API_GATEWAY_URL = "https://kvrsn4eqq4.execute-api.us-west-2.amazonaws.com/dev/my-resource";
-    const API_KEY = "79NHtBiXbg5SyfA15OBst2gAWmnB69rc9zdfY1V1";
+    const API_GATEWAY_URL = CONFIG.API_GATEWAY_URL;
+    const API_KEY = CONFIG.API_KEY;
     const approvalList = document.getElementById("approval-list");
     const refreshButton = document.getElementById("refresh-btn");
     const messageContainer = document.createElement("div");
@@ -90,5 +90,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     refreshButton.addEventListener("click", fetchApprovalList);
 
-    fetchApprovalList(); // Initial fetch the list
+    fetchApprovalList(); // Initial fetch the list of approvals
 });
