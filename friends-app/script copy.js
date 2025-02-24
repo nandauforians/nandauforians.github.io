@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const API_GATEWAY_URL = CONFIG.API_GATEWAY_URL;
-    const API_KEY = CONFIG.API_KEY;
+    const API_GATEWAY_URL = "https://b85qcq4xrk.execute-api.us-west-2.amazonaws.com/dev/my-resource";
+    const API_KEY = "79NHtBiXbg5SyfA15OBst2gAWmnB69rc9zdfY1V1";
 
     const container = document.getElementById("friends-container");
     const detailsContainer = document.getElementById("details-container");
@@ -171,7 +171,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             const friends = await response.json();
 
             showEventNotifications(friends);
-            checkTodayEvents(friends);
 
             friends.forEach(friend => {
                 const card = document.createElement("div");
@@ -225,47 +224,37 @@ document.addEventListener("DOMContentLoaded", async function () {
         detailsContainer.style.display = "block";
     }
 
-    // Function to check if today is a special day for any friend
-    function checkTodayEvents(friends) {
+    loadFriends();
+
+    // Function to check if today is the special day
+    function isSpecialDay() {
         const today = new Date();
-        friends.forEach(friend => {
-            const birthday = new Date(friend.birthday);
-            const anniversary = new Date(friend.anniversary);
-            if (birthday.getDate() === today.getDate() && birthday.getMonth() === today.getMonth()) {
-                showCelebration(`Happy Birthday ${friend.name}!`);
-            }
-            if (anniversary.getDate() === today.getDate() && anniversary.getMonth() === today.getMonth()) {
-                showCelebration(`Happy Anniversary to Mr. & Mrs. ${friend.name}!`);
-            }
-            if (friend.kids) {
-                friend.kids.forEach(kid => {
-                    const kidBirthday = new Date(kid.birthday);
-                    if (kidBirthday.getDate() === today.getDate() && kidBirthday.getMonth() === today.getMonth()) {
-                        showCelebration(`Happy Birthday ${kid.name}!`);
-                    }
-                });
-            }
-        });
+        const specialDate = new Date(today.getFullYear(), 1, 24); // Month is 0-based (1 = February)
+        return today.getDate() === specialDate.getDate() && today.getMonth() === specialDate.getMonth();
     }
 
-    function showCelebration(message) {
-        const celebrationMessage = document.createElement("div");
-        celebrationMessage.classList.add("celebration-message");
-        celebrationMessage.innerText = message;
+    if (isSpecialDay()) {
+        showCelebration();
+    }
+
+    function showCelebration() {
+        const message = document.createElement("div");
+        message.classList.add("celebration-message");
+        message.innerText = "🎉 Happy Birthday/Anniversary! 🎉";
     
-        document.body.appendChild(celebrationMessage);
+        document.body.appendChild(message);
         
         // Play celebratory sound
-        //const audio = new Audio("celebration.mp3");
-        //audio.play();
+        const audio = new Audio("celebration.mp3");
+        audio.play();
     
         // Fireworks effect
         createFireworks();
     
         // Remove message after 5 seconds
         setTimeout(() => {
-            celebrationMessage.style.opacity = "0";
-            setTimeout(() => celebrationMessage.remove(), 1000);
+            message.style.opacity = "0";
+            setTimeout(() => message.remove(), 1000);
         }, 5000);
     }
 
@@ -285,46 +274,4 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 
-    loadFriends();
 });
-
-const style = document.createElement('style');
-style.innerHTML = `
-    .notification-container {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        z-index: 1000;
-    }
-    .notification {
-       background: #fffae5;
-        color: #333;
-        padding: 10px 15px;
-        border-radius: 5px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        font-size: 14px;
-        font-weight: bold;
-        animation: fadeOut 10s forwards;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    .notification-img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-    }
-    .notification-content {
-        display: flex;
-        flex-direction: column;
-    }
-    @keyframes fadeOut {
-        0% { opacity: 1; }
-        90% { opacity: 1; }
-        100% { opacity: 0; }
-    }
-`;
-document.head.appendChild(style);

@@ -64,9 +64,9 @@
                 "birthday":"June 18 2005"
             },
             {
-                "name":"Sakthi",
+                "name":"Shakthi",
                 "image":"images/sakthi.png",
-                "birthday":"Sep 07 2015"
+                "birthday":"Aug 07 2015"
             }
         ]
     },
@@ -91,7 +91,7 @@
         "kids":[
             {
                 "name":"Pranav",
-                "birthday":"February 02 2007",
+                "birthday":"February 2 2007",
                 "image":"images/pranav.png"
             },
             {

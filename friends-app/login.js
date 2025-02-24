@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("google-login-button").style.display = "block";
 });
 
-const API_GATEWAY_URL = "https://b85qcq4xrk.execute-api.us-west-2.amazonaws.com/dev/my-resource";
-const API_KEY = "79NHtBiXbg5SyfA15OBst2gAWmnB69rc9zdfY1V1";
+const API_GATEWAY_URL = CONFIG.API_GATEWAY_URL;
+const API_KEY = CONFIG.API_KEY;
 
 // Google Sign-In Callback with integration to API Gateway
 function handleCredentialResponse(response) {

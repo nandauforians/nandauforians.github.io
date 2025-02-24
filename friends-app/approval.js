@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const API_GATEWAY_URL = "https://b85qcq4xrk.execute-api.us-west-2.amazonaws.com/dev/my-resource";
+    const API_GATEWAY_URL = "https://kvrsn4eqq4.execute-api.us-west-2.amazonaws.com/dev/my-resource";
     const API_KEY = "79NHtBiXbg5SyfA15OBst2gAWmnB69rc9zdfY1V1";
     const approvalList = document.getElementById("approval-list");
     const refreshButton = document.getElementById("refresh-btn");
