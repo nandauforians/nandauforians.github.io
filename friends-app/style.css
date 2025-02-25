@@ -39,9 +39,9 @@
 }
 
 .wedding-container img {
-    width: 100px; /* Match friends' images */
-    height: 100px;
-    border-radius: 50%;
+    width: 200px; /* Adjust width for rectangle frame */
+    height: 150px; /* Adjust height for rectangle frame */
+    border-radius: 10px; /* Slightly rounded corners */
     object-fit: cover;
     border: 3px solid #ddd;
     transition: transform 0.3s;
