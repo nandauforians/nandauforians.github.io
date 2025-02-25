@@ -42,11 +42,11 @@
         "image": "images/gujju.png",
         "birthday": "February 26 1976",
         "anniversary": "",
-        "weddingPic":"",
+        "weddingPic":"images/gujju-wedding.png",
         "kids":[
             {
                 "name": "Surachirth",
-                "image": "images/such.png",
+                "image": "images/sucharith.png",
                 "birthday": "November 24 2019"
             }
         ]
