@@ -96,11 +96,13 @@
             },
             {
                 "name":"Poorna",
-                "birthday":"February 05 2009"
+                "birthday":"February 05 2009",
+                "image":"images/poorna.png"
             },
             {
                 "name":"Shruthi",
-                "birthday":"February 05 2009"
+                "birthday":"February 05 2009",
+                "image":"images/shruthi-sai.png"
             }
         ]
     },
