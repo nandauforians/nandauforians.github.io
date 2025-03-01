@@ -112,11 +112,13 @@
         "kids":[
             {
                 "name":"Abhi",
-                "birthday":"February 04 2004"
+                "birthday":"February 04 2004",
+                "image":"images/abhi.png"
             },
             {
                 "name":"Dhiya",
-                "birthday":"January 23 2009"
+                "birthday":"January 23 2009",
+                "image":"images/dhiya.png"
             }
         ]
     },
@@ -236,7 +238,7 @@
     },
     {
         "name": "Barry",
-        "image": "",
+        "image": "images/barry.png",
         "birthday": "Nov 21 1975",
         "anniversary": "17 April 2011",
         "kids":[
