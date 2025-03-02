@@ -41,7 +41,6 @@
         "name": "Gujju",
         "image": "images/gujju.png",
         "birthday": "February 26 1976",
-        "anniversary": "",
         "weddingPic":"images/gujju-wedding.png",
         "kids":[
             {
@@ -147,20 +146,21 @@
         "image": "images/ctp.png",
         "birthday": "March 18 1975",
         "anniversary": "February 02 2003",
+        "weddingPic" : "images/ctp-wedding.png",
         "kids":[
             {
                 "name": "Anjali",
                 "birthday": "May 21 2005",
-                "image": ""
+                "image": "images/anjali.png"
             },
             {            
                 "name": "Krupa",
-                "image": "",
+                "image": "images/krupa.png",
                 "birthday": "June 06 2008"
             },
             {
                 "name": "Anand",
-                "image": "",
+                "image": "images/anand.png",
                 "birthday": "December 09 2011"
             }
         ]
@@ -245,8 +245,20 @@
         "anniversary": "17 April 2011",
         "kids":[
             {
-                "name":"",
+                "name":"Mytreyi",
                 "birthday":""
+            }
+        ]
+    },
+    {
+        "name": "Santy",
+        "image": "images/santy.png",
+        "birthday": "Jan 14 1975",
+        "anniversary": "20 Dec 2011",
+        "kids":[
+            {
+                "name":"Norah",
+                "birthday":"Oct 19 2021"
             }
         ]
     }
