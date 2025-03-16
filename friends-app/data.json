@@ -214,7 +214,8 @@
         "name": "Aravind",
         "image": "images/aravind.png",
         "birthday": "06 November 1975",
-        "anniversary": "18 March 2006",
+        "anniversary": "16 March 2006",
+        "weddingPic": "images/mama-wedding.png",
         "kids":[
             {
                 "name":"Kiran",
@@ -234,7 +235,8 @@
         "kids":[
             {
                 "name":"",
-                "birthday":""
+                "birthday":"",
+                "image":"images/ashok-daughter.png"
             }
         ]
     },
