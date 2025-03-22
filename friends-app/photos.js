@@ -159,10 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 photoDiv.className = "photo";
                 photoDiv.innerHTML = `
                     <img src="${img.url}" alt="Uploaded Photo" onclick="openPopup('${img.url}')">
-                    <div class="metadata">
-                        Uploaded by: ${img.user}
-                        <br>${new Date(img.upload_timestamp).toLocaleString()}
-                    </div>
+                    
                 `;
                 album.appendChild(photoDiv);
             });
