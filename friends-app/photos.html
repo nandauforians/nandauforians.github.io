@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friends & Family</title>
+    <title>Photo Upload Page</title>
+    <link rel="stylesheet" href="photos.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="config.js" defer></script>
-    <script defer src="script.js"></script>
 </head>
-<body>
 
+<body>
     <header>
         <div class="header-container">
             <!-- Logo and Title -->
@@ -21,10 +21,9 @@
 
             <!-- Navigation Links -->
             <div class="nav-links">
-                <a href="calendar.html" class="calendar-link">📅 View Calendar</a> | 
-                <a href="month.html" class="calendar-link">📆 Monthly View</a> | 
-                <a href="photos.html" class="calendar-link">📷 Upload Photos</a>
-                <span id="admin-link-placeholder"></span>
+                <a href="index.html" class="home-link">🏠 Home</a> |
+                <a href="calendar.html" class="calendar-link">📅 View Calendar</a> |
+                <a href="month.html" class="calendar-link">📆 Monthly View</a> |
             </div>
 
             <!-- User Info & Logout -->
@@ -35,15 +34,13 @@
         </div>
     </header>
 
-    <main>
-        <div id="loading">🔄 Loading...</div>
-        <div id="friends-container" class="grid-container"></div>
-        <div id="details-container" class="details"></div>
-    </main>
 
-    <footer>
-        <p align="center">Designed with ❤️ for Friends & Family</p>
-    </footer>
+    <div class="upload-area" id="uploadArea">Drag & Drop photos here or Click to Upload</div>
+    <div class="album" id="album"></div>
+
+    <script src="config.js"></script>
+    <script src="photos.js"></script>
 
 </body>
+
 </html>
