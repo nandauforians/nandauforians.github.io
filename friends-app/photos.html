@@ -16,7 +16,6 @@
             <!-- Logo and Title -->
             <div class="header-left">
                 <img src="images/uforians.png" alt="Uforians Logo" class="logo">
-                <!--h1 class="site-title">Friends & Family Events</h1-->
             </div>
 
             <!-- Navigation Links -->
@@ -34,13 +33,18 @@
         </div>
     </header>
 
-
     <div class="upload-area" id="uploadArea">Drag & Drop photos here or Click to Upload</div>
+    <div id="loadingOverlay">Loading...</div>
     <div class="album" id="album"></div>
+
+    <!-- Popup for Image Preview (hidden by default) -->
+    <div id="popup" class="popup">
+        <span class="close">&times;</span>
+        <img id="popupImage" class="popup-content">
+    </div>
 
     <script src="config.js"></script>
     <script src="photos.js"></script>
-
 </body>
 
 </html>

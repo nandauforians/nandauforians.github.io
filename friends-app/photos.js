@@ -3,16 +3,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const album = document.getElementById("album");
     const popup = document.getElementById("popup");
     const popupImage = document.getElementById("popupImage");
+    const closePopupBtn = document.querySelector(".close");
+    const sentinel = document.createElement("div");
+    sentinel.id = "sentinel";
+    album.appendChild(sentinel);
     const user = JSON.parse(localStorage.getItem("google_user"));
 
-    const logoutButton = document.getElementById("logout-btn");
-    const userNameDisplay = document.getElementById("user-name");
-
-    userNameDisplay.innerText = `👤 ${user.name}`;
-
     const API_GATEWAY_URL = CONFIG.API_GATEWAY_URL;
-
-    console.log("User:", user.name);
+    let allImages = [];
+    let loadedImages = 0;
+    const imagesPerBatch = 12;
 
     if (!user || !user.email) {
         console.error("User is not logged in.");
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    album.innerHTML = "<p>🔄 Loading images...</p>";
+    document.body.style.opacity = "1"; // Ensure the body is fully visible
 
     uploadArea.addEventListener("click", () => {
         const input = document.createElement("input");
@@ -52,18 +52,15 @@ document.addEventListener("DOMContentLoaded", () => {
             reader.onload = async (e) => {
                 const base64Data = e.target.result.split(",")[1];
 
-			const payload = {
-				body: JSON.stringify({
-					operation: "upload_image",
-					email: user.email,
-					file_name: file.name,
-					file_data: base64Data,
-                    user: user.name
-				})
-			};
-
-            console.log("Payload:", payload);
-               
+                const payload = {
+                    body: JSON.stringify({
+                        operation: "upload_image",
+                        email: user.email,
+                        file_name: file.name,
+                        file_data: base64Data,
+                        user: user.name
+                    })
+                };
 
                 try {
                     const progressDiv = document.createElement("div");
@@ -83,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         throw new Error(`Upload failed: ${response.statusText}`);
                     }
 
-                    await fetchImages();
+                    await fetchImages(true);
                 } catch (error) {
                     console.error("Error uploading file:", error);
                 }
@@ -92,12 +89,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    async function fetchImages() {
-        album.innerHTML = "<p>🔄 Loading images...</p>";
+    async function fetchImages(reset = false) {
+        if (reset) {
+            allImages = [];
+            loadedImages = 0;
+        }
 
         try {
-		
-		    const userPayload = {
+            const userPayload = {
                 body: JSON.stringify({
                     operation: "get_images",
                     method: "get_images_by_emailid",
@@ -112,12 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     email: user.email
                 })
             };
-    
-		
-		
-            // Fetch images uploaded by logged-in user
-            //const userPayload = { operation: "get_images", method: "get_images_by_emailid", email: user.email };
-           // const otherPayload = { operation: "get_images", method: "get_images_by_others", email: user.email };
 
             const [userResponse, otherResponse] = await Promise.all([
                 fetch(API_GATEWAY_URL, {
@@ -138,45 +131,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const userData = await userResponse.json();
             const otherData = await otherResponse.json();
-            console.log("User images:", userData);
-            console.log("Other images:", otherData);
 
             const userImages = JSON.parse(userData.body).images || [];
             const otherImages = JSON.parse(otherData.body).images || [];
-
-            const allImages = [...userImages, ...otherImages];
-
-            if (allImages.length === 0) {
-                album.innerHTML = "<p>No images found.</p>";
-                return;
-            }
+            allImages = [...userImages, ...otherImages];
 
             album.innerHTML = "";
-            allImages.forEach((img) => {
-                if (!img.url) return; // Prevent broken images
-
-                const photoDiv = document.createElement("div");
-                photoDiv.className = "photo";
-                photoDiv.innerHTML = `
-                    <img src="${img.url}" alt="Uploaded Photo" onclick="openPopup('${img.url}')">
-                    
-                `;
-                album.appendChild(photoDiv);
-            });
+            album.appendChild(sentinel);
+            loadMoreImages();
         } catch (error) {
             console.error("Error fetching images:", error);
             album.innerHTML = "<p>Error loading images.</p>";
-        }
+        } finally {
+        document.getElementById("loadingOverlay").style.display = "none"; // Hide loader
+    }
     }
 
-    window.openPopup = (imageSrc) => {
+    function loadMoreImages() {
+        const batch = allImages.slice(loadedImages, loadedImages + imagesPerBatch);
+        batch.forEach((img) => {
+            if (!img.url) return;
+
+            const photoDiv = document.createElement("div");
+            photoDiv.className = "photo";
+
+            const imageElement = document.createElement("img");
+            imageElement.src = img.url;
+            imageElement.alt = "Uploaded Photo";
+            imageElement.addEventListener("click", () => openPopup(img.url));
+
+            photoDiv.appendChild(imageElement);
+            album.insertBefore(photoDiv, sentinel);
+        });
+
+        loadedImages += batch.length;
+        if (loadedImages >= allImages.length) observer.disconnect();
+
+        document.body.click();
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) loadMoreImages();
+    }, { rootMargin: "100px" });
+
+    observer.observe(sentinel);
+
+    function openPopup(imageSrc) {
         popupImage.src = imageSrc;
         popup.style.display = "flex";
-    };
+    }
 
-    window.closePopup = () => {
+    function closePopup() {
         popup.style.display = "none";
-    };
+    }
 
-    fetchImages(); // Load images on page load
+    closePopupBtn.addEventListener("click", closePopup);
+    popup.addEventListener("click", (event) => {
+        if (event.target === popup) closePopup();
+    });
+
+    fetchImages();
+
 });
