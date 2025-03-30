@@ -124,17 +124,23 @@ body {
     z-index: 1000;
 }
 
-.delete-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: red;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    display: none;
-    border-radius: 5px;
+.delete-button, 
+.floating-button {
+    position: fixed; /* Make the button fixed to the viewport */
+    top: 50%; /* Center vertically */
+    right: 20px; /* Position it 20px from the right */
+    transform: translateY(-50%); /* Adjust for perfect vertical centering */
+    background-color: #ff4d4f; /* Red background for visibility */
+    color: white; /* White text */
+    padding: 10px 20px; /* Add padding for better clickability */
+    border: none; /* Remove border */
+    cursor: pointer; /* Show pointer cursor */
+    display: none; /* Initially hidden */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for better visibility */
+    font-size: 16px; /* Font size for readability */
+    font-weight: bold; /* Bold text */
+    z-index: 1000; /* Ensure it appears above other elements */
 }
 
 .photo {
@@ -153,19 +159,6 @@ body {
     right: 5px;
 }
 
-.floating-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: red;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    display: none;
-    border-radius: 5px;
-}
-
 .delete-icon {
     color: grey; /* Default color */
     cursor: pointer;
@@ -175,7 +168,6 @@ body {
 .delete-icon.selected {
     color: red; /* Change color when selected */
 }
-
 
 .delete-icon:hover {
     color: darkred;
