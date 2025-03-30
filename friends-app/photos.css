@@ -103,24 +103,23 @@ body {
 
 .nav-button {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: 20px; /* Move buttons to the bottom */
     background: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 24px;
+    padding: 10px 15px; /* Adjust padding for better fit */
+    font-size: 18px; /* Ensure readability */
     cursor: pointer;
     border-radius: 5px;
     z-index: 1001;
 }
 
 .nav-button.prev {
-    left: 10px; /* Position to the left of the popup */
+    left: 20px; /* Position to the bottom-left corner */
 }
 
 .nav-button.next {
-    right: 10px; /* Position to the right of the popup */
+    right: 20px; /* Position to the bottom-right corner */
 }
 
 .nav-button:hover {
