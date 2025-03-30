@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
             allImages.sort((a, b) => new Date(b.upload_timestamp) - new Date(a.upload_timestamp));
 
             updateTotalImagesCounter(allImages.length); // Update total images counter
-
+            deleteButton.style.display = "none"; // Ensure delete button is hidden after refresh
             album.innerHTML = "";
             album.appendChild(sentinel);
             loadMoreImages();
@@ -306,6 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             alert("Selected images deleted successfully.");
             fetchImages(true);  // Reload images
+            deleteButton.style.display = "none"; // Hide the delete button after deletion
         } catch (error) {
             console.error("Error deleting images:", error);
             alert("Error deleting images. Try again.");
