@@ -14,6 +14,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let loadedImages = 0;
     const imagesPerBatch = 12;
 
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete Selected";
+    deleteButton.className = "delete-button floating-button"; // Floating button for better visibility
+
+    deleteButton.addEventListener("click", deleteSelectedPhotos);
+    document.body.appendChild(deleteButton);
+
+    function toggleDeleteButton() {
+        const selectedPhotos = document.querySelectorAll(".delete-checkbox:checked");
+        deleteButton.style.display = selectedPhotos.length > 0 ? "block" : "none";
+    }
+
     if (!user || !user.email) {
         console.error("User is not logged in.");
         album.innerHTML = "<p>Error: User not authenticated.</p>";
@@ -89,6 +101,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    const totalImagesCounter = document.createElement("div");
+    totalImagesCounter.id = "totalImagesCounter";
+    totalImagesCounter.className = "total-images-counter";
+    totalImagesCounter.style.position = "fixed";
+    totalImagesCounter.style.top = "10px";
+    totalImagesCounter.style.right = "10px";
+    totalImagesCounter.style.backgroundColor = "#f0f0f0";
+    totalImagesCounter.style.padding = "10px 20px";
+    totalImagesCounter.style.borderRadius = "8px";
+    totalImagesCounter.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+    totalImagesCounter.style.fontSize = "16px";
+    totalImagesCounter.style.fontWeight = "bold";
+    totalImagesCounter.style.zIndex = "1000";
+    document.body.appendChild(totalImagesCounter);
+
+    function updateTotalImagesCounter(total) {
+        totalImagesCounter.textContent = `Total Images: ${total}`;
+    }
+
     async function fetchImages(reset = false) {
         if (reset) {
             allImages = [];
@@ -134,7 +165,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const userImages = JSON.parse(userData.body).images || [];
             const otherImages = JSON.parse(otherData.body).images || [];
+
             allImages = [...userImages, ...otherImages];
+
+            // Sort images by upload_timestamp in descending order
+            allImages.sort((a, b) => new Date(b.upload_timestamp) - new Date(a.upload_timestamp));
+
+            updateTotalImagesCounter(allImages.length); // Update total images counter
 
             album.innerHTML = "";
             album.appendChild(sentinel);
@@ -143,12 +180,13 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Error fetching images:", error);
             album.innerHTML = "<p>Error loading images.</p>";
         } finally {
-        document.getElementById("loadingOverlay").style.display = "none"; // Hide loader
-    }
+            document.getElementById("loadingOverlay").style.display = "none"; // Hide loader
+        }
     }
 
     function loadMoreImages() {
         const batch = allImages.slice(loadedImages, loadedImages + imagesPerBatch);
+
         batch.forEach((img) => {
             if (!img.url) return;
 
@@ -160,14 +198,62 @@ document.addEventListener("DOMContentLoaded", () => {
             imageElement.alt = "Uploaded Photo";
             imageElement.addEventListener("click", () => openPopup(img.url));
 
+            // Display uploader's name and uploaded date
+            const uploaderInfo = document.createElement("span");
+            uploaderInfo.className = "uploader";
+            const uploadedDate = new Date(img.upload_timestamp).toLocaleDateString();
+            uploaderInfo.textContent = `Uploaded By: ${img.user} (${uploadedDate})`;
+
             photoDiv.appendChild(imageElement);
+            photoDiv.appendChild(uploaderInfo);
+
+            // Add delete checkbox for logged-in user's images
+            if (img.email === user.email) {
+                const deleteIcon = document.createElement("span");
+                deleteIcon.className = "delete-icon";
+                deleteIcon.innerHTML = "🗑"; // Trash icon
+                deleteIcon.style.color = "grey"; // Default color
+
+                const deleteMark = document.createElement("span");
+                deleteMark.className = "delete-mark";
+                deleteMark.innerHTML = ""; // Initially empty
+
+                deleteIcon.appendChild(deleteMark);
+
+                deleteIcon.addEventListener("click", () => {
+                    checkbox.checked = !checkbox.checked;
+                    deleteIcon.style.color = checkbox.checked ? "red" : "grey"; // Change color on selection
+                    deleteIcon.classList.toggle("selected", checkbox.checked); // Add/remove a CSS class
+                    checkbox.value = img.photo_id;
+
+                    // Toggle "X" mark when selected
+                    deleteMark.innerHTML = checkbox.checked ? " ❌" : "";
+                    deleteMark.style.color = "red";
+
+                    toggleDeleteButton();
+                });
+
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.className = "delete-checkbox";
+                checkbox.value = img.id;
+                checkbox.style.display = "none"; // Hide default checkbox
+                checkbox.addEventListener("change", toggleDeleteButton);
+
+                photoDiv.appendChild(deleteIcon);
+                photoDiv.appendChild(checkbox);
+            }
+
             album.insertBefore(photoDiv, sentinel);
         });
 
         loadedImages += batch.length;
-        if (loadedImages >= allImages.length) observer.disconnect();
 
-        document.body.click();
+        if (loadedImages >= allImages.length) return;
+
+        album.appendChild(sentinel);
+        observer.unobserve(sentinel);
+        observer.observe(sentinel);
     }
 
     const observer = new IntersectionObserver((entries) => {
@@ -190,6 +276,41 @@ document.addEventListener("DOMContentLoaded", () => {
         if (event.target === popup) closePopup();
     });
 
-    fetchImages();
+    async function deleteSelectedPhotos() {
+        const selectedPhotos = [...document.querySelectorAll(".delete-checkbox:checked")]
+            .map(checkbox => checkbox.value);
 
+        if (selectedPhotos.length === 0) return;
+
+        const confirmDelete = confirm(`Are you sure you want to delete ${selectedPhotos.length} image(s)?`);
+        if (!confirmDelete) return;
+
+        const deletePayload = JSON.stringify({
+            body: JSON.stringify({
+                operation: "delete_images",
+                email: user.email,
+                photo_ids: selectedPhotos
+            })
+        });
+
+        try {
+            const response = await fetch(API_GATEWAY_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: deletePayload
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to delete images.");
+            }
+
+            alert("Selected images deleted successfully.");
+            fetchImages(true);  // Reload images
+        } catch (error) {
+            console.error("Error deleting images:", error);
+            alert("Error deleting images. Try again.");
+        }
+    }
+
+    fetchImages();
 });

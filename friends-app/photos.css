@@ -123,3 +123,60 @@ body {
     color: black;
     z-index: 1000;
 }
+
+.delete-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    display: none;
+    border-radius: 5px;
+}
+
+.photo {
+    position: relative;
+}
+
+.uploader {
+    display: block;
+    font-size: 12px;
+    color: gray;
+}
+
+.delete-checkbox {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    display: none;
+    border-radius: 5px;
+}
+
+.delete-icon {
+    color: grey; /* Default color */
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+
+.delete-icon.selected {
+    color: red; /* Change color when selected */
+}
+
+
+.delete-icon:hover {
+    color: darkred;
+}
