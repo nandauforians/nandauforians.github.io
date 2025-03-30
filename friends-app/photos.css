@@ -52,11 +52,15 @@ body {
 .popup { 
     display: none; 
     position: fixed; 
-    top: 0; left: 0; right: 0; bottom: 0; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
     background: rgba(0, 0, 0, 0.8); 
     display: flex; 
     align-items: center; 
     justify-content: center; 
+    flex-direction: column; /* Ensure vertical alignment of elements */
 }
 
 .popup img { 
@@ -65,15 +69,62 @@ body {
     border-radius: 12px; 
 }
 
-.popup .close-btn { 
-    position: absolute; 
-    top: 20px; right: 20px; 
-    background: #ff4d4f; 
-    color: #fff; 
-    border: none; 
-    padding: 5px 15px; 
-    border-radius: 5px; 
-    cursor: pointer; 
+.popup-counter {
+    position: absolute;
+    top: 10px; /* Position above the popup image */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.7); /* Slightly darker background for better visibility */
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 1001;
+    text-align: center;
+    display: none; /* Initially hidden */
+}
+
+.image-counter {
+    position: absolute;
+    top: 10px; /* Position above the popup image */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.7); /* Slightly darker background for better visibility */
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 1001;
+    text-align: center;
+    display: none; /* Initially hidden */
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1001;
+}
+
+.nav-button.prev {
+    left: 10px; /* Position to the left of the popup */
+}
+
+.nav-button.next {
+    right: 10px; /* Position to the right of the popup */
+}
+
+.nav-button:hover {
+    background: rgba(0, 0, 0, 0.8);
 }
 
 #progressContainer {

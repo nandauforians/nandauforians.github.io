@@ -5,13 +5,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const popupImage = document.getElementById("popupImage");
     const closePopupBtn = document.querySelector(".close");
     const sentinel = document.createElement("div");
+
+    let allImages = [];
+    let currentImageIndex = 0;
+
+    const nextBtn = document.createElement("button");
+    const prevBtn = document.createElement("button");
+    const imageCounter = document.createElement("div");
+
     sentinel.id = "sentinel";
     album.appendChild(sentinel);
     const user = JSON.parse(localStorage.getItem("google_user"));
 
     const API_GATEWAY_URL = CONFIG.API_GATEWAY_URL;
-    let allImages = [];
+   
     let loadedImages = 0;
+    let imageCnt = 0;
     const imagesPerBatch = 12;
 
     const deleteButton = document.createElement("button");
@@ -20,6 +29,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     deleteButton.addEventListener("click", deleteSelectedPhotos);
     document.body.appendChild(deleteButton);
+
+     // Configure Next and Previous buttons
+     nextBtn.textContent = "Next";
+     prevBtn.textContent = "Previous";
+     nextBtn.className = "nav-button next";
+     prevBtn.className = "nav-button prev";
+     imageCounter.className = "image-counter";
+
+     popup.appendChild(prevBtn);
+     popup.appendChild(nextBtn);
+     popup.appendChild(imageCounter);
+ 
 
     function toggleDeleteButton() {
         const selectedPhotos = document.querySelectorAll(".delete-checkbox:checked");
@@ -172,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
             allImages.sort((a, b) => new Date(b.upload_timestamp) - new Date(a.upload_timestamp));
 
             updateTotalImagesCounter(allImages.length); // Update total images counter
-            deleteButton.style.display = "none"; // Ensure delete button is hidden after refresh
+
             album.innerHTML = "";
             album.appendChild(sentinel);
             loadMoreImages();
@@ -186,75 +207,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function loadMoreImages() {
         const batch = allImages.slice(loadedImages, loadedImages + imagesPerBatch);
-
-        batch.forEach((img) => {
+    
+        console.log("Loading batch: ", batch);
+    
+        batch.forEach((img, index) => {
             if (!img.url) return;
-
+    
+            imageCnt++; // Increment counter for each image
+    
             const photoDiv = document.createElement("div");
             photoDiv.className = "photo";
-
+    
             const imageElement = document.createElement("img");
             imageElement.src = img.url;
+            //console.log("Image URL:", img.url + ": " + imageCnt);
             imageElement.alt = "Uploaded Photo";
-            imageElement.addEventListener("click", () => openPopup(img.url));
-
+    
+            // **Fix: Capture the correct counter value using let**
+            let currentImageIndex = imageCnt; // Store the correct image index
+            imageElement.addEventListener("click", () => openPopup(currentImageIndex -1));
+    
             // Display uploader's name and uploaded date
             const uploaderInfo = document.createElement("span");
             uploaderInfo.className = "uploader";
             const uploadedDate = new Date(img.upload_timestamp).toLocaleDateString();
             uploaderInfo.textContent = `Uploaded By: ${img.user} (${uploadedDate})`;
-
+    
             photoDiv.appendChild(imageElement);
             photoDiv.appendChild(uploaderInfo);
-
-            // Add delete checkbox for logged-in user's images
-            if (img.email === user.email) {
-                const deleteIcon = document.createElement("span");
-                deleteIcon.className = "delete-icon";
-                deleteIcon.innerHTML = "🗑"; // Trash icon
-                deleteIcon.style.color = "grey"; // Default color
-
-                const deleteMark = document.createElement("span");
-                deleteMark.className = "delete-mark";
-                deleteMark.innerHTML = ""; // Initially empty
-
-                deleteIcon.appendChild(deleteMark);
-
-                deleteIcon.addEventListener("click", () => {
-                    checkbox.checked = !checkbox.checked;
-                    deleteIcon.style.color = checkbox.checked ? "red" : "grey"; // Change color on selection
-                    deleteIcon.classList.toggle("selected", checkbox.checked); // Add/remove a CSS class
-                    checkbox.value = img.photo_id;
-
-                    // Toggle "X" mark when selected
-                    deleteMark.innerHTML = checkbox.checked ? " ❌" : "";
-                    deleteMark.style.color = "red";
-
-                    toggleDeleteButton();
-                });
-
-                const checkbox = document.createElement("input");
-                checkbox.type = "checkbox";
-                checkbox.className = "delete-checkbox";
-                checkbox.value = img.id;
-                checkbox.style.display = "none"; // Hide default checkbox
-                checkbox.addEventListener("change", toggleDeleteButton);
-
-                photoDiv.appendChild(deleteIcon);
-                photoDiv.appendChild(checkbox);
-            }
-
+    
             album.insertBefore(photoDiv, sentinel);
         });
-
+    
         loadedImages += batch.length;
-
+    
         if (loadedImages >= allImages.length) return;
-
+    
         album.appendChild(sentinel);
         observer.unobserve(sentinel);
         observer.observe(sentinel);
     }
+    
 
     const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) loadMoreImages();
@@ -262,18 +255,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     observer.observe(sentinel);
 
-    function openPopup(imageSrc) {
-        popupImage.src = imageSrc;
-        popup.style.display = "flex";
+    function updatePopup(index) {
+        if (index >= 0 && index < allImages.length) {
+            currentImageIndex = index;
+            popupImage.src = allImages[index].url; // Set the correct image URL
+            imageCounter.textContent = `${index + 1} / ${allImages.length}`; // Update the image counter
+            prevBtn.style.display = index === 0 ? "none" : "block"; // Hide 'Previous' button for the first image
+            nextBtn.style.display = index === allImages.length - 1 ? "none" : "block"; // Hide 'Next' button for the last image
+        }
+    }
+
+    function openPopup(index) {
+        updatePopup(index); // Ensure the correct image is displayed
+        popup.style.display = "flex"; // Show the popup
+        imageCounter.style.display = "block"; // Ensure the image counter is visible
     }
 
     function closePopup() {
-        popup.style.display = "none";
+        popup.style.display = "none"; // Hide the popup
+        popupImage.src = ""; // Reset the popup image
+        imageCounter.textContent = ""; // Reset the image counter
+        imageCounter.style.display = "none"; // Hide the image counter
+        currentImageIndex = 0; // Reset the current image index
     }
 
+    // Ensure the popup navigation buttons and counter are properly initialized
+    nextBtn.addEventListener("click", () => updatePopup(currentImageIndex + 1));
+    prevBtn.addEventListener("click", () => updatePopup(currentImageIndex - 1));
     closePopupBtn.addEventListener("click", closePopup);
     popup.addEventListener("click", (event) => {
-        if (event.target === popup) closePopup();
+        if (event.target === popup) closePopup(); // Close popup when clicking outside the image
     });
 
     async function deleteSelectedPhotos() {
@@ -306,7 +317,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             alert("Selected images deleted successfully.");
             fetchImages(true);  // Reload images
-            deleteButton.style.display = "none"; // Hide the delete button after deletion
         } catch (error) {
             console.error("Error deleting images:", error);
             alert("Error deleting images. Try again.");
