@@ -328,7 +328,8 @@ searchInput.addEventListener("input", e => {
     (m.title && m.title.toLowerCase().includes(query)) ||
     (m.director && m.director.toLowerCase().includes(query)) ||
     (m.cast && m.cast.toLowerCase().includes(query)) ||
-    (m.release_date && m.release_date.includes(query))
+    (m.release_date && m.release_date.includes(query)) ||
+    (m.musicDirector && m.musicDirector.toLowerCase().includes(query))
   );
 
   if (!filtered.length) {
