@@ -85,7 +85,6 @@
 
     .meta-panel strong { color: #ffd700; }
 
-    /* ✨ Review Spotlight Styling */
     .review-box {
       margin-top: 14px;
       padding: 12px 16px;
@@ -269,11 +268,7 @@ async function loadMovies() {
   try {
     const resp = await fetch("./moviedata.json");
     movies = await resp.json();
-
-    movies.forEach(m => {
-      if (imageLinks[m.title]) m.image = imageLinks[m.title];
-    });
-
+    movies.forEach(m => { if (imageLinks[m.title]) m.image = imageLinks[m.title]; });
     movies.sort((a,b)=> (a.release_date||"").localeCompare(b.release_date||""));
     if (movies.length) showMovie(currentIndex);
   } catch (err) {
@@ -286,17 +281,13 @@ function showMovie(idx) {
   if (!movies.length) return;
   currentIndex = ((idx % movies.length) + movies.length) % movies.length;
   const m = movies[currentIndex];
-
   posterEl.src = m.image || "";
   posterEl.alt = m.title;
   titleEl.textContent = m.title || "Unknown";
-
   const year = (m.release_date || "").substring(0,4) || "N/A";
   yearDisplay.textContent = `Year: ${year}`;
   yearDisplay.style.transform = "scale(1.15)";
   setTimeout(()=> yearDisplay.style.transform = "scale(1)", 400);
-
-  // Review block with animation
   const reviewHTML = `
     <div class="review-box active">
       <strong style="color:#ffd700;display:block;margin-bottom:6px;">★ Review Spotlight ★</strong>
@@ -304,7 +295,6 @@ function showMovie(idx) {
         ? m.review 
         : "No review available for this title."}
     </div>`;
-
   metaPanel.innerHTML = `
     <p><strong>Release:</strong> ${m.release_date || "N/A"}</p>
     <p><strong>Director:</strong> ${m.director || "N/A"}</p>
@@ -327,6 +317,43 @@ document.getElementById("prevBtn").onclick = prevMovie;
 document.getElementById("slowScroll").onclick = ()=> startScroll(4000);
 document.getElementById("fastScroll").onclick = ()=> startScroll(1500);
 document.getElementById("stopScroll").onclick = stopScroll;
+
+// ✅ SEARCH FUNCTIONALITY
+searchInput.addEventListener("input", e => {
+  const query = e.target.value.toLowerCase().trim();
+  searchResults.innerHTML = "";
+  if (!query) return;
+
+  const filtered = movies.filter(m => 
+    (m.title && m.title.toLowerCase().includes(query)) ||
+    (m.director && m.director.toLowerCase().includes(query)) ||
+    (m.cast && m.cast.toLowerCase().includes(query)) ||
+    (m.release_date && m.release_date.includes(query))
+  );
+
+  if (!filtered.length) {
+    searchResults.innerHTML = "<li style='padding:10px;text-align:center;color:#999;'>No results found</li>";
+    return;
+  }
+
+  filtered.forEach(m => {
+    const li = document.createElement("li");
+    li.innerHTML = `
+      <img src="${m.image || ''}" alt="${m.title}" />
+      <span><strong>${m.title}</strong><br><small>${m.director || ''}</small></span>`;
+    li.onclick = () => {
+      currentIndex = movies.findIndex(x => x.title === m.title);
+      showMovie(currentIndex);
+      searchResults.innerHTML = "";
+      searchInput.value = "";
+    };
+    searchResults.appendChild(li);
+  });
+});
+
+document.addEventListener("click", e => {
+  if (!e.target.closest(".search-wrap")) searchResults.innerHTML = "";
+});
 
 loadMovies();
 </script>
