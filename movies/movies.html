@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tamil Cinema Classics</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+      color: #fff;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #ffd700;
+      margin: 20px 0 6px;
+      text-shadow: 2px 2px 8px rgba(255,215,0,0.4);
+      text-align: center;
+    }
+
+    #yearDisplay {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+      padding: 6px 14px;
+      border: 2px solid #ffd700;
+      border-radius: 12px;
+      background: rgba(255,215,0,0.08);
+      transition: transform 0.35s ease;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      width: 95%;
+      gap: 20px;
+    }
+
+    .slideshow-container {
+      width: 100%;
+      max-width: 650px;
+      text-align: center;
+    }
+
+    .poster {
+      width: 100%;
+      max-height: 520px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+      transition: opacity 0.6s ease;
+      background: #111;
+    }
+
+    .movie-title {
+      font-size: 1.6em;
+      margin-top: 12px;
+      font-weight: 600;
+      color: #ffd700;
+    }
+
+    .meta-panel {
+      flex: 1;
+      min-width: 300px;
+      max-width: 380px;
+      background-color: #1f1f1f;
+      padding: 18px;
+      border-radius: 10px;
+      line-height: 1.6;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .meta-panel strong { color: #ffd700; }
+
+    /* ✨ Review Spotlight Styling */
+    .review-box {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-left: 4px solid #ffd700;
+      background: rgba(255,215,0,0.07);
+      border-radius: 8px;
+      font-style: italic;
+      color: #fff;
+      font-size: 1rem;
+      line-height: 1.5;
+      box-shadow: 0 0 12px rgba(255,215,0,0.2);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .review-box.active {
+      opacity: 1;
+      transform: translateY(0);
+      animation: pulseGlow 2s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from { box-shadow: 0 0 10px rgba(255,215,0,0.2); }
+      to { box-shadow: 0 0 22px rgba(255,215,0,0.6); }
+    }
+
+    .controls {
+      margin-top: 14px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .controls button {
+      padding: 10px 14px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ffd700;
+      color: #111;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .controls button:hover { background-color: #ffec80; }
+
+    /* Search UI */
+    .search-wrap {
+      width: 95%;
+      max-width: 1100px;
+      margin: 14px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #searchInput {
+      width: 420px;
+      max-width: 92%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: none;
+      background: #222;
+      color: #fff;
+      outline: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      font-size: 1rem;
+    }
+    #searchResults {
+      margin-top: 8px;
+      width: 420px;
+      max-width: 92%;
+      list-style: none;
+      padding: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.02);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    }
+    #searchResults li {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      cursor: pointer;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    #searchResults li img {
+      width:44px;
+      height:62px;
+      object-fit:cover;
+      border-radius:4px;
+      flex-shrink:0;
+      background:#111;
+    }
+    #searchResults li:last-child { border-bottom: none; }
+    #searchResults li:hover { background: rgba(255,255,255,0.03); }
+
+    @media (max-width: 900px) {
+      .container { flex-direction: column; align-items: center; }
+      .meta-panel { width: 92%; max-width: none; }
+      .poster { max-height: 380px; }
+      #searchInput { width: 92%; }
+      #searchResults { width: 92%; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎬 Tamil Cinema Classics (2000s)</h1>
+  <div id="yearDisplay">Year: -</div>
+
+  <div class="search-wrap">
+    <input id="searchInput" placeholder="Search by movie, year, director or actor..." />
+    <ul id="searchResults" aria-live="polite"></ul>
+  </div>
+
+  <div class="container">
+    <div class="slideshow-container">
+      <img id="poster" class="poster" src="" alt="Movie poster" />
+      <div id="movieTitle" class="movie-title"></div>
+
+      <div class="controls">
+        <button id="prevBtn">⏪ Prev</button>
+        <button id="nextBtn">Next ⏩</button>
+        <button id="slowScroll">Slow ▶️</button>
+        <button id="fastScroll">Fast ⏩</button>
+        <button id="stopScroll">⏹ Stop</button>
+      </div>
+    </div>
+
+    <div id="metaPanel" class="meta-panel">
+      <p>Select a movie to view details.</p>
+    </div>
+  </div>
+
+<script>
+const imageLinks = {
+  "Super Deluxe": "https://image.tmdb.org/t/p/w1280/rTsYDdFWyw87CTk4YgJO6nYmVcJ.jpg",
+  "Virumaandi": "https://image.tmdb.org/t/p/w500/w6m82voYXa6jQEEqzIBTkKRtuYB.jpg",
+  "Anbe Sivam": "https://image.tmdb.org/t/p/w500/nT556HbikCCLABe8xQ4zQ2QIb0O.jpg",
+  "Aaranya Kaandam": "https://image.tmdb.org/t/p/w500/sc5wteQDv545GisUJiK7i04H8hM.jpg",
+  "Aranya Kandam": "https://image.tmdb.org/t/p/w500/sc5wteQDv545GisUJiK7i04H8hM.jpg",
+  "Chennai 600028": "https://image.tmdb.org/t/p/w500/vSlBmLzEne3kGNZTPnZZCGZvKBC.jpg",
+  "Paruthiveeran": "https://image.tmdb.org/t/p/w500/otDs2Cfi2MPZ5DmsH7QaN8clEpR.jpg",
+  "Subramaniapuram": "https://image.tmdb.org/t/p/w500/n6fX9TDrzNPEYBK6ia1FMz84g2j.jpg",
+  "Kaakha Kaakha": "https://image.tmdb.org/t/p/w500/d1tXC8fqHr9khx9rt6W6lVSOlmn.jpg",
+  "Aayirathil Oruvan": "https://image.tmdb.org/t/p/w1280/9lrbtKE8vKIpYXxjj0hSwhnC81o.jpg",
+  "Kaithi": "https://image.tmdb.org/t/p/w1280/zL3x1a44QJZDTW6DV3adh6MM8S2.jpg",
+  "Soodhu Kavvum": "https://image.tmdb.org/t/p/w1280/oKss8NSlIcKLjMHBUwtvztwqH9W.jpg",
+  "Ratsasan": "https://image.tmdb.org/t/p/w500/mruUFlrVKiL994y3vvQBT8R2Vnf.jpg",
+  "Meiyazhagan": "https://image.tmdb.org/t/p/w1280/nURnpHRPa5HBCWqJ4kBwGWEdGbF.jpg",
+  "Pariyerum Perumal": "https://image.tmdb.org/t/p/w500/78YoIO3gzkZPC1jotfDmolNDmgT.jpg",
+  "Kannathil Muthamittal": "https://image.tmdb.org/t/p/w1280/c13C5HyHhKPwCY0Lp94rHoEZyKK.jpg",
+  "Amaran": "https://image.tmdb.org/t/p/w1280/dhVZY4bvuxWX8KbSSP4kBtRtAi6.jpg",
+  "Kadaisi Vivasayi": "https://image.tmdb.org/t/p/w500/8TNnEojAEc8Kt6HMWgQNRPcL9J3.jpg",
+  "Kadaisi Vivasaayi": "https://image.tmdb.org/t/p/w500/8TNnEojAEc8Kt6HMWgQNRPcL9J3.jpg",
+  "Enthiran": "https://image.tmdb.org/t/p/w1280/hai6CSCLxULO1RThjDP3lWAqOtQ.jpg",
+  "Jigarthanda": "https://image.tmdb.org/t/p/w1280/gHM5WBG2Y4p7FviUSnIu93qbwld.jpg",
+  "Pithamagan": "https://image.tmdb.org/t/p/w500/z6J6EbrDo62pN3qHhiHd45MFFnY.jpg",
+  "PithaMagan": "https://image.tmdb.org/t/p/w500/z6J6EbrDo62pN3qHhiHd45MFFnY.jpg",
+  "Aadukalam": "https://image.tmdb.org/t/p/w500/osU8Egxu2xhS6RwkxDbfOMYjZZ2.jpg",
+  "Visaaranai": "https://image.tmdb.org/t/p/w1280/8HbknP82NFye7GCsL8L9vyWzMUM.jpg",
+  "Anjaathe": "https://image.tmdb.org/t/p/w500/46zUtqMq1jQlelkS8vD0WUuCJOS.jpg",
+  "Kattradhu Thamizh": "https://image.tmdb.org/t/p/w500/gFbTox7xmHrBM7LvM1ALmUvcbpk.jpg",
+  "Aandavan Kattalai": "https://image.tmdb.org/t/p/w500/rtythafvdg795tzwR4jeBMmonkL.jpg",
+  "Subramaniapuram": "https://image.tmdb.org/t/p/w500/n6fX9TDrzNPEYBK6ia1FMz84g2j.jpg",
+  "Paruthiveeran": "https://image.tmdb.org/t/p/w500/otDs2Cfi2MPZ5DmsH7QaN8clEpR.jpg",
+};
+
+let movies = [];
+let currentIndex = 0;
+let scrollInterval = null;
+
+const posterEl = document.getElementById("poster");
+const titleEl = document.getElementById("movieTitle");
+const metaPanel = document.getElementById("metaPanel");
+const yearDisplay = document.getElementById("yearDisplay");
+const searchInput = document.getElementById("searchInput");
+const searchResults = document.getElementById("searchResults");
+
+async function loadMovies() {
+  try {
+    const resp = await fetch("./moviedata.json");
+    movies = await resp.json();
+
+    movies.forEach(m => {
+      if (imageLinks[m.title]) m.image = imageLinks[m.title];
+    });
+
+    movies.sort((a,b)=> (a.release_date||"").localeCompare(b.release_date||""));
+    if (movies.length) showMovie(currentIndex);
+  } catch (err) {
+    console.error("Failed to load moviedata.json", err);
+    metaPanel.innerHTML = "<p style='color:#f66'>Failed to load data.</p>";
+  }
+}
+
+function showMovie(idx) {
+  if (!movies.length) return;
+  currentIndex = ((idx % movies.length) + movies.length) % movies.length;
+  const m = movies[currentIndex];
+
+  posterEl.src = m.image || "";
+  posterEl.alt = m.title;
+  titleEl.textContent = m.title || "Unknown";
+
+  const year = (m.release_date || "").substring(0,4) || "N/A";
+  yearDisplay.textContent = `Year: ${year}`;
+  yearDisplay.style.transform = "scale(1.15)";
+  setTimeout(()=> yearDisplay.style.transform = "scale(1)", 400);
+
+  // Review block with animation
+  const reviewHTML = `
+    <div class="review-box active">
+      <strong style="color:#ffd700;display:block;margin-bottom:6px;">★ Review Spotlight ★</strong>
+      ${m.review && m.review !== "No reviews available." 
+        ? m.review 
+        : "No review available for this title."}
+    </div>`;
+
+  metaPanel.innerHTML = `
+    <p><strong>Release:</strong> ${m.release_date || "N/A"}</p>
+    <p><strong>Director:</strong> ${m.director || "N/A"}</p>
+    <p><strong>Cast:</strong> ${m.cast || "N/A"}</p>
+    <p><strong>Music Director:</strong> ${m.musicDirector || "N/A"}</p>
+    <p><strong>Cinematographer:</strong> ${m.cinematographer || "N/A"}</p>
+    <p><strong>Rating:</strong> ${m.rating ?? "N/A"}</p>
+    <p><strong>Overview:</strong> ${m.overview || "No details available."}</p>
+    ${reviewHTML}
+  `;
+}
+
+function nextMovie(){ showMovie(currentIndex + 1); }
+function prevMovie(){ showMovie(currentIndex - 1); }
+function startScroll(ms){ stopScroll(); scrollInterval = setInterval(nextMovie, ms); }
+function stopScroll(){ if (scrollInterval){ clearInterval(scrollInterval); scrollInterval = null; } }
+
+document.getElementById("nextBtn").onclick = nextMovie;
+document.getElementById("prevBtn").onclick = prevMovie;
+document.getElementById("slowScroll").onclick = ()=> startScroll(4000);
+document.getElementById("fastScroll").onclick = ()=> startScroll(1500);
+document.getElementById("stopScroll").onclick = stopScroll;
+
+loadMovies();
+</script>
+</body>
+</html>
