@@ -260,7 +260,8 @@
         "kids":[
             {
                 "name":"Norah",
-                "birthday":"Oct 19 2021"
+                "birthday":"Oct 19 2021",
+                "image":"images/norah.png"
             }
         ]
     }
